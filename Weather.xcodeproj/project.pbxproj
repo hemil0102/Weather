@@ -62,7 +62,6 @@
 				93FE03AB27F70C1200D6E0C2 /* AppDelegate.swift */,
 				93FE03AD27F70C1200D6E0C2 /* SceneDelegate.swift */,
 				93FE03B427F70C1300D6E0C2 /* Assets.xcassets */,
-				93FE03B627F70C1300D6E0C2 /* LaunchScreen.storyboard */,
 				93FE03B927F70C1300D6E0C2 /* Info.plist */,
 			);
 			path = Weather;
@@ -71,6 +70,7 @@
 		93FE03BF27F70C1B00D6E0C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				93FE03B627F70C1300D6E0C2 /* LaunchScreen.storyboard */,
 				93FE03B127F70C1200D6E0C2 /* Main.storyboard */,
 			);
 			path = View;

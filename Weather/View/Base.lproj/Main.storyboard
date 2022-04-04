@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Px-9O-37K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iY3-6s-nAv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,6 +48,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-L3-p91">
+                                <rect key="frame" x="47" y="746" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gE2-ai-CpV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -92,56 +96,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saB-3c-iFF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="717"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lS-50-jyR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="761"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lS-50-jyR" userLabel="TransparentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="719"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Movel Logo - Rainbow" translatesAutoresizingMaskIntoConstraints="NO" id="4pm-ZB-FUu">
+                                                <rect key="frame" x="40" y="56" width="334" height="300"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="761" id="11Q-kD-8eE"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="761" id="nHw-9q-xMP"/>
+                                            <constraint firstAttribute="trailing" secondItem="4pm-ZB-FUu" secondAttribute="trailing" constant="40" id="DbN-5t-wVv"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="0lS-50-jyR" secondAttribute="height" multiplier="414:719" id="GtP-gQ-6uM"/>
+                                            <constraint firstAttribute="height" constant="719" id="dBv-zg-LLl"/>
+                                            <constraint firstItem="4pm-ZB-FUu" firstAttribute="leading" secondItem="0lS-50-jyR" secondAttribute="leading" constant="40" id="oYR-EX-l4L"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="0lS-50-jyR" firstAttribute="width" secondItem="saB-3c-iFF" secondAttribute="width" id="3O9-yy-HTx"/>
-                                    <constraint firstAttribute="bottom" secondItem="0lS-50-jyR" secondAttribute="bottom" id="Qhw-CV-hIS"/>
-                                    <constraint firstItem="0lS-50-jyR" firstAttribute="top" secondItem="saB-3c-iFF" secondAttribute="top" id="W6j-pC-KSe"/>
-                                    <constraint firstAttribute="trailing" secondItem="0lS-50-jyR" secondAttribute="trailing" id="w2D-DP-Ctj"/>
-                                    <constraint firstItem="0lS-50-jyR" firstAttribute="leading" secondItem="saB-3c-iFF" secondAttribute="leading" id="y4l-L5-Qp5"/>
+                                    <constraint firstItem="0lS-50-jyR" firstAttribute="leading" secondItem="saB-3c-iFF" secondAttribute="leading" id="ACL-3E-20o"/>
+                                    <constraint firstItem="0lS-50-jyR" firstAttribute="top" secondItem="saB-3c-iFF" secondAttribute="top" id="BVb-Hi-Kv4"/>
+                                    <constraint firstItem="0lS-50-jyR" firstAttribute="top" secondItem="saB-3c-iFF" secondAttribute="top" id="Bha-Fm-Nwh"/>
+                                    <constraint firstAttribute="bottom" secondItem="0lS-50-jyR" secondAttribute="bottom" id="G0n-yV-xbs"/>
+                                    <constraint firstAttribute="trailing" secondItem="0lS-50-jyR" secondAttribute="trailing" id="dy3-CL-JEj"/>
+                                    <constraint firstItem="0lS-50-jyR" firstAttribute="leading" secondItem="saB-3c-iFF" secondAttribute="leading" id="h8C-fD-phc"/>
+                                    <constraint firstAttribute="bottom" secondItem="0lS-50-jyR" secondAttribute="bottom" id="jqj-Zj-RbA"/>
+                                    <constraint firstAttribute="trailing" secondItem="0lS-50-jyR" secondAttribute="trailing" id="sv9-h6-Zlc"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PtW-OP-dUe" userLabel="Baneer View">
+                                <rect key="frame" x="0.0" y="761" width="414" height="52"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="lKY-nl-uoP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Md-d5-eSm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="saB-3c-iFF" firstAttribute="top" secondItem="GFe-JT-kwh" secondAttribute="top" id="2Si-6W-7Nu"/>
-                            <constraint firstItem="saB-3c-iFF" firstAttribute="trailing" secondItem="9Md-d5-eSm" secondAttribute="trailing" id="3an-Js-bge"/>
-                            <constraint firstItem="saB-3c-iFF" firstAttribute="leading" secondItem="9Md-d5-eSm" secondAttribute="leading" id="Fbr-jX-OQ6"/>
-                            <constraint firstItem="saB-3c-iFF" firstAttribute="bottom" secondItem="9Md-d5-eSm" secondAttribute="bottom" id="hlG-gF-u6U"/>
+                            <constraint firstItem="saB-3c-iFF" firstAttribute="top" secondItem="9Md-d5-eSm" secondAttribute="top" id="44p-AV-Rpu"/>
+                            <constraint firstItem="saB-3c-iFF" firstAttribute="trailing" secondItem="9Md-d5-eSm" secondAttribute="trailing" id="51S-3k-B6c"/>
+                            <constraint firstItem="PtW-OP-dUe" firstAttribute="leading" secondItem="9Md-d5-eSm" secondAttribute="leading" id="GWR-Xc-GPO"/>
+                            <constraint firstItem="PtW-OP-dUe" firstAttribute="trailing" secondItem="9Md-d5-eSm" secondAttribute="trailing" id="Gxz-d1-JRV"/>
+                            <constraint firstItem="saB-3c-iFF" firstAttribute="leading" secondItem="9Md-d5-eSm" secondAttribute="leading" id="H5q-ca-nMZ"/>
+                            <constraint firstItem="0lS-50-jyR" firstAttribute="width" secondItem="GFe-JT-kwh" secondAttribute="width" id="PT0-ch-rSH"/>
+                            <constraint firstItem="PtW-OP-dUe" firstAttribute="bottom" secondItem="9Md-d5-eSm" secondAttribute="bottom" id="kCv-v0-P8e"/>
+                            <constraint firstItem="PtW-OP-dUe" firstAttribute="top" secondItem="saB-3c-iFF" secondAttribute="bottom" id="zy2-cc-wnp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="0Ch-Yp-jNa"/>
+                    <connections>
+                        <outlet property="testScrollView" destination="saB-3c-iFF" id="OJJ-db-emr"/>
+                        <outlet property="transparentView" destination="0lS-50-jyR" id="OTt-Hk-4Eg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICV-Z1-Hpj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.92753623188406" y="2300.2232142857142"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="YRO-gq-NVc">
-            <objects>
-                <navigationController id="7Px-9O-37K" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WbH-gN-Z13">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="iY3-6s-nAv" kind="relationship" relationship="rootViewController" id="oTm-QW-UyC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UDR-Z2-hAx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-436" y="1525"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tDa-wQ-ZWT">
@@ -181,12 +194,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Movel Logo - Rainbow" width="1500" height="300"/>
         <image name="alarm" catalog="system" width="124" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

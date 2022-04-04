@@ -12,15 +12,11 @@ class HomeVC: UIViewController {
     
     //광고
     var bannerView: GADBannerView!
-//    var banner = GADBaseVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //[Walter] Test중..
-//        banner.setupBannerViewToBottom()
-        
-        //[Walter] 광고
+        //[Walter] 일반 배너 광고
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.adUnitID = Keys.GoogleTestAD.testBannerADKey
         bannerView.rootViewController = self
@@ -28,6 +24,7 @@ class HomeVC: UIViewController {
         bannerView.load(GADRequest())
     }
     
+    //[Walter] 일반 배너 광고
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)

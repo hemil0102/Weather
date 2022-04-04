@@ -167,6 +167,21 @@
             </objects>
             <point key="canvasLocation" x="399" y="1525"/>
         </scene>
+        <!--TestVC-->
+        <scene sceneID="NN6-0Z-AxX">
+            <objects>
+                <viewController id="LhK-py-w8F" customClass="TestVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wak-ub-Tui">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eOR-v2-MuG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YhQ-FU-UBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="1525"/>
+        </scene>
     </scenes>
     <resources>
         <image name="alarm" catalog="system" width="124" height="128"/>

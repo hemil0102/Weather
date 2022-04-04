@@ -12,6 +12,7 @@
 		931D312B27FA829200B3C497 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D312A27FA829200B3C497 /* SettingsVC.swift */; };
 		931D312D27FA836000B3C497 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D312C27FA836000B3C497 /* Constants.swift */; };
 		931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D312E27FA870700B3C497 /* GADBaseVC.swift */; };
+		931D313127FA910D00B3C497 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D313027FA910D00B3C497 /* TestVC.swift */; };
 		93FE03AC27F70C1200D6E0C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FE03AB27F70C1200D6E0C2 /* AppDelegate.swift */; };
 		93FE03AE27F70C1200D6E0C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FE03AD27F70C1200D6E0C2 /* SceneDelegate.swift */; };
 		93FE03B027F70C1200D6E0C2 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FE03AF27F70C1200D6E0C2 /* HomeVC.swift */; };
@@ -28,6 +29,7 @@
 		931D312A27FA829200B3C497 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		931D312C27FA836000B3C497 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		931D312E27FA870700B3C497 /* GADBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADBaseVC.swift; sourceTree = "<group>"; };
+		931D313027FA910D00B3C497 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		93FE03A827F70C1200D6E0C2 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FE03AB27F70C1200D6E0C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93FE03AD27F70C1200D6E0C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				931D312627FA826D00B3C497 /* WeatherVC.swift */,
 				931D312827FA828900B3C497 /* AlarmVC.swift */,
 				931D312A27FA829200B3C497 /* SettingsVC.swift */,
+				931D313027FA910D00B3C497 /* TestVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
 				931D312D27FA836000B3C497 /* Constants.swift in Sources */,
 				931D312727FA826D00B3C497 /* WeatherVC.swift in Sources */,
+				931D313127FA910D00B3C497 /* TestVC.swift in Sources */,
 				931D312B27FA829200B3C497 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

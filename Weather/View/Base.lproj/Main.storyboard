@@ -8,17 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Diary-->
+        <!--Alarm-->
         <scene sceneID="N89-Gf-GnL">
             <objects>
-                <viewController id="e2q-Ub-247" sceneMemberID="viewController">
+                <viewController id="e2q-Ub-247" customClass="AlarmVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ufA-gL-HPu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGj-Os-OM7">
-                                <rect key="frame" x="186" y="438" width="40" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGj-Os-OM7">
+                                <rect key="frame" x="184.5" y="337.5" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,24 +25,27 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="472-FW-LQN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PGj-Os-OM7" firstAttribute="centerX" secondItem="ufA-gL-HPu" secondAttribute="centerX" id="MOk-92-pky"/>
+                            <constraint firstItem="PGj-Os-OM7" firstAttribute="centerY" secondItem="ufA-gL-HPu" secondAttribute="centerY" constant="-100" id="kRO-ng-q5s"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diary" image="note" catalog="system" id="FaB-Yh-z3i"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm" catalog="system" id="FaB-Yh-z3i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoD-qQ-K11" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="3301"/>
+            <point key="canvasLocation" x="1691" y="2301"/>
         </scene>
         <!--Weather-->
         <scene sceneID="Xxh-jA-APD">
             <objects>
-                <viewController id="eyq-GI-VgT" sceneMemberID="viewController">
+                <viewController id="eyq-GI-VgT" customClass="WeatherVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bgh-yW-sZS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-61-Ei5">
-                                <rect key="frame" x="175" y="438" width="65" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-61-Ei5">
+                                <rect key="frame" x="174.5" y="337.5" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,24 +53,27 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gE2-ai-CpV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FY6-61-Ei5" firstAttribute="centerY" secondItem="bgh-yW-sZS" secondAttribute="centerY" constant="-100" id="nXo-cq-OfB"/>
+                            <constraint firstItem="FY6-61-Ei5" firstAttribute="centerX" secondItem="bgh-yW-sZS" secondAttribute="centerX" id="x3f-gF-c58"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max" catalog="system" id="OWs-Cl-1Sh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuD-q8-KLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="3301"/>
+            <point key="canvasLocation" x="912" y="2301"/>
         </scene>
         <!--Settings-->
         <scene sceneID="HQD-0p-6qX">
             <objects>
-                <viewController id="leE-xw-Tc1" sceneMemberID="viewController">
+                <viewController id="leE-xw-Tc1" customClass="SettingsVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2rQ-f3-K9Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhc-zD-yGq">
-                                <rect key="frame" x="176" y="438" width="63" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhc-zD-yGq">
+                                <rect key="frame" x="175.5" y="337.5" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,37 +81,54 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cUD-D3-1PX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jhc-zD-yGq" firstAttribute="centerX" secondItem="2rQ-f3-K9Q" secondAttribute="centerX" id="ToV-7s-ykb"/>
+                            <constraint firstItem="Jhc-zD-yGq" firstAttribute="centerY" secondItem="2rQ-f3-K9Q" secondAttribute="centerY" constant="-100" id="Zq1-WB-2tr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="Ekm-bR-mN7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk8-px-kDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="3301"/>
+            <point key="canvasLocation" x="2457" y="2301"/>
         </scene>
         <!--Home-->
         <scene sceneID="uwD-jM-uTa">
             <objects>
-                <viewController id="vKZ-2Y-HPf" customClass="ViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vKZ-2Y-HPf" customClass="HomeVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GFe-JT-kwh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ8-Rq-gMU">
-                                <rect key="frame" x="184" y="438" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ8-Rq-gMU">
+                                <rect key="frame" x="184" y="337.5" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-1h-znr">
+                                <rect key="frame" x="0.0" y="758" width="414" height="5"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="amj-WO-NFG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Md-d5-eSm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Md-d5-eSm" firstAttribute="bottom" secondItem="AoJ-1h-znr" secondAttribute="bottom" constant="50" id="7We-oV-v3T"/>
+                            <constraint firstItem="bQ8-Rq-gMU" firstAttribute="centerX" secondItem="GFe-JT-kwh" secondAttribute="centerX" id="Sue-q3-kXn"/>
+                            <constraint firstItem="9Md-d5-eSm" firstAttribute="trailing" secondItem="AoJ-1h-znr" secondAttribute="trailing" id="r61-iz-x0e"/>
+                            <constraint firstItem="AoJ-1h-znr" firstAttribute="leading" secondItem="9Md-d5-eSm" secondAttribute="leading" id="x86-3B-s6X"/>
+                            <constraint firstItem="bQ8-Rq-gMU" firstAttribute="centerY" secondItem="GFe-JT-kwh" secondAttribute="centerY" constant="-100" id="yGX-9l-rA9"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="0Ch-Yp-jNa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICV-Z1-Hpj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="3301"/>
+            <point key="canvasLocation" x="146" y="2301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRO-gq-NVc">
@@ -122,7 +144,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDR-Z2-hAx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="2526"/>
+            <point key="canvasLocation" x="-436" y="1525"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tDa-wQ-ZWT">
@@ -143,16 +165,19 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvA-Fs-Eb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="2526"/>
+            <point key="canvasLocation" x="399" y="1525"/>
         </scene>
     </scenes>
     <resources>
+        <image name="alarm" catalog="system" width="124" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="note" catalog="system" width="128" height="106"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

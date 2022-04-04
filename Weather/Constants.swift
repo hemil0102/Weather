@@ -13,3 +13,8 @@ struct Keys {
         static let testNativeADKey = "ca-app-pub-3940256099942544/3986624511"
     }
 }
+
+struct ViewIdentifier {
+    static let weatherDetailCell = "WeatherDetailCell" //뷰 이름
+    static let weatherDetailCellIdentifier = "WeatherDetailCell" //테이블 뷰 아이덴티파이어
+}

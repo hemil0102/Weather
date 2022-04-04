@@ -10,8 +10,8 @@ import Foundation
 import GoogleMobileAds
 
 class GADBaseVC: UIViewController {
-    public lazy var bannerView: GADBannerView = {
-        let banner = GADBannerView(adSize: GADAdSizeBanner)
+    lazy var bannerView: GADBannerView = {
+        let banner = GADBannerView()
         return banner
     }()
 }

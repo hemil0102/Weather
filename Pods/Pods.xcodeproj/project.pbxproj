@@ -345,6 +345,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+
 		00238A1ED050C35F592DFB1F0130813F /* FBLPromise+Delay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBLPromise+Delay.h"; path = "Sources/FBLPromises/include/FBLPromise+Delay.h"; sourceTree = "<group>"; };
 		01951C826A86A2008736A345C4563613 /* PromisesObjC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PromisesObjC.modulemap; sourceTree = "<group>"; };
 		0494350704873314B97AD4840CB81815 /* pb_encode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_encode.h; sourceTree = "<group>"; };
@@ -380,6 +381,7 @@
 		2DD90822048051002313D8BB4BCF2480 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
 		2E4A0116144821AEF23E4E7A5D348639 /* FBLPromise+Any.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Any.m"; path = "Sources/FBLPromises/FBLPromise+Any.m"; sourceTree = "<group>"; };
 		3008EE72562B468EA44C25E4C648A33F /* GULHeartbeatDateStorage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULHeartbeatDateStorage.m; path = GoogleUtilities/Environment/GULHeartbeatDateStorage.m; sourceTree = "<group>"; };
+
 		31B65381DAC1F35919886B2B6BFF59DE /* Pods-Weather-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-dummy.m"; sourceTree = "<group>"; };
 		3347A1AB6546F0A3977529B8F199DC41 /* PromisesObjC */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PromisesObjC; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		337307AE48F6DDE97BC8C13C69312DE9 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 		4C7587C72529585FF55541896E83EB69 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		4CC6ED4A23F968BAA1E1BBA38D4AD832 /* GULMutableDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULMutableDictionary.h; path = GoogleUtilities/Network/Public/GoogleUtilities/GULMutableDictionary.h; sourceTree = "<group>"; };
 		4CECED3294E401E6F6355B401144109A /* Pods-Weather */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Weather"; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		5388FC4065075C4933714F2B5798CDD9 /* FBLPromise+Always.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Always.m"; path = "Sources/FBLPromises/FBLPromise+Always.m"; sourceTree = "<group>"; };
 		53D4157FA6BA472E412DEF4947F4D40B /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
 		546754CC8A075A2ECDFFFED43E4D9AB1 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
@@ -497,6 +500,7 @@
 		C191AE394D8D204BA8ABD64B876CAB51 /* GULSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULSwizzler.m; path = GoogleUtilities/MethodSwizzler/GULSwizzler.m; sourceTree = "<group>"; };
 		C21EE725D5737CD77C1C0473A09D0A4C /* FBLPromise+Retry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Retry.m"; path = "Sources/FBLPromises/FBLPromise+Retry.m"; sourceTree = "<group>"; };
 		C5AD6757FF22670BEAC3A9930292C941 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
+
 		C9C2856B5812B577AD12028A25E83753 /* Pods-Weather-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Weather-Info.plist"; sourceTree = "<group>"; };
 		CBE89287AF3C947EB3FA8805EC783A6E /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		CC515096D2CB7C688C8DF2430F0D9330 /* FBLPromise+Any.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBLPromise+Any.h"; path = "Sources/FBLPromises/include/FBLPromise+Any.h"; sourceTree = "<group>"; };
@@ -514,7 +518,9 @@
 		EABD5211DDD7B5FFA51927076C4C2D71 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		EC4DF7F444B3518ADA8ED7B86BE08892 /* NSURLSession+GULPromises.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSession+GULPromises.m"; path = "GoogleUtilities/Environment/URLSessionPromiseWrapper/NSURLSession+GULPromises.m"; sourceTree = "<group>"; };
 		ECC2E5F9C24DA87325660B28CDEB1458 /* Pods-Weather-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Weather-acknowledgements.markdown"; sourceTree = "<group>"; };
+
 		EF16AAF544A3325E2E11695D49C715D6 /* PromisesObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PromisesObjC.debug.xcconfig; sourceTree = "<group>"; };
+
 		F206F32298558883EF1C6A3781678A86 /* Pods-Weather-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Weather-frameworks.sh"; sourceTree = "<group>"; };
 		F50522B052312177CDD4D3B8BD32944D /* GULMutableDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULMutableDictionary.m; path = GoogleUtilities/Network/GULMutableDictionary.m; sourceTree = "<group>"; };
 		F66E9E2D23BECEC2AAB69F4A21E173FF /* FBLPromise+Validate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBLPromise+Validate.h"; path = "Sources/FBLPromises/include/FBLPromise+Validate.h"; sourceTree = "<group>"; };
@@ -680,7 +686,9 @@
 			children = (
 				A10C5B488CDC42470CDD7B5A7F3F289F /* GoogleAppMeasurementIdentitySupport.xcframework */,
 			);
+
 			name = Frameworks;
+
 			sourceTree = "<group>";
 		};
 		335B9069680150AF26535B9A88179169 /* Google-Mobile-Ads-SDK */ = {
@@ -790,7 +798,9 @@
 			children = (
 				2BDC104EF2B7F9E4C9B69F9EE8E08B45 /* Frameworks */,
 			);
+
 			name = AdIdSupport;
+
 			sourceTree = "<group>";
 		};
 		6CEEBB2CBDEE793D809CC40C3256EA77 /* GoogleUtilities */ = {
@@ -888,9 +898,11 @@
 		96FF07A4A75D57FFAFD0CCF085157638 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+
 				38836984B8BA16C02FAFFDF29438566F /* GULLogger.h */,
 				0D5C4DBFC6BD3C0C38180A3CFEBDDB82 /* GULLogger.m */,
 				2DC1F664345727886C060BF77D61F4A5 /* GULLoggerLevel.h */,
+
 			);
 			name = Logger;
 			sourceTree = "<group>";
@@ -912,7 +924,9 @@
 				3347A1AB6546F0A3977529B8F199DC41 /* PromisesObjC */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
 			);
+
 			name = Products;
+
 			sourceTree = "<group>";
 		};
 		A3A99634702423FE2732448A9C50B79E /* Reachability */ = {
@@ -932,8 +946,10 @@
 				51A08D38F1D43FE7ACA4B9E1A11EAA77 /* Frameworks */,
 				009ADEA77E7FE76F830B5698462AF02F /* Support Files */,
 			);
+
 			name = GoogleUserMessagingPlatform;
 			path = GoogleUserMessagingPlatform;
+
 			sourceTree = "<group>";
 		};
 		B0045ABB4B6E25326831275C68D2A7B9 /* SnapKit */ = {
@@ -1048,7 +1064,9 @@
 				AD5328E5370665E7E11D494D7B164B3C /* NSURLSession+GULPromises.h */,
 				EC4DF7F444B3518ADA8ED7B86BE08892 /* NSURLSession+GULPromises.m */,
 			);
+
 			name = Environment;
+
 			sourceTree = "<group>";
 		};
 		FC1B26DB1F690CCE2B5308502F5F7280 /* Support Files */ = {
@@ -1062,8 +1080,10 @@
 				0FCFCAAC19E4708E7B7091518BC110BD /* SnapKit.debug.xcconfig */,
 				B42C1A48739145C16F561F0C46EB2D1D /* SnapKit.release.xcconfig */,
 			);
+
 			name = "Support Files";
 			path = "../Target Support Files/SnapKit";
+
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1605,7 +1625,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+
 		0A2F219C5032AFB11D1AE1016EDAC582 /* Debug */ = {
+
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D8738C4769764DCA2BB559E897644D4 /* Pods-Weather.debug.xcconfig */;
 			buildSettings = {
@@ -1661,8 +1683,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55C00671BD035CB6FC1BDE7C073F79EE /* GoogleUserMessagingPlatform.release.xcconfig */;
 			buildSettings = {
+
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1744,6 +1768,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B42C1A48739145C16F561F0C46EB2D1D /* SnapKit.release.xcconfig */;
 			buildSettings = {
+
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1790,6 +1815,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/nanopb/nanopb-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/nanopb/nanopb-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1932,8 +1958,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 812063C9CB8F04FDDBCF3A9C0A5E446D /* GoogleAppMeasurement.release.xcconfig */;
 			buildSettings = {
+
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2126,7 +2154,9 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SnapKit/SnapKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SnapKit/SnapKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

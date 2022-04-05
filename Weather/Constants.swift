@@ -12,6 +12,10 @@ struct Keys {
         static let testBannerADKey = "ca-app-pub-3940256099942544/2934735716"
         static let testNativeADKey = "ca-app-pub-3940256099942544/3986624511"
     }
+    
+    struct ApiId {
+        static let weatherAppId = "d03b61bd0fafa57cf46bd374eb796830"
+    }
 }
 
 struct ViewIdentifier {

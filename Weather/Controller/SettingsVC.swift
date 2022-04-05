@@ -7,10 +7,12 @@
 
 import UIKit
 
-class SettingsVC: UIViewController {
+class SettingsVC: GADBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //[Walter] 하단 적응형 광고 띄우기
+        setupBannerViewToBottom()
     }
 }

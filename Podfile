@@ -7,5 +7,6 @@ target 'Weather' do
 
   # Pods for Weather
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Alamofire', '~> 5.5'
 
 end

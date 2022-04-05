@@ -8,20 +8,11 @@
 import UIKit
 
 class WeatherVC: GADBaseVC {
-    
-    //임시 데이터 생성
-    var weatherDetailDataArr: [WeatherDetailData] = [] //나중에 긁어온 데이터로..
-    let weatherData1: WeatherDetailData = WeatherDetailData(data1: "data11", data2: "data21")
-    let weatherData2: WeatherDetailData = WeatherDetailData(data1: "data21", data2: "data22")
 
     @IBOutlet weak var weatherDetailTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //[종민] 임시 데이터 생성
-        weatherDetailDataArr.append(weatherData1)
-        weatherDetailDataArr.append(weatherData2)
         
         //[종민] 테이블 뷰 델리게이트
         weatherDetailTableView.delegate = self
@@ -40,23 +31,28 @@ class WeatherVC: GADBaseVC {
 }
 
 extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherDetailDataArr.count //테이블 뷰 개수
-    }
     
+    //[종민] 테이블 뷰 개수 함수(프로토콜 필수 구현)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10 //데이터 개수... 주간 데이터 개수 10개정도 스크롤뷰로 구현
+    }
+    //[종민] 테이블 뷰 데이터 세팅(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weatherDetailTableView.dequeueReusableCell(withIdentifier: ViewIdentifier.weatherDetailCellIdentifier) as! WeatherDetailCell
         
         //Cell 안의 View에 데이터 세팅하기
         let row = indexPath.row
         
-        cell.weatherDetailData1.text = weatherDetailDataArr[row].data1
-        cell.weatherDetailData2.text = weatherDetailDataArr[row].data2
+        cell.weatherDetailData1.text = "data1"
+        cell.weatherDetailData2.text = "data2"
         
         return cell
     }
-    
-    
-    
 }
 
+    /*
+     [종민]
+     Weather 탭에서 보여줘야 할 정보 정리하기
+     (일출 시간, 일몰 시간, 미세먼지, 기압, 습도, 가시거리, 풍속, 풍향), 아이콘/라벨 조합으로 뷰에서 내용만 보여주기 설명 불필요.
+     
+     */

@@ -41,26 +41,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-61-Ei5">
-                                <rect key="frame" x="174.5" y="337.5" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWo-iT-Rja" userLabel="TodayDetailView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="391"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WWo-iT-Rja" secondAttribute="height" multiplier="18:17" id="hxa-y5-KTo"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IXt-7v-Qjw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="391" width="414" height="367"/>
+                                <color key="backgroundColor" red="1" green="0.75294117650000003" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gE2-ai-CpV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="trailing" secondItem="gE2-ai-CpV" secondAttribute="trailing" id="6Qf-ub-Cg9"/>
-                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="top" secondItem="bgh-yW-sZS" secondAttribute="top" id="DdD-TU-zH2"/>
-                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="bottom" secondItem="gE2-ai-CpV" secondAttribute="bottom" id="EXU-2u-61P"/>
-                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="leading" secondItem="gE2-ai-CpV" secondAttribute="leading" id="mwG-LU-HBa"/>
-                            <constraint firstItem="FY6-61-Ei5" firstAttribute="centerY" secondItem="bgh-yW-sZS" secondAttribute="centerY" constant="-100" id="nXo-cq-OfB"/>
-                            <constraint firstItem="FY6-61-Ei5" firstAttribute="centerX" secondItem="bgh-yW-sZS" secondAttribute="centerX" id="x3f-gF-c58"/>
+                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="top" secondItem="WWo-iT-Rja" secondAttribute="bottom" id="L4y-Zt-qBo"/>
+                            <constraint firstItem="WWo-iT-Rja" firstAttribute="leading" secondItem="gE2-ai-CpV" secondAttribute="leading" id="PPp-uF-hD4"/>
+                            <constraint firstItem="gE2-ai-CpV" firstAttribute="bottom" secondItem="IXt-7v-Qjw" secondAttribute="bottom" constant="55" id="Tlu-CC-Wdm"/>
+                            <constraint firstItem="WWo-iT-Rja" firstAttribute="trailing" secondItem="gE2-ai-CpV" secondAttribute="trailing" id="Z1a-pw-t5g"/>
+                            <constraint firstItem="WWo-iT-Rja" firstAttribute="top" secondItem="bgh-yW-sZS" secondAttribute="top" id="j1t-ez-MbX"/>
+                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="trailing" secondItem="gE2-ai-CpV" secondAttribute="trailing" id="l4L-7h-eGn"/>
+                            <constraint firstItem="IXt-7v-Qjw" firstAttribute="leading" secondItem="gE2-ai-CpV" secondAttribute="leading" id="oG1-qv-Be7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max" catalog="system" id="OWs-Cl-1Sh"/>
@@ -70,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuD-q8-KLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913.04347826086962" y="2300.8928571428569"/>
+            <point key="canvasLocation" x="913.04347826086962" y="2300.2232142857142"/>
         </scene>
         <!--Settings-->
         <scene sceneID="HQD-0p-6qX">

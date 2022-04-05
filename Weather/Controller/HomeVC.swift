@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMobileAds
+import CoreLocation
 
 class HomeVC: GADBaseVC {
     //Views
@@ -16,18 +17,23 @@ class HomeVC: GADBaseVC {
     
     
     //Model
-    var weather = WeatherManager()
+    var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //[Walter] 하단 적응형 광고 띄우기
-        setupBannerViewToBottom()
         
-        configureCurrWeatherViews()
+        setupBannerViewToBottom()       //[Walter] 하단 적응형 광고 띄우기
+        configureCurrWeatherViews()         //[Walter] View 모양 설정
         
-        weather.delegate = self
-        weather.getCurrWeather(cityName: "suwon")       //[Walter] 입력샘플
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
+        
+        weatherManager.delegate = self
+//        weatherManager.getCurrWeather(cityName: "suwon")       //[Walter] 입력샘플
     }
     
     func configureCurrWeatherViews() {
@@ -55,6 +61,22 @@ extension HomeVC: WeatherManagerDelegate {
     func didFailWithError(error: Error) {
         print("오류!!! \(error)")
     }
+}
+
+// MARK: - CLLocation Delegate
+extension HomeVC: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            
+            //현재 위치 정보를 기반으로 지역 검색
+            
+        }
+    }
     
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("현재 위치 가져오기 오류 : \(error)")
+    }
 }

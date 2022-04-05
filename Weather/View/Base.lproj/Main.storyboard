@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoD-qQ-K11" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1691" y="2301"/>
+            <point key="canvasLocation" x="1686" y="1488"/>
         </scene>
         <!--Weather-->
         <scene sceneID="Xxh-jA-APD">
@@ -70,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuD-q8-KLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913.04347826086962" y="2300.8928571428569"/>
+            <point key="canvasLocation" x="907" y="1488"/>
         </scene>
         <!--Settings-->
         <scene sceneID="HQD-0p-6qX">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk8-px-kDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457" y="2301"/>
+            <point key="canvasLocation" x="2459" y="1488"/>
         </scene>
         <!--Home-->
         <scene sceneID="uwD-jM-uTa">
@@ -242,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICV-Z1-Hpj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.92753623188406" y="2300.2232142857142"/>
+            <point key="canvasLocation" x="138" y="1488"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tDa-wQ-ZWT">
@@ -263,7 +263,34 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvA-Fs-Eb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="399" y="1525"/>
+            <point key="canvasLocation" x="394" y="712"/>
+        </scene>
+        <!--Search ModalVC-->
+        <scene sceneID="UkN-Jo-u7O">
+            <objects>
+                <viewController id="xtg-C7-OVA" customClass="SearchModalVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ak-0g-LYa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 검색 모달이 될 View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5Q-fa-spx">
+                                <rect key="frame" x="121" y="244" width="172" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6bT-tg-sed"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R5Q-fa-spx" firstAttribute="top" secondItem="6bT-tg-sed" secondAttribute="top" constant="200" id="26J-Ym-fgi"/>
+                            <constraint firstItem="R5Q-fa-spx" firstAttribute="centerX" secondItem="9ak-0g-LYa" secondAttribute="centerX" id="4iL-gx-mtW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9Q-t6-NgV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572" y="712"/>
         </scene>
     </scenes>
     <resources>

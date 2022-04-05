@@ -17,55 +17,74 @@ class GADBaseVC: UIViewController {
 }
 
 extension GADBaseVC: GADBannerViewDelegate {
-    func setupBannerViewToBottom(height: CGFloat = 50) {
-        let adSize = GADAdSizeFromCGSize(CGSize(width: view.frame.width, height: height))
-        bannerView = GADBannerView(adSize: adSize)
+    func setupBannerViewToBottom() {
 
+//        NSLayoutConstraint.activate([
+//            bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            bannerView.heightAnchor.constraint(equalToConstant: height)
+//        ])
+        
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
-        NSLayoutConstraint.activate([
-            bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bannerView.heightAnchor.constraint(equalToConstant: height)
-        ])
-
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+        
+        
         bannerView.adUnitID = Keys.GoogleTestAD.testBannerADKey
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
         bannerView.delegate = self
+        bannerView.load(GADRequest())
     }
     
-    
-    // MARK: - Delegate
-    public func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1) {
-            bannerView.alpha = 1
-        }
+    //[Walter] 적응형 배너 광고
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadBannerAd()
     }
 
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to:size, with:coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.loadBannerAd()
+        })
     }
 
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
+    func loadBannerAd() {
+        // Step 2 - Determine the view width to use for the ad width.
+        let frame = { () -> CGRect in
+            if #available(iOS 11.0, *) {
+                return view.frame.inset(by: view.safeAreaInsets)
+            } else {
+                return view.frame
+            }
+        }()
+        let viewWidth = frame.size.width
 
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
-    }
+        // Step 3 - Get Adaptive GADAdSize and set the ad view.
+        // Here the current interface orientation is used. If the ad is being preloaded
+        // for a future orientation change or different orientation, the function for the
+        // relevant orientation should be used.
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        print("bnnerView Size : \(bannerView.adSize.size)")
 
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
-    }
-
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
-    }
-
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
+        // Step 4 - Create an ad request and load the adaptive banner ad.
+        bannerView.load(GADRequest())
     }
 }

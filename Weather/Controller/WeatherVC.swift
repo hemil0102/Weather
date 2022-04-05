@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherVC: UIViewController {
+class WeatherVC: GADBaseVC {
     
     //임시 데이터 생성
     var weatherDetailDataArr: [WeatherDetailData] = [] //나중에 긁어온 데이터로..
@@ -30,6 +30,8 @@ class WeatherVC: UIViewController {
         //[종민] 테이블 뷰 연결
         setTableViewXIBCell()
         
+        //[Walter] 하단 적응형 광고 띄우기
+        setupBannerViewToBottom()
     }
     
     func setTableViewXIBCell() {

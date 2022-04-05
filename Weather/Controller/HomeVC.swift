@@ -10,13 +10,10 @@ import GoogleMobileAds
 
 class HomeVC: GADBaseVC {
     //Views
-    @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var currTempLabel: UILabel!
-    @IBOutlet weak var minTempLabel: UILabel!
-    @IBOutlet weak var maxTempLabel: UILabel!
-    @IBOutlet weak var humidityLabel: UILabel!
-    @IBOutlet weak var conditionIdLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    //현재 날씨 정보 뷰들
+    @IBOutlet weak var currWeatherBackground: UIImageView!
+    @IBOutlet weak var currWeatherLabel: UILabel!
+    
     
     //Model
     var weather = WeatherManager()
@@ -27,8 +24,14 @@ class HomeVC: GADBaseVC {
         //[Walter] 하단 적응형 광고 띄우기
         setupBannerViewToBottom()
         
+        configureCurrWeatherViews()
+        
         weather.delegate = self
         weather.getCurrWeather(cityName: "suwon")       //[Walter] 입력샘플
+    }
+    
+    func configureCurrWeatherViews() {
+        currWeatherBackground.layer.cornerRadius = 15
     }
 }
 
@@ -37,13 +40,15 @@ extension HomeVC: WeatherManagerDelegate {
     func didUpdateWeatherViews(weather: WeatherModel) {
         DispatchQueue.main.async {
             //Update Views
-            self.cityNameLabel.text = weather.name
-            self.currTempLabel.text = "\(weather.temp)"
-            self.minTempLabel.text = "\(weather.temp_min)"
-            self.maxTempLabel.text = "\(weather.temp_max)"
-            self.humidityLabel.text = "\(weather.humidity)"
-            self.conditionIdLabel.text = "\(weather.conditionId)"
-            self.descriptionLabel.text = weather.description
+            let name = weather.name
+            let currTemp = weather.temp
+            let minTemp = weather.temp_min
+            let maxTemp = weather.temp_max
+            let humidity = weather.humidity
+            let conditionId = weather.conditionId
+            let description = weather.description
+            
+            self.currWeatherLabel.text = "온도 \(currTemp)℃ / 습도 \(humidity)% / 풍량 동서 3m/s / 강우량 20%"
         }
     }
     

@@ -88,3 +88,11 @@ struct WeatherManager {
             }
     }
 }
+
+/*
+ [종민] 현재 WeatherManager 에서 가져올 수 있는 데이터
+ - 기온, 체감기온, 최저기온, 최고기온, 기압, 습도, 가시거리, 풍속, 풍향, 국가, 일출, 일몰
+-> 얘네들 그냥 한번에 다 들고와서 객체에 저장한다음 쓰는게 나을거같은데... 월터형님 help
+ + 미세먼지 데이터는 새로운 api 페이지에서 들고와야함. (https://openweathermap.org/api/air-pollution)
+ http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat={lat}&lon={lon}&appid={API key}
+*/

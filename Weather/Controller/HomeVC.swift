@@ -15,7 +15,6 @@ class HomeVC: GADBaseVC {
     @IBOutlet weak var currWeatherBackground: UIImageView!
     @IBOutlet weak var currWeatherLabel: UILabel!
     
-    
     //Model
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -71,8 +70,10 @@ extension HomeVC: CLLocationManagerDelegate {
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             
-            //현재 위치 정보를 기반으로 지역 검색
+//            print("위치 정보 : 경도\(lat), 위도\(lon)")
             
+            //현재 위치 정보를 기반으로 지역 검색
+            weatherManager.getCityNameWithCoordinate(lat: lat, lon: lon)
         }
     }
     

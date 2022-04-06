@@ -14,11 +14,19 @@ protocol WeatherManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-struct WeatherManager {
+struct WeatherManager: KakaoGetNameMangerDelegate {
     var delegate: WeatherManagerDelegate?
     let currWeatherApiUrl = "https://api.openweathermap.org/data/2.5/weather"
     let oneCallApiUrl = "https://api.openweathermap.org/data/2.5/onecall"
-    var param: Parameters = ["q": "", "appid": Keys.ApiId.weatherAppId, "units": "metric"]
+    var param: Parameters = [
+        "lat": "",
+        "lon": "",
+        "appid": Keys.ApiId.weatherAppId,
+        "exclude": "daily",
+        "units": "metric"
+    ]
+    
+    var kakaoManager = KakaoGetNameManager()
     
     mutating func getCurrWeather(cityName: String) {
         /*
@@ -31,8 +39,7 @@ struct WeatherManager {
          6. 전달받은 도시명 영문 -> 한글로 변경 []
          7. delegate 패턴으로 호출 VC에 결과 (WeatherModel/Error) 전달 [✌️]
          */
-        
-        self.param["q"] = cityName
+    
         performRequest()        //[Walter] 날씨 요청
     }
     
@@ -42,11 +49,23 @@ struct WeatherManager {
     }
     
     //[Walter] 현재 좌표(lat, lon)을 기반으로 지도에서 지역명 찾기
-    func getCityNameWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+    mutating func getCityNameWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
         /*
-         [Walter]
-         1. 카카오 API에서 좌표를 찍어 지역명 가져오기
+         [Walter] 카카오 API에서 좌표를 찍어 지역명 가져오기
+         1. 카카오 로컬 API 호출 [✌️]
+         2. 지역명 가져오기 [✌️]
          */
+        kakaoManager.getNameDelegate = self
+        kakaoManager.convertCoordinateToPlace(lat: lat, lon: lon)
+    }
+    
+    func getPriceName(si: String, gu: String, dong: String) {
+        
+        print("si \(si), gu \(gu), dong \(dong)")
+    }
+    
+    func getFailWithError(error: Error) {
+        print("좌표로 지역명 가져오기 오류 : \(error)")
     }
     
     //[Walter] 사용자가 입력한 한글 지역명을 기반으로 지도에서 좌표(lat, lon) 가져오기
@@ -60,10 +79,10 @@ struct WeatherManager {
     //[Walter] 날씨 요청
     func performRequest() {
         //[Walter] Post 로 전달이 안된다... 일단 Get으로..
-        let urlStr = "\(currWeatherApiUrl)?q=suwon&appid=\(Keys.ApiId.weatherAppId)&units=metric"
+//        let urlStr = "\(currWeatherApiUrl)?q=suwon&appid=\(Keys.ApiId.weatherAppId)&units=metric"
         
-        AF.request(urlStr, method: .get)
-            .responseDecodable(of: WeatherInfo.self) { response in
+        AF.request(oneCallApiUrl, parameters: param)
+            .responseDecodable(of: Weather.self) { response in
 //                print("received weater data : \(response)")
                 switch response.result {
                     //성공

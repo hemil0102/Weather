@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		6C37521027FB183F00429241 /* WeatherDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37520E27FB183F00429241 /* WeatherDetailCell.swift */; };
 		6C37521127FB183F00429241 /* WeatherDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C37520F27FB183F00429241 /* WeatherDetailCell.xib */; };
-		931A397A27FC00C500D760D4 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397927FC00C500D760D4 /* WeatherInfo.swift */; };
+		931388AE27FD6B1600D23A6F /* Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388AD27FD6B1600D23A6F /* Kakao.swift */; };
+		931388B027FD6B2200D23A6F /* KakaoGetNameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388AF27FD6B2200D23A6F /* KakaoGetNameManager.swift */; };
+		931388B227FD6B3000D23A6F /* KakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388B127FD6B3000D23A6F /* KakaoModel.swift */; };
+		931388B427FD912E00D23A6F /* KakaoGetCoordiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388B327FD912E00D23A6F /* KakaoGetCoordiManager.swift */; };
+		931A397A27FC00C500D760D4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397927FC00C500D760D4 /* Weather.swift */; };
 		931A397C27FC00D100D760D4 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397B27FC00D100D760D4 /* WeatherManager.swift */; };
 		931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397D27FC215000D760D4 /* ConvertEngToKor.swift */; };
 		931A398027FC395800D760D4 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397F27FC395800D760D4 /* WeatherModel.swift */; };
@@ -32,7 +36,11 @@
 		111E3C8A9110ADC193F32BC8 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		6C37520E27FB183F00429241 /* WeatherDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCell.swift; sourceTree = "<group>"; };
 		6C37520F27FB183F00429241 /* WeatherDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailCell.xib; sourceTree = "<group>"; };
-		931A397927FC00C500D760D4 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
+		931388AD27FD6B1600D23A6F /* Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kakao.swift; sourceTree = "<group>"; };
+		931388AF27FD6B2200D23A6F /* KakaoGetNameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoGetNameManager.swift; sourceTree = "<group>"; };
+		931388B127FD6B3000D23A6F /* KakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoModel.swift; sourceTree = "<group>"; };
+		931388B327FD912E00D23A6F /* KakaoGetCoordiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoGetCoordiManager.swift; sourceTree = "<group>"; };
+		931A397927FC00C500D760D4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		931A397B27FC00D100D760D4 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		931A397D27FC215000D760D4 /* ConvertEngToKor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertEngToKor.swift; sourceTree = "<group>"; };
 		931A397F27FC395800D760D4 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -132,9 +140,13 @@
 		93FE03C027F70C2600D6E0C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				931A397927FC00C500D760D4 /* WeatherInfo.swift */,
+				931A397927FC00C500D760D4 /* Weather.swift */,
 				931A397B27FC00D100D760D4 /* WeatherManager.swift */,
 				931A397F27FC395800D760D4 /* WeatherModel.swift */,
+				931388AD27FD6B1600D23A6F /* Kakao.swift */,
+				931388AF27FD6B2200D23A6F /* KakaoGetNameManager.swift */,
+				931388B327FD912E00D23A6F /* KakaoGetCoordiManager.swift */,
+				931388B127FD6B3000D23A6F /* KakaoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,15 +284,19 @@
 				93FE03AC27F70C1200D6E0C2 /* AppDelegate.swift in Sources */,
 				93FE03AE27F70C1200D6E0C2 /* SceneDelegate.swift in Sources */,
 				931A398027FC395800D760D4 /* WeatherModel.swift in Sources */,
+				931388AE27FD6B1600D23A6F /* Kakao.swift in Sources */,
 				931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */,
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
+				931388B427FD912E00D23A6F /* KakaoGetCoordiManager.swift in Sources */,
 				931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */,
 				931D312D27FA836000B3C497 /* Constants.swift in Sources */,
+				931388B227FD6B3000D23A6F /* KakaoModel.swift in Sources */,
 				931A398227FC71F300D760D4 /* SearchModalVC.swift in Sources */,
-				931A397A27FC00C500D760D4 /* WeatherInfo.swift in Sources */,
+				931A397A27FC00C500D760D4 /* Weather.swift in Sources */,
 				931A397C27FC00D100D760D4 /* WeatherManager.swift in Sources */,
 				931D312727FA826D00B3C497 /* WeatherVC.swift in Sources */,
 				931D312B27FA829200B3C497 /* SettingsVC.swift in Sources */,
+				931388B027FD6B2200D23A6F /* KakaoGetNameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

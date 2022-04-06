@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct WeatherInfo: Codable {
+struct Weather: Codable {
     let name: String            // 지역명
     let main: Main
-    let weather: [Weather]
+    let weather: [WeatherData]
 }
 
 struct Main: Codable {
@@ -20,7 +20,7 @@ struct Main: Codable {
     let humidity: Int           // 습도
 }
 
-struct Weather: Codable {
+struct WeatherData: Codable {
     let id: Int                 // 날씨 상태 ID
     let description: String      // 날씨 상태 설명
 }

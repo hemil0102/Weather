@@ -18,10 +18,10 @@ class HomeVC: GADBaseVC {
     //Model
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
+    var parseCSV = ParsingCSV()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         setupBannerViewToBottom()       //[Walter] 하단 적응형 광고 띄우기
         configureCurrWeatherViews()         //[Walter] View 모양 설정
@@ -30,13 +30,22 @@ class HomeVC: GADBaseVC {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        
         weatherManager.delegate = self
-//        weatherManager.getCurrWeather(cityName: "suwon")       //[Walter] 입력샘플
+        
+        //csv 파싱
+        parseCSV.getDataCsvAt()
+//        parseCSV.searchUserKeyword(place: "구운동")
+        
+        weatherManager.getWeatherWithName(name: "구운동")
     }
     
+    //날씨 배경 모서리 둥글게
     func configureCurrWeatherViews() {
         currWeatherBackground.layer.cornerRadius = 15
+    }
+    
+    @IBAction func currLocationWeatherBtnAct(_ sender: UIButton) {
+        locationManager.requestLocation()
     }
 }
 
@@ -45,15 +54,6 @@ extension HomeVC: WeatherManagerDelegate {
     func didUpdateWeatherViews(weather: WeatherModel) {
         DispatchQueue.main.async {
             //Update Views
-            let name = weather.name
-            let currTemp = weather.temp
-            let minTemp = weather.temp_min
-            let maxTemp = weather.temp_max
-            let humidity = weather.humidity
-            let conditionId = weather.conditionId
-            let description = weather.description
-            
-            self.currWeatherLabel.text = "온도 \(currTemp)℃ / 습도 \(humidity)% / 풍량 동서 3m/s / 강우량 20%"
         }
     }
     
@@ -62,7 +62,7 @@ extension HomeVC: WeatherManagerDelegate {
     }
 }
 
-// MARK: - CLLocation Delegate
+// MARK: - CLLocation Delegate 현재 위치 날씨 가져올 때 사용
 extension HomeVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
@@ -73,7 +73,7 @@ extension HomeVC: CLLocationManagerDelegate {
 //            print("위치 정보 : 경도\(lat), 위도\(lon)")
             
             //현재 위치 정보를 기반으로 지역 검색
-            weatherManager.getCityNameWithCoordinate(lat: lat, lon: lon)
+            weatherManager.getWeatherWithCoordinate(lat: lat, lon: lon)
         }
     }
     

@@ -8,11 +8,32 @@
 import Foundation
 
 struct WeatherModel {
-    let name: String
+    let currWeather: CurrWeather
+    let daily: [DailyData]
+}
+
+struct CurrWeather {
     let temp: Double            // 현재온도
-    let temp_min: Double        // 당일 최저온도
-    let temp_max: Double        // 당일 최대온도
-    let humidity: Int           // 습도
-    let conditionId: Int        // 날씨 상태 ID
-    let description: String      // 날씨 상태 설명
+    let sunrise: Int
+    let sunset: Int
+    let humidity: Int
+    let clouds: Int
+    let wind_speed: Double
+    let conditionID: Int
+    let description: String
+}
+
+struct DailyData {
+    let day: Double
+    let min: Double
+    let max: Double
+    let night: Double
+    let eve: Double
+    let morn: Double
+    let humidity: Int
+    let wind_speed: Double
+    let conditionID: Int
+    let description: String
+    let clouds: Int
+    let uvi: Double
 }

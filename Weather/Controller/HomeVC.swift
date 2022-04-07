@@ -54,6 +54,7 @@ extension HomeVC: WeatherManagerDelegate {
     func didUpdateWeatherViews(weather: WeatherModel) {
         DispatchQueue.main.async {
             //Update Views
+            self.currWeatherLabel.text = "\(weather.currWeather.temp)도"
         }
     }
     

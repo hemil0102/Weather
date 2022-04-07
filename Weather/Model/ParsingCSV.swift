@@ -23,7 +23,8 @@ struct ParsingCSV {
      2. 검색된 동의 코드를 가져온다. [✌️]
      3. 코드를 앞 5자리만 자른다. [✌️]
      4. 5자리의 코드로 korea_local_goverment.csv 파일에서 찾는다. [✌️]
-     5. 일치하는 칼럼의 lat, lon, sig_kor_nm 을 가져온다. [✌️]
+     5. 일치하는 칼럼의 lat, lon 을 가져온다. [✌️]
+     6. 좌표를 WeatherManger 로 전달한다. [✌️]
      */
     mutating func getDataCsvAt() {
         //[Walter] .csv 파일을 Bundle 객체로 가져옴

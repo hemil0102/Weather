@@ -53,9 +53,27 @@ struct WeatherManager {
                 switch response.result {
                     //성공
                 case .success(let value):
-                    print("날씨 정보 : \(value)")
-
-//                    self.delegate?.didUpdateWeatherViews(weather: weatherModel)
+//                    print("날씨 정보 : \(value)")
+                    //현재 날씨
+                    let cTemp = value.current.temp
+                    let cSunrise = value.current.sunrise
+                    let cSunset = value.current.sunset
+                    let cHumidity = value.current.humidity
+                    let cClouds = value.current.clouds
+                    let cWind_speed = value.current.wind_speed
+                    let cConditionID = value.current.weather[0].id
+                    let cDescription = value.current.weather[0].description
+                    
+                    let current = CurrWeather(temp: cTemp, sunrise: cSunrise, sunset: cSunset, humidity: cHumidity, clouds: cClouds, wind_speed: cWind_speed, conditionID: cConditionID, description: cDescription)
+                    
+                    //7일간의 일일 날씨 예측
+                    var dailyData:[DailyData] = []
+                    for daily in value.daily {
+                        dailyData.append(DailyData(day: daily.temp.day, min: daily.temp.min, max: daily.temp.max, night: daily.temp.night, eve: daily.temp.eve, morn: daily.temp.morn, humidity: daily.humidity, wind_speed: daily.wind_speed, conditionID: daily.weather[0].id, description: daily.weather[0].description, clouds: daily.clouds, uvi: daily.uvi))
+                    }
+                    
+                    let weatherModel = WeatherModel(currWeather: current, daily: dailyData)
+                    self.delegate?.didUpdateWeatherViews(weather: weatherModel)
                     //실패
                 case .failure(let error):
                     print("error: \(String(describing: error.errorDescription))")

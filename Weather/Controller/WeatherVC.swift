@@ -12,22 +12,32 @@ class WeatherVC: GADBaseVC {
     //[jongmin] 주간 날씨 표시용 테이블 뷰
     @IBOutlet weak var weatherDetailTableView: UITableView!
     
-    
+    //[jongmin] 일일 날씨 상세 정보용 스크롤 뷰/페이지 컨트롤
     @IBOutlet weak var infoDetailScrollView: UIScrollView!
     @IBOutlet weak var infoDetailPageControl: UIPageControl!
     
+    //[jongmin] 임시 뷰 백그라운드 컬러
+    var tempImage = [UIImage(systemName: "sunrise"), UIImage(systemName: "cloud.drizzle"), UIImage(systemName: "moon.stars")]
+    var imageViews = [UIImageView]()
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //[종민] 테이블 뷰 델리게이트
+        //[jongmin] 테이블 뷰 델리게이트
         weatherDetailTableView.delegate = self
         weatherDetailTableView.dataSource = self
         
-        //[종민] 테이블 뷰 연결
+        //[jongmin] 테이블 뷰 연결
         setTableViewXIBCell()
         
         //[Walter] 하단 적응형 광고 띄우기
         setupBannerViewToBottom()
+        
+        //[jongmin] 스크롤 뷰 델리게이트
+        infoDetailScrollView.delegate = self
+        addContentScrollView()
+        setPageControl()
     }
     
     func setTableViewXIBCell() {
@@ -52,6 +62,43 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
         cell.weatherDetailData2.text = "data2"
         
         return cell
+    }
+}
+
+
+//[jongmin] 가로 스크롤뷰+페이지뷰 구현 익스텐션
+extension WeatherVC: UIScrollViewDelegate {
+    
+    //[jongmin] 스크롤뷰에 이미지
+    func addContentScrollView() {
+        for i in 0 ..< tempImage.count {
+            let imageView = UIImageView()
+            let xPos = self.view.frame.width * CGFloat(i)
+            imageView.frame = CGRect(x: xPos, y: 0, width: infoDetailScrollView.bounds.width, height: infoDetailScrollView.bounds.height)
+            imageView.image = tempImage[i]
+            infoDetailScrollView.addSubview(imageView)
+            infoDetailScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+        }
+    }
+    
+    //[jongmin] 페이지 컨트롤 초기 설정
+    func setPageControl() {
+        //[jongmin] 페이지 컨트롤 개수
+        infoDetailPageControl.numberOfPages = tempImage.count
+        //[jongmin] 페이지 뷰 도트 색
+        infoDetailPageControl.pageIndicatorTintColor = .lightGray
+        //[jongmin] 현재 페이지 도트 색
+        infoDetailPageControl.currentPageIndicatorTintColor = .black
+    }
+    
+    //[jongmin] 스크롤 뷰 세팅
+    func setPageControlSelectedPage(currentPage: Int) {
+        infoDetailPageControl.currentPage = currentPage
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let value = infoDetailScrollView.contentOffset.x/infoDetailScrollView.frame.size.width
+        setPageControlSelectedPage(currentPage: Int(round(value)))
     }
 }
 

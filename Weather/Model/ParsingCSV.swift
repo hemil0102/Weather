@@ -61,11 +61,13 @@ struct ParsingCSV {
         for locations in koreaLocation {
             let dong = locations[3].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             if dong == place {
-//                print("검색된 동명 \(place), code \(locations[0])")
+                print("검색된 동명 \(place), code \(locations[0])")
                 codeStr = locations[0]
             }
         }
 
+        print("코오오오오오오오드 \(place), \(codeStr)")
+        
         //[Walter] Step2. 코드를 앞 5자리만 자른다.
         let index = codeStr.index(codeStr.startIndex, offsetBy: 5)
         let final_code = codeStr.substring(to: index)         //[Water] 시간 남을 때 해결하자..

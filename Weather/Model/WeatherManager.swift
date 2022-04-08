@@ -27,13 +27,21 @@ struct WeatherManager {
      5. delegate 패턴으로 호출 VC에 결과 (WeatherModel/Error) 전달 [✌️]
      */
     
+    init() {
+        parseCSV.getDataCsvAt()         //csv 파싱
+    }
+    
     //[Walter] 현재 날씨 가져오기
     mutating func getWeatherWithName(name: String) {
         parseCSV.delegate = self
+        parseCSV.searchUserKeyword(place: name)
     }
     
     //[Walter] 현재 좌표(lat, lon)을 기반으로 날씨 가져오기
     func getWeatherWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+        
+        print("마지막으로 받은... 위/경도 \(lat), \(lon)")
+        
         let param: Parameters = [
             "lat": lat,
             "lon": lon,
@@ -72,7 +80,12 @@ struct WeatherManager {
                         dailyData.append(DailyData(day: daily.temp.day, min: daily.temp.min, max: daily.temp.max, night: daily.temp.night, eve: daily.temp.eve, morn: daily.temp.morn, humidity: daily.humidity, wind_speed: daily.wind_speed, conditionID: daily.weather[0].id, description: daily.weather[0].description, clouds: daily.clouds, uvi: daily.uvi))
                     }
                     
-                    let weatherModel = WeatherModel(currWeather: current, daily: dailyData)
+                    let weatherModel = WeatherModel(
+                        si: "수원시",
+                        dong: "구운동",
+                        currWeather: current,
+                        daily: dailyData
+                    )
                     self.delegate?.didUpdateWeatherViews(weather: weatherModel)
                     //실패
                 case .failure(let error):

@@ -8,6 +8,8 @@
 import Foundation
 
 struct WeatherModel {
+    let si: String
+    let dong: String
     let currWeather: CurrWeather
     let daily: [DailyData]
 }

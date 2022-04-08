@@ -1,39 +1,37 @@
 //
-//  WeatherManager.swift
+//  WeatherDetailManager.swift
 //  Weather
 //
-//  Created by Walter J on 2022/04/05.
+//  Created by JONGMIN Youn on 2022/04/06.
 //
 
 import Foundation
 import Alamofire
 import CoreLocation
 
-protocol WeatherManagerDelegate {
-    func didUpdateWeatherViews(weather: WeatherModel)
+protocol AirPollutionManagerDelegate {
+    func didUpdateDetailWeatherViews(weather: WeatherModel)
     func didFailWithError(error: Error)
 }
 
-struct WeatherManager: KakaoGetNameMangerDelegate {
-    var delegate: WeatherManagerDelegate?
-    let currWeatherApiUrl = "https://api.openweathermap.org/data/2.5/weather"
-    let oneCallApiUrl = "https://api.openweathermap.org/data/2.5/onecall"
+struct AirPollutonManager {
+    var delegate: AirPollutionManagerDelegate?
+    let currAirPollutionApiUrl = "http://api.openweathermap.org/data/2.5/air_pollution?"
+    //http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key}
+    
     var param: Parameters = [
         "lat": "",
         "lon": "",
-        "appid": Keys.ApiId.weatherAppId
-        //"exclude": "daily",
-        //"units": "metric"
+        "appid": Keys.ApiId.weatherAppId2,
+        "exclude": "daily",
     ]
     
-    var kakaoManager = KakaoGetNameManager()
-    
     mutating func getCurrWeather(cityName: String) {
-
+    
         performRequest()        //[Walter] 날씨 요청
     }
     
-    //[Walter] 현재 날씨 가져오기
+    //[jongmin] 현재 날씨 가져오기
     func getCurrWeatherData() {
         
     }
@@ -45,14 +43,8 @@ struct WeatherManager: KakaoGetNameMangerDelegate {
          1. 카카오 로컬 API 호출 [✌️]
          2. 지역명 가져오기 [✌️]
          */
-        kakaoManager.getNameDelegate = self
-        kakaoManager.convertCoordinateToPlace(lat: lat, lon: lon)
     }
-    
-    func getPriceName(si: String, gu: String, dong: String) {
-        
-        print("si \(si), gu \(gu), dong \(dong)")
-    }
+
     
     func getFailWithError(error: Error) {
         print("좌표로 지역명 가져오기 오류 : \(error)")
@@ -71,8 +63,7 @@ struct WeatherManager: KakaoGetNameMangerDelegate {
         //[Walter] Post 로 전달이 안된다... 일단 Get으로..
 //        let urlStr = "\(currWeatherApiUrl)?q=suwon&appid=\(Keys.ApiId.weatherAppId)&units=metric"
         
-        //[jongmin] 전면 수정 필요.
-        AF.request(oneCallApiUrl, parameters: param)
+        AF.request(currAirPollutionApiUrl, parameters: param)
             .responseDecodable(of: Weather.self) { response in
 //                print("received weater data : \(response)")
                 switch response.result {

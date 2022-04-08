@@ -9,7 +9,12 @@ import UIKit
 
 class WeatherVC: GADBaseVC {
 
+    //[jongmin] 주간 날씨 표시용 테이블 뷰
     @IBOutlet weak var weatherDetailTableView: UITableView!
+    
+    
+    @IBOutlet weak var infoDetailScrollView: UIScrollView!
+    @IBOutlet weak var infoDetailPageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +55,14 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//[jongmin] 상세정보 페이지 컨트롤 익스텐션
+
+
     /*
      [종민]
      Weather 탭에서 보여줘야 할 정보 정리하기
      (일출 시간, 일몰 시간, 미세먼지, 기압, 습도, 가시거리, 풍속, 풍향), 아이콘/라벨 조합으로 뷰에서 내용만 보여주기 설명 불필요.
+     
+     Slider Collection View 활용
      
      */

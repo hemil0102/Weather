@@ -10,11 +10,10 @@
 		6C2A0B2027FDC54100146227 /* AirPollutionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2A0B1F27FDC54100146227 /* AirPollutionManager.swift */; };
 		6C37521027FB183F00429241 /* WeatherDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37520E27FB183F00429241 /* WeatherDetailCell.swift */; };
 		6C37521127FB183F00429241 /* WeatherDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C37520F27FB183F00429241 /* WeatherDetailCell.xib */; };
-		931388AE27FD6B1600D23A6F /* Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388AD27FD6B1600D23A6F /* Kakao.swift */; };
-		931388B027FD6B2200D23A6F /* KakaoGetNameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388AF27FD6B2200D23A6F /* KakaoGetNameManager.swift */; };
-		931388B227FD6B3000D23A6F /* KakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388B127FD6B3000D23A6F /* KakaoModel.swift */; };
-		931388B427FD912E00D23A6F /* KakaoGetCoordiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931388B327FD912E00D23A6F /* KakaoGetCoordiManager.swift */; };
-		931A397A27FC00C500D760D4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397927FC00C500D760D4 /* Weather.swift */; };
+		931443EA27FEB14F00E33442 /* korea.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443E927FEB14F00E33442 /* korea.csv */; };
+		931443EC27FEB23F00E33442 /* korea_local_goverment.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443EB27FEB23F00E33442 /* korea_local_goverment.csv */; };
+		931443EE27FEB32100E33442 /* ParsingCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931443ED27FEB32100E33442 /* ParsingCSV.swift */; };
+		931A397A27FC00C500D760D4 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397927FC00C500D760D4 /* WeatherData.swift */; };
 		931A397C27FC00D100D760D4 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397B27FC00D100D760D4 /* WeatherManager.swift */; };
 		931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397D27FC215000D760D4 /* ConvertEngToKor.swift */; };
 		931A398027FC395800D760D4 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397F27FC395800D760D4 /* WeatherModel.swift */; };
@@ -38,11 +37,10 @@
 		6C2A0B1F27FDC54100146227 /* AirPollutionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionManager.swift; sourceTree = "<group>"; };
 		6C37520E27FB183F00429241 /* WeatherDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCell.swift; sourceTree = "<group>"; };
 		6C37520F27FB183F00429241 /* WeatherDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailCell.xib; sourceTree = "<group>"; };
-		931388AD27FD6B1600D23A6F /* Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kakao.swift; sourceTree = "<group>"; };
-		931388AF27FD6B2200D23A6F /* KakaoGetNameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoGetNameManager.swift; sourceTree = "<group>"; };
-		931388B127FD6B3000D23A6F /* KakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoModel.swift; sourceTree = "<group>"; };
-		931388B327FD912E00D23A6F /* KakaoGetCoordiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoGetCoordiManager.swift; sourceTree = "<group>"; };
-		931A397927FC00C500D760D4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		931443E927FEB14F00E33442 /* korea.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea.csv; sourceTree = "<group>"; };
+		931443EB27FEB23F00E33442 /* korea_local_goverment.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea_local_goverment.csv; sourceTree = "<group>"; };
+		931443ED27FEB32100E33442 /* ParsingCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingCSV.swift; sourceTree = "<group>"; };
+		931A397927FC00C500D760D4 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		931A397B27FC00D100D760D4 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		931A397D27FC215000D760D4 /* ConvertEngToKor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertEngToKor.swift; sourceTree = "<group>"; };
 		931A397F27FC395800D760D4 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -122,6 +120,8 @@
 				931A397D27FC215000D760D4 /* ConvertEngToKor.swift */,
 				93FE03AB27F70C1200D6E0C2 /* AppDelegate.swift */,
 				93FE03AD27F70C1200D6E0C2 /* SceneDelegate.swift */,
+				931443E927FEB14F00E33442 /* korea.csv */,
+				931443EB27FEB23F00E33442 /* korea_local_goverment.csv */,
 				93FE03B427F70C1300D6E0C2 /* Assets.xcassets */,
 				93FE03B927F70C1300D6E0C2 /* Info.plist */,
 			);
@@ -142,14 +142,10 @@
 		93FE03C027F70C2600D6E0C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				931A397927FC00C500D760D4 /* Weather.swift */,
+				931A397927FC00C500D760D4 /* WeatherData.swift */,
 				931A397B27FC00D100D760D4 /* WeatherManager.swift */,
 				931A397F27FC395800D760D4 /* WeatherModel.swift */,
-				931388AD27FD6B1600D23A6F /* Kakao.swift */,
-				931388AF27FD6B2200D23A6F /* KakaoGetNameManager.swift */,
-				931388B327FD912E00D23A6F /* KakaoGetCoordiManager.swift */,
-				931388B127FD6B3000D23A6F /* KakaoModel.swift */,
-				6C2A0B1F27FDC54100146227 /* AirPollutionManager.swift */,
+				931443ED27FEB32100E33442 /* ParsingCSV.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -226,6 +222,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931443EA27FEB14F00E33442 /* korea.csv in Resources */,
+				931443EC27FEB23F00E33442 /* korea_local_goverment.csv in Resources */,
 				93FE03B827F70C1300D6E0C2 /* LaunchScreen.storyboard in Resources */,
 				6C37521127FB183F00429241 /* WeatherDetailCell.xib in Resources */,
 				93FE03B527F70C1300D6E0C2 /* Assets.xcassets in Resources */,
@@ -287,20 +285,16 @@
 				93FE03AC27F70C1200D6E0C2 /* AppDelegate.swift in Sources */,
 				93FE03AE27F70C1200D6E0C2 /* SceneDelegate.swift in Sources */,
 				931A398027FC395800D760D4 /* WeatherModel.swift in Sources */,
-				931388AE27FD6B1600D23A6F /* Kakao.swift in Sources */,
-				6C2A0B2027FDC54100146227 /* AirPollutionManager.swift in Sources */,
+				931443EE27FEB32100E33442 /* ParsingCSV.swift in Sources */,
 				931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */,
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
-				931388B427FD912E00D23A6F /* KakaoGetCoordiManager.swift in Sources */,
 				931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */,
 				931D312D27FA836000B3C497 /* Constants.swift in Sources */,
-				931388B227FD6B3000D23A6F /* KakaoModel.swift in Sources */,
 				931A398227FC71F300D760D4 /* SearchModalVC.swift in Sources */,
-				931A397A27FC00C500D760D4 /* Weather.swift in Sources */,
+				931A397A27FC00C500D760D4 /* WeatherData.swift in Sources */,
 				931A397C27FC00D100D760D4 /* WeatherManager.swift in Sources */,
 				931D312727FA826D00B3C497 /* WeatherVC.swift in Sources */,
 				931D312B27FA829200B3C497 /* SettingsVC.swift in Sources */,
-				931388B027FD6B2200D23A6F /* KakaoGetNameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

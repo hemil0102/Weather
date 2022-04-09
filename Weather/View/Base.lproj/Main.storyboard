@@ -43,9 +43,29 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWo-iT-Rja" userLabel="TodayDetailView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="391"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-CH-m19">
+                                        <rect key="frame" x="0.0" y="52" width="414" height="339"/>
+                                        <subviews>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5sa-O9-wdO">
+                                                <rect key="frame" x="149" y="295" width="116" height="26"/>
+                                            </pageControl>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ukd-W0-Goj" firstAttribute="bottom" secondItem="5sa-O9-wdO" secondAttribute="bottom" constant="20" id="Q3H-PM-Rrs"/>
+                                            <constraint firstItem="5sa-O9-wdO" firstAttribute="centerX" secondItem="8y5-CH-m19" secondAttribute="centerX" id="ndl-I4-qsr"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="Q0x-jb-pZO"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="Ukd-W0-Goj"/>
+                                    </scrollView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
+                                    <constraint firstItem="8y5-CH-m19" firstAttribute="top" secondItem="WWo-iT-Rja" secondAttribute="top" constant="50" id="bJs-va-u8u"/>
+                                    <constraint firstItem="8y5-CH-m19" firstAttribute="leading" secondItem="WWo-iT-Rja" secondAttribute="leading" id="eOM-Xi-1tf"/>
                                     <constraint firstAttribute="width" secondItem="WWo-iT-Rja" secondAttribute="height" multiplier="18:17" id="hxa-y5-KTo"/>
+                                    <constraint firstAttribute="bottom" secondItem="8y5-CH-m19" secondAttribute="bottom" id="l3a-tv-jCF"/>
+                                    <constraint firstAttribute="trailing" secondItem="8y5-CH-m19" secondAttribute="trailing" id="tS6-HY-RKz"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IXt-7v-Qjw">
@@ -67,12 +87,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max" catalog="system" id="OWs-Cl-1Sh"/>
                     <connections>
+                        <outlet property="infoDetailPageControl" destination="5sa-O9-wdO" id="aLj-uI-uAF"/>
+                        <outlet property="infoDetailScrollView" destination="8y5-CH-m19" id="a0q-5w-VYJ"/>
                         <outlet property="weatherDetailTableView" destination="IXt-7v-Qjw" id="IRi-4b-O5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuD-q8-KLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907" y="1488"/>
+            <point key="canvasLocation" x="905.79710144927549" y="1487.9464285714284"/>
         </scene>
         <!--Settings-->
         <scene sceneID="HQD-0p-6qX">

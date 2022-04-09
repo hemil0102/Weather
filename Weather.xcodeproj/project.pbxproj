@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C2A0B2027FDC54100146227 /* AirPollutionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2A0B1F27FDC54100146227 /* AirPollutionManager.swift */; };
 		6C37521027FB183F00429241 /* WeatherDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37520E27FB183F00429241 /* WeatherDetailCell.swift */; };
 		6C37521127FB183F00429241 /* WeatherDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C37520F27FB183F00429241 /* WeatherDetailCell.xib */; };
 		931443EA27FEB14F00E33442 /* korea.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443E927FEB14F00E33442 /* korea.csv */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		111E3C8A9110ADC193F32BC8 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
+		6C2A0B1F27FDC54100146227 /* AirPollutionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionManager.swift; sourceTree = "<group>"; };
 		6C37520E27FB183F00429241 /* WeatherDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCell.swift; sourceTree = "<group>"; };
 		6C37520F27FB183F00429241 /* WeatherDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailCell.xib; sourceTree = "<group>"; };
 		931443E927FEB14F00E33442 /* korea.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea.csv; sourceTree = "<group>"; };

@@ -19,11 +19,9 @@ class WeatherVC: GADBaseVC {
     //[jongmin] 임시 뷰 백그라운드 컬러
     var tempImage = [UIImage(systemName: "sunrise"), UIImage(systemName: "cloud.drizzle"), UIImage(systemName: "moon.stars")]
     var imageViews = [UIImageView]()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //[jongmin] 테이블 뷰 델리게이트
         weatherDetailTableView.delegate = self
         weatherDetailTableView.dataSource = self

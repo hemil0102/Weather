@@ -16,10 +16,10 @@ struct Keys {
     struct ApiId {
         static let weatherAppId = "d03b61bd0fafa57cf46bd374eb796830"
     }
-
 }
 
 struct ViewIdentifier {
     static let weatherDetailCell = "WeatherDetailCell" //뷰 이름
     static let weatherDetailCellIdentifier = "WeatherDetailCell" //테이블 뷰 아이덴티파이어
+    static let editAlarmSegueIdentifier = "EditAlarm"
 }

@@ -21,24 +21,26 @@ class HomeVC: GADBaseVC {
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var parseCSV = ParsingCSV()
+    var model: WeatherModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.delegate = self
+        
         setupBannerViewToBottom()       //[Walter] 하단 적응형 광고 띄우기
         configureCurrWeatherViews()         //[Walter] View 모양 설정
         
-        locationManager.delegate = self
-        weatherManager.delegate = self
+        self.locationManager.delegate = self
+        self.weatherManager.delegate = self
         
-        
-        let dateFormatter = DateFormatter()
-        let date = Date(timeIntervalSinceReferenceDate: 1649412000)
-        
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMdHHmm") // set template after setting locale
-        print(dateFormatter.string(from: date))
-        
+        //DateTime Format
+//        let dateFormatter = DateFormatter()
+//        let date = Date(timeIntervalSinceReferenceDate: 1649412000)
+//
+//        dateFormatter.locale = Locale(identifier: "ko_KR")
+//        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMdHHmm") // set template after setting locale
+//        print(dateFormatter.string(from: date))
     }
     
     //날씨 배경 모서리 둥글게
@@ -46,14 +48,28 @@ class HomeVC: GADBaseVC {
         currWeatherBackground.layer.cornerRadius = 15
     }
     
+    //현재 위치 좌표 가져오기 호출
     @IBAction func currLocationWeatherBtnAct(_ sender: UIButton) {
         locationManager.requestLocation()
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+extension HomeVC: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+//        print("탭 번호 \(tabBarController.selectedIndex)")
+        guard let weatherTab = viewController as? WeatherVC else { return }
+        if let model = model {
+            print("modelllll \(model.currWeather.temp)")
+//            weatherTab.wModel = model
+        }
     }
 }
 
 // MARK: - WeatherManager Delegate
 extension HomeVC: WeatherManagerDelegate {
     func didUpdateWeatherViews(weather: WeatherModel) {
+        self.model = weather
         DispatchQueue.main.async {
             //Update Views
             let si = weather.si

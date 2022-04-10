@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C37521027FB183F00429241 /* WeatherDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37520E27FB183F00429241 /* WeatherDetailCell.swift */; };
 		6C37521127FB183F00429241 /* WeatherDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C37520F27FB183F00429241 /* WeatherDetailCell.xib */; };
+		93100A4E28031AE400435534 /* EditAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93100A4D28031AE400435534 /* EditAlarmVC.swift */; };
 		931443EA27FEB14F00E33442 /* korea.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443E927FEB14F00E33442 /* korea.csv */; };
 		931443EC27FEB23F00E33442 /* korea_local_goverment.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443EB27FEB23F00E33442 /* korea_local_goverment.csv */; };
 		931443EE27FEB32100E33442 /* ParsingCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931443ED27FEB32100E33442 /* ParsingCSV.swift */; };
@@ -39,6 +40,7 @@
 		111E3C8A9110ADC193F32BC8 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		6C37520E27FB183F00429241 /* WeatherDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCell.swift; sourceTree = "<group>"; };
 		6C37520F27FB183F00429241 /* WeatherDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailCell.xib; sourceTree = "<group>"; };
+		93100A4D28031AE400435534 /* EditAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmVC.swift; sourceTree = "<group>"; };
 		931443E927FEB14F00E33442 /* korea.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea.csv; sourceTree = "<group>"; };
 		931443EB27FEB23F00E33442 /* korea_local_goverment.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea_local_goverment.csv; sourceTree = "<group>"; };
 		931443ED27FEB32100E33442 /* ParsingCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingCSV.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				931D312827FA828900B3C497 /* AlarmVC.swift */,
 				931D312A27FA829200B3C497 /* SettingsVC.swift */,
 				931A398127FC71F300D760D4 /* SearchModalVC.swift */,
+				93100A4D28031AE400435534 /* EditAlarmVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				931A398027FC395800D760D4 /* WeatherModel.swift in Sources */,
 				D0AA1B8D280057C0005A0C7C /* AlarmCell.swift in Sources */,
 				931443EE27FEB32100E33442 /* ParsingCSV.swift in Sources */,
+				93100A4E28031AE400435534 /* EditAlarmVC.swift in Sources */,
 				931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */,
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
 				D0D1D82627FF367D00EF4EE3 /* Alarm.swift in Sources */,

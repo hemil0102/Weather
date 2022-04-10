@@ -57,11 +57,11 @@ class HomeVC: GADBaseVC {
 // MARK: - UITabBarControllerDelegate
 extension HomeVC: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("탭 번호 \(tabBarController.selectedIndex)")
+//        print("탭 번호 \(tabBarController.selectedIndex)")
         guard let weatherTab = viewController as? WeatherVC else { return }
         if let model = model {
             print("modelllll \(model.currWeather.temp)")
-            weatherTab.wModel = model
+//            weatherTab.wModel = model
         }
     }
 }

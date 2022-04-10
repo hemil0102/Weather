@@ -14,7 +14,7 @@ import UIKit
 */
 
 class AlarmVC: GADBaseVC {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,5 +23,15 @@ class AlarmVC: GADBaseVC {
     }
     
     @IBOutlet weak var alarmTableView: UITableView!
-
+    
+    @IBAction func addNewAlarmBtnAct(_ sender: UIButton) {
+        performSegue(withIdentifier: ViewIdentifier.editAlarmSegueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == ViewIdentifier.editAlarmSegueIdentifier {
+//            guard let editAlarmView = segue.destination as? EditAlarmVC else { return }
+//            
+//        }
+    }
 }

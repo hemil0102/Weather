@@ -38,7 +38,6 @@ extension AlarmVC: UITableViewDataSource {
     //[Harry] protocol stubs - indexPath(테이블뷰 상의 위치)에 어떤 것을 보여줄 것인가?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = alarmTableView.dequeueReusableCell(withIdentifier: Keys.alarmCellIdentifier, for: indexPath)
-        cell.textLabel?.text = "This is a cell"
         return cell
     }
     

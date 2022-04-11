@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yp-OR-GTp">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yp-OR-GTp" userLabel="AlarmCellView">
                         <rect key="frame" x="10" y="5" width="300" height="68"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GI-fjt" userLabel="Total Area Stack View">
@@ -32,7 +32,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="S6v-JO-6C5" userLabel="Center Area">
                                         <rect key="frame" x="50.5" y="1" width="156.5" height="60.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="OX6-Hw-Wwb" userLabel="Time Area">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="OX6-Hw-Wwb" userLabel="Time Area">
                                                 <rect key="frame" x="0.0" y="0.0" width="152.5" height="27.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cvo-4j-QLc">
@@ -42,7 +42,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vm6-Tk-QhH">
-                                                        <rect key="frame" x="84" y="0.0" width="26" height="27.5"/>
+                                                        <rect key="frame" x="69" y="0.0" width="26" height="27.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -54,6 +54,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Vm6-Tk-QhH" firstAttribute="leading" secondItem="cvo-4j-QLc" secondAttribute="trailing" constant="3" id="bKW-Ju-8aW"/>
+                                                    <constraint firstItem="1xj-lw-w14" firstAttribute="leading" secondItem="Vm6-Tk-QhH" secondAttribute="trailing" constant="20" id="mec-0U-iRS"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-m1-qiA" userLabel="Date Area">
                                                 <rect key="frame" x="0.0" y="29.5" width="85.5" height="14.5"/>
@@ -142,7 +146,19 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="alarmSwitch" destination="jDB-yd-vFV" id="1Gx-G0-RBi"/>
+                <outlet property="alarmCellDayType" destination="1xj-lw-w14" id="scf-mW-sh0"/>
+                <outlet property="alarmCellFriday" destination="ymn-Lq-5c3" id="jxc-Yt-h2j"/>
+                <outlet property="alarmCellLocation" destination="T1G-Uw-f0y" id="gvA-tB-Rfv"/>
+                <outlet property="alarmCellMeridiem" destination="Vm6-Tk-QhH" id="aze-fL-aTT"/>
+                <outlet property="alarmCellMonday" destination="aP6-tZ-CWc" id="MlK-hy-RKG"/>
+                <outlet property="alarmCellSaturday" destination="AmS-c5-HzP" id="pC4-0v-eOD"/>
+                <outlet property="alarmCellSunday" destination="oz3-Qj-gkP" id="Jba-Xz-7SE"/>
+                <outlet property="alarmCellSwitch" destination="jDB-yd-vFV" id="1Gx-G0-RBi"/>
+                <outlet property="alarmCellThursday" destination="vnJ-gq-GCL" id="JK0-0Z-W45"/>
+                <outlet property="alarmCellTime" destination="cvo-4j-QLc" id="uo0-Xi-6xM"/>
+                <outlet property="alarmCellToDo" destination="fdI-Fg-nfU" id="6qE-EU-WUz"/>
+                <outlet property="alarmCellTuesday" destination="4Cx-QY-kWL" id="wdF-Ha-6mC"/>
+                <outlet property="alarmCellWednesday" destination="4Lt-dN-v6t" id="lLF-ZW-vW5"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="143.30357142857142"/>
         </tableViewCell>

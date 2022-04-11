@@ -16,6 +16,10 @@ struct Keys {
     struct ApiId {
         static let weatherAppId = "d03b61bd0fafa57cf46bd374eb796830"
     }
+    
+    // [Harry]
+    static let alarmCellNibName = "AlarmCell"
+    static let alarmCellIdentifier = "AlarmCellIdentifier"
 }
 
 struct ViewIdentifier {

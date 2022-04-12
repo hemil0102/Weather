@@ -15,6 +15,7 @@ struct Keys {
     
     struct ApiId {
         static let weatherAppId = "d03b61bd0fafa57cf46bd374eb796830"
+        static let airPolutionId = "d0aedaa971b852d7c7d77cb006728cf6" //[jongmin] 미세먼지용 키
     }
     
     // [Harry]

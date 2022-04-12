@@ -36,6 +36,9 @@ class WeatherVC: GADBaseVC {
         infoDetailScrollView.delegate = self
         addContentScrollView()
         setPageControl()
+        
+        //[jongmin] 임시 대기정보 인스턴스 생성
+        let tempInstance = AirPolutionManager()
     }
     
     func setTableViewXIBCell() {

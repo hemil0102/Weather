@@ -45,3 +45,16 @@ struct Temp: Codable {
     let morn: Double
 }
 
+//[Jongmin] 미세먼지 데이터 구조체
+struct AirPolution: Codable {
+    let list: List
+}
+
+struct List: Codable {
+    let components: Components
+}
+
+struct Components: Codable {
+    let pm2_5: Double
+    let pm10: Double
+}

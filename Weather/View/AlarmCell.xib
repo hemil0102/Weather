@@ -60,55 +60,12 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-m1-qiA" userLabel="Date Area">
-                                                <rect key="frame" x="0.0" y="29.5" width="85.5" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="29.5" width="91.5" height="14.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aP6-tZ-CWc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월 화 수 목 금 토 일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aP6-tZ-CWc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Cx-QY-kWL">
-                                                        <rect key="frame" x="12.5" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Lt-dN-v6t">
-                                                        <rect key="frame" x="25" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vnJ-gq-GCL">
-                                                        <rect key="frame" x="37.5" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymn-Lq-5c3">
-                                                        <rect key="frame" x="50" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmS-c5-HzP">
-                                                        <rect key="frame" x="62.5" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" name="MovelLilac"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oz3-Qj-gkP">
-                                                        <rect key="frame" x="75" y="0.0" width="10.5" height="14.5"/>
-                                                        <color key="backgroundColor" name="MovelEmerald"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                        <color key="textColor" name="MovelRed"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -147,18 +104,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="alarmCellDayType" destination="1xj-lw-w14" id="scf-mW-sh0"/>
-                <outlet property="alarmCellFriday" destination="ymn-Lq-5c3" id="jxc-Yt-h2j"/>
                 <outlet property="alarmCellLocation" destination="T1G-Uw-f0y" id="gvA-tB-Rfv"/>
                 <outlet property="alarmCellMeridiem" destination="Vm6-Tk-QhH" id="aze-fL-aTT"/>
-                <outlet property="alarmCellMonday" destination="aP6-tZ-CWc" id="MlK-hy-RKG"/>
-                <outlet property="alarmCellSaturday" destination="AmS-c5-HzP" id="pC4-0v-eOD"/>
-                <outlet property="alarmCellSunday" destination="oz3-Qj-gkP" id="Jba-Xz-7SE"/>
                 <outlet property="alarmCellSwitch" destination="jDB-yd-vFV" id="1Gx-G0-RBi"/>
-                <outlet property="alarmCellThursday" destination="vnJ-gq-GCL" id="JK0-0Z-W45"/>
                 <outlet property="alarmCellTime" destination="cvo-4j-QLc" id="uo0-Xi-6xM"/>
                 <outlet property="alarmCellToDo" destination="fdI-Fg-nfU" id="6qE-EU-WUz"/>
-                <outlet property="alarmCellTuesday" destination="4Cx-QY-kWL" id="wdF-Ha-6mC"/>
-                <outlet property="alarmCellWednesday" destination="4Lt-dN-v6t" id="lLF-ZW-vW5"/>
+                <outlet property="alarmCellWeekday" destination="aP6-tZ-CWc" id="Qde-J3-xYl"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="143.30357142857142"/>
         </tableViewCell>
@@ -166,12 +117,6 @@
     <resources>
         <namedColor name="MovelEmerald">
             <color red="0.47499999403953552" green="0.75300002098083496" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MovelLilac">
-            <color red="0.45899999141693115" green="0.55699998140335083" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MovelRed">
-            <color red="0.81999999284744263" green="0.44299998879432678" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

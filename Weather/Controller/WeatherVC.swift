@@ -36,6 +36,9 @@ class WeatherVC: GADBaseVC {
         infoDetailScrollView.delegate = self
         addContentScrollView()
         setPageControl()
+        
+        //[jongmin] 임시 대기정보 인스턴스 생성
+        let tempInstance = AirPolutionManager()
     }
     
     func setTableViewXIBCell() {
@@ -67,15 +70,15 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
 //[jongmin] 가로 스크롤뷰+페이지뷰 구현 익스텐션
 extension WeatherVC: UIScrollViewDelegate {
     
-    //[jongmin] 스크롤뷰에 이미지
+    //[jongmin] 스크롤뷰에 이미지 서브뷰 삽입
     func addContentScrollView() {
         for i in 0 ..< tempImage.count {
             let imageView = UIImageView()
             let xPos = self.view.frame.width * CGFloat(i)
             imageView.frame = CGRect(x: xPos, y: 0, width: infoDetailScrollView.bounds.width, height: infoDetailScrollView.bounds.height)
-            imageView.image = tempImage[i]
-            infoDetailScrollView.addSubview(imageView)
-            infoDetailScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+            imageView.image = tempImage[i] //[jongmin] 이부위 나중에 뷰로 대체해서 넣을 예정
+            infoDetailScrollView.addSubview(imageView) //[jongmin] 스크롤 뷰에 이미지 서브뷰 삽입
+            infoDetailScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) //스크롤 뷰 폭 정의
         }
     }
     
@@ -94,20 +97,30 @@ extension WeatherVC: UIScrollViewDelegate {
         infoDetailPageControl.currentPage = currentPage
     }
     
+    //[jongmin] 스크롤뷰 오프셋/폭 사이즈 비율에 따라서 페이지 컨트롤 현재 페이지 결정
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = infoDetailScrollView.contentOffset.x/infoDetailScrollView.frame.size.width
         setPageControlSelectedPage(currentPage: Int(round(value)))
     }
 }
 
-//[jongmin] 상세정보 페이지 컨트롤 익스텐션
 
 
     /*
-     [종민]
+     [Jongmin]
      Weather 탭에서 보여줘야 할 정보 정리하기
      (일출 시간, 일몰 시간, 미세먼지, 기압, 습도, 가시거리, 풍속, 풍향), 아이콘/라벨 조합으로 뷰에서 내용만 보여주기 설명 불필요.
      
-     Slider Collection View 활용
+     Slider Collection View 활용[?]
+     
+     상세정보 뷰 코드로 작성하는것 시도
+     
+     [jongmin] 220410
+     상세화면 있는 이유는 홈에 없는 추가 정보를 제공하기 위해 있는것.
+     
+     1. 상단에는 진짜 유용한 정보만 보여주고, 더 상세한 정보는 버튼으로 만들어서 팝업뷰로
+        (일출시간, 일몰시간, 미세먼지, 습도, 강우확률)
+     
+     2. 주간 테이블뷰
      
      */

@@ -20,15 +20,8 @@ class AlarmCell: UITableViewCell {
     @IBOutlet weak var alarmCellDayType: UILabel!
     
     //요일 레이블, 선택된 요일에 따라서 배경색을 달리 지정하기 위한
-    @IBOutlet weak var alarmCellMonday: UILabel!
-    @IBOutlet weak var alarmCellTuesday: UILabel!
-    @IBOutlet weak var alarmCellWednesday: UILabel!
-    @IBOutlet weak var alarmCellThursday: UILabel!
-    @IBOutlet weak var alarmCellFriday: UILabel!
-    @IBOutlet weak var alarmCellSaturday: UILabel!
-    @IBOutlet weak var alarmCellSunday: UILabel!
-    
-    
+    @IBOutlet weak var alarmCellWeekday: UILabel!
+
     
     /* ⭐️ AlarmCell 함수 정의 ⭐️ */
     override func awakeFromNib() {

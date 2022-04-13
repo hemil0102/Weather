@@ -42,7 +42,7 @@
                 <outlet property="weatherDetailData2" destination="EIx-Cx-h2G" id="SI0-e5-txi"/>
                 <outlet property="weatherDetailImageIcon" destination="0y8-di-aXf" id="x3w-0S-Y1Q"/>
             </connections>
-            <point key="canvasLocation" x="218.84057971014494" y="170.42410714285714"/>
+            <point key="canvasLocation" x="25" y="-24"/>
         </tableViewCell>
     </objects>
 </document>

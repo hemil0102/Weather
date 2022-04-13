@@ -12,15 +12,13 @@ class AlarmCell: UITableViewCell {
     /* ⭐️ AlarmCell IBOutlet 정의 ⭐️ */
     
     //xib 파일 내에서 사용되는 객체들
-    @IBOutlet weak var alarmCellSwitch: UISwitch!
-    @IBOutlet weak var alarmCellLocation: UILabel!
-    @IBOutlet weak var alarmCellToDo: UILabel!
-    @IBOutlet weak var alarmCellTime: UILabel!
-    @IBOutlet weak var alarmCellMeridiem: UILabel!
-    @IBOutlet weak var alarmCellDayType: UILabel!
-    
-    //요일 레이블, 선택된 요일에 따라서 배경색을 달리 지정하기 위한
-    @IBOutlet weak var alarmCellWeekday: UILabel!
+    @IBOutlet weak var alarmCellSwitch: UISwitch! // Section1, 스위치
+    @IBOutlet weak var alarmCellLocation: UILabel! // Section1, 지역
+    @IBOutlet weak var alarmCellToDo: UILabel! // Section1, 할일
+    @IBOutlet weak var alarmCellTime: UILabel! // Section1, 시간
+    @IBOutlet weak var alarmCellMeridiem: UILabel! // Section1, AMPM
+    @IBOutlet weak var alarmCellDayType: UILabel! // Section1, 요일 종류
+    @IBOutlet weak var alarmCellWeekday: UILabel! // Section1, 선택된 요일
 
     
     /* ⭐️ AlarmCell 함수 정의 ⭐️ */

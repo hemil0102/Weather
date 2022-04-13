@@ -29,25 +29,32 @@ class AlarmVC: GADBaseVC {
         AlarmModel(alarmLocation: "서울시", alarmTime: "06:00", alarmMeridiem: "PM", alarmDayType: "평일", alarmWeekDay: ["수", "목"], alarmIsEnable: false, alarmToDo: "수원에서 자전거 타고 한강가기", alarmIsRepeat: true)
     ]
     
+    var repeatedMockupData: [ AlarmModel ] = []
+    var dailyMockupData: [ AlarmModel ] = []
     //[Harry] 함수 정의 부분
     override func viewDidLoad() {
         super.viewDidLoad()
         //[Harry] 데이터를 처리하기 위해 위임을 받는다.
         alarmTableView.dataSource = self
         //[Harry] AlarmCell.xib 등록하기
-        alarmTableView.register(UINib(nibName: Keys.alarmCellNibName, bundle: nil), forCellReuseIdentifier: Keys.alarmCellIdentifier)
-        //[Harry] 알람 반복 여부에 따라 섹션에 띄울 셀 숫자를 알아내는 함수.
+        alarmTableView.register(UINib(nibName: Keys.alarmCellOneNibName, bundle: nil), forCellReuseIdentifier: Keys.alarmCellOneIdentifier)
+        alarmTableView.register(UINib(nibName: Keys.alarmCellTwoNibName, bundle: nil), forCellReuseIdentifier: Keys.alarmCellTwoIdentifier)
+        //[Harry] 알람 반복 여부에 따라 섹션에 띄울 셀 숫자를 알아내고 데이터를 분류하는 함수.
         sectionCounter()
         //[Walter] 하단 적응형 광고 띄우기
         setupBannerViewToBottom()
     }
     
-    //[Harry] 알람 반복 여부에 따라 섹션에 띄울 셀 숫자를 알아내는 함수.
+    //[Harry] 알람 반복 여부에 따라 섹션에 띄울 셀 숫자를 알아내고 데이터를 분류하는 함수.
     func sectionCounter() {
         for i in 0..<MockupData.count {
             if MockupData[i].alarmIsRepeat == true {
+                repeatedMockupData.append(MockupData[i])
+                print("1번" + "\(repeatedMockupData)")
                 sectionOneCounter += 1
             } else {
+                dailyMockupData.append(MockupData[i])
+                print("2번" + "\(dailyMockupData)")
                 sectionTwoCounter += 1
             }
         }
@@ -80,20 +87,35 @@ extension AlarmVC: UITableViewDataSource {
     
     //[Harry] protocol stubs - indexPath(테이블뷰 상의 위치)에 어떤 것을 보여줄 것인가?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = alarmTableView.dequeueReusableCell(withIdentifier: Keys.alarmCellIdentifier, for: indexPath) as! AlarmCell
+        let cell = alarmTableView.dequeueReusableCell(withIdentifier: Keys.alarmCellOneIdentifier, for: indexPath) as! AlarmCell
+        let cell2 = alarmTableView.dequeueReusableCell(withIdentifier: Keys.alarmCellTwoIdentifier, for: indexPath) as! AlarmCell2
         
-
-            cell.alarmCellLocation.text = MockupData[indexPath.row].alarmLocation
-            cell.alarmCellTime.text = MockupData[indexPath.row].alarmTime
-            cell.alarmCellMeridiem.text = MockupData[indexPath.row].alarmMeridiem
-            cell.alarmCellDayType.text = MockupData[indexPath.row].alarmDayType
+        if indexPath.section == 0 {
+            cell.alarmCellLocation.text = repeatedMockupData[indexPath.row].alarmLocation
+            cell.alarmCellTime.text = repeatedMockupData[indexPath.row].alarmTime
+            cell.alarmCellMeridiem.text = repeatedMockupData[indexPath.row].alarmMeridiem
+            cell.alarmCellDayType.text = repeatedMockupData[indexPath.row].alarmDayType
             cell.alarmCellWeekday.text = ""
-            for i in 0..<MockupData[indexPath.row].alarmWeekDay.count {
-                cell.alarmCellWeekday.text! += (MockupData[indexPath.row].alarmWeekDay[i] + " ")
+            for i in 0..<(repeatedMockupData[indexPath.row].alarmWeekDay?.count ?? 1) {
+                cell.alarmCellWeekday.text! += ((repeatedMockupData[indexPath.row].alarmWeekDay?[i] ?? "월 화 수 목 금 토 일") + " ")
             }
-            cell.alarmCellSwitch.isOn = MockupData[indexPath.row].alarmIsEnable
-            cell.alarmCellToDo.text = "할일: " + MockupData[indexPath.row].alarmToDo
+            cell.alarmCellSwitch.isOn = repeatedMockupData[indexPath.row].alarmIsEnable ?? true
+            cell.alarmCellToDo.text = "할일: " + (repeatedMockupData[indexPath.row].alarmToDo ?? "계획과 실천!")
+            return cell
             
-        return cell
+        } else {
+            cell2.alarmCellLocation.text = dailyMockupData[indexPath.row].alarmLocation
+            cell2.alarmCellTime.text = dailyMockupData[indexPath.row].alarmTime
+            cell2.alarmCellMeridiem.text = dailyMockupData[indexPath.row].alarmMeridiem
+            cell2.alarmCellDayType.text = dailyMockupData[indexPath.row].alarmDayType
+            cell2.alarmCellWeekday.text = ""
+            for i in 0..<(dailyMockupData[indexPath.row].alarmWeekDay?.count ?? 1) {
+                cell2.alarmCellWeekday.text! += ((dailyMockupData[indexPath.row].alarmWeekDay?[i] ?? "월 화 수 목 금 토 일") + " ")
+            }
+            cell2.alarmCellSwitch.isOn = dailyMockupData[indexPath.row].alarmIsEnable ?? true
+            cell2.alarmCellToDo.text = "*할일: " + (dailyMockupData[indexPath.row].alarmToDo ?? "계획과 실천!")
+            return cell2
+        }
+        
     }
 }

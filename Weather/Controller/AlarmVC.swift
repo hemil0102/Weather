@@ -8,14 +8,19 @@
 import UIKit
 
 /* [Harry - 알람 할일]
-   1. 테이블 뷰 구현 및 레이아웃 지정 [   ]
-   2. 변수지정, 알람이 추가되거나 삭제될 때 어떤 
+   1. 테이블 뷰 구현 []
+   2. 테이블 뷰 레이아웃 지정 []
+   3. 테이블 뷰 삭제 구현 []
+   4. 테이블 뷰 추가 구현 []
+   5. 테이블 뷰 수정 구현 []
  
 */
 
 class AlarmVC: GADBaseVC {
 
     //[Harry] 변수 정의 부분
+    var sectionOneCounter = 0 //섹션1에 띄울 셀을 카운트
+    var sectionTwoCounter = 0 //섹션2에 띄울 셀을 카운트
     @IBOutlet weak var alarmTableView: UITableView!
     //[Harry] 목업 데이터
     let MockupData = [
@@ -31,16 +36,28 @@ class AlarmVC: GADBaseVC {
         alarmTableView.dataSource = self
         //[Harry] AlarmCell.xib 등록하기
         alarmTableView.register(UINib(nibName: Keys.alarmCellNibName, bundle: nil), forCellReuseIdentifier: Keys.alarmCellIdentifier)
+        //[Harry] 알람 반복 여부에 따라 섹션에 띄울 셀 숫자를 알아내는 함수.
+        sectionCounter()
         //[Walter] 하단 적응형 광고 띄우기
         setupBannerViewToBottom()
-        
+    }
+    
+    //[Harry] 알람 반복 여부에 따라 섹션에 띄울 셀 숫자를 알아내는 함수.
+    func sectionCounter() {
+        for i in 0..<MockupData.count {
+            if MockupData[i].alarmIsRepeat == true {
+                sectionOneCounter += 1
+            } else {
+                sectionTwoCounter += 1
+            }
+        }
     }
 }
 
 //[Harry] 테이블뷰의 데이터를 얻는 부분
 extension AlarmVC: UITableViewDataSource {
     
-    // Mark: - Section
+    // ⭐️ Mark: - Section
     //[Harry] 테이블뷰 섹션 나누기
     func numberOfSections(in tableView: UITableView) -> Int {
         return alarmSectionHeader.count
@@ -50,11 +67,15 @@ extension AlarmVC: UITableViewDataSource {
         return alarmSectionHeader[section]
     }
 
-    // Mark: - Row Cell
-    
+    // ⭐️ Mark: - Row Cell
     //[Harry] protocol stubs - 얼마나 많은 Raw와 Cell을 테이블뷰에 추가할 것인가?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MockupData.count
+        //[Harry] sectionCounter()에서 계산된 셀 숫자에 맞게 띄우기
+        if section == 0 {
+            return sectionOneCounter
+        } else {
+            return sectionTwoCounter
+        }
     }
     
     //[Harry] protocol stubs - indexPath(테이블뷰 상의 위치)에 어떤 것을 보여줄 것인가?

@@ -33,7 +33,7 @@
 		D0AA1B8D280057C0005A0C7C /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */; };
 		D0AA1B8E280057C0005A0C7C /* AlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */; };
 		D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */; };
-		D0D1D82627FF367D00EF4EE3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82527FF367D00EF4EE3 /* Alarm.swift */; };
+		D0D1D82627FF367D00EF4EE3 /* AlarmBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */; };
 		E184B82B0CEAF33774C79D1C /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD93BB37FAC3FF440CD808B0 /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,7 @@
 		D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmCell.xib; sourceTree = "<group>"; };
 		D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
-		D0D1D82527FF367D00EF4EE3 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 				931A397F27FC395800D760D4 /* WeatherModel.swift */,
 				931443ED27FEB32100E33442 /* ParsingCSV.swift */,
 				D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */,
-				D0D1D82527FF367D00EF4EE3 /* Alarm.swift */,
+				D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */,
 				6C65063D2805AA360006784A /* AirPolutionManager.swift */,
 			);
 			path = Model;
@@ -308,7 +308,7 @@
 				6C65063E2805AA360006784A /* AirPolutionManager.swift in Sources */,
 				931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */,
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
-				D0D1D82627FF367D00EF4EE3 /* Alarm.swift in Sources */,
+				D0D1D82627FF367D00EF4EE3 /* AlarmBrain.swift in Sources */,
 				931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */,
 				D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */,
 				931D312D27FA836000B3C497 /* Constants.swift in Sources */,

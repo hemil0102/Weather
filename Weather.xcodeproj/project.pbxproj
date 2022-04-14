@@ -30,10 +30,12 @@
 		93FE03B327F70C1200D6E0C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FE03B127F70C1200D6E0C2 /* Main.storyboard */; };
 		93FE03B527F70C1300D6E0C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93FE03B427F70C1300D6E0C2 /* Assets.xcassets */; };
 		93FE03B827F70C1300D6E0C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FE03B627F70C1300D6E0C2 /* LaunchScreen.storyboard */; };
+		D047771F2806F8AD00D158C2 /* AlarmCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047771D2806F8AD00D158C2 /* AlarmCell2.swift */; };
+		D04777202806F8AD00D158C2 /* AlarmCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D047771E2806F8AD00D158C2 /* AlarmCell2.xib */; };
 		D0AA1B8D280057C0005A0C7C /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */; };
 		D0AA1B8E280057C0005A0C7C /* AlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */; };
 		D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */; };
-		D0D1D82627FF367D00EF4EE3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82527FF367D00EF4EE3 /* Alarm.swift */; };
+		D0D1D82627FF367D00EF4EE3 /* AlarmBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */; };
 		E184B82B0CEAF33774C79D1C /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD93BB37FAC3FF440CD808B0 /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +68,12 @@
 		93FE03B927F70C1300D6E0C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7C490E58B823ECC16FFB4D7 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		BD93BB37FAC3FF440CD808B0 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D047771D2806F8AD00D158C2 /* AlarmCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell2.swift; sourceTree = "<group>"; };
+		D047771E2806F8AD00D158C2 /* AlarmCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmCell2.xib; sourceTree = "<group>"; };
 		D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmCell.xib; sourceTree = "<group>"; };
 		D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
-		D0D1D82527FF367D00EF4EE3 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				6C37520F27FB183F00429241 /* WeatherDetailCell.xib */,
 				D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */,
 				D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */,
+				D047771D2806F8AD00D158C2 /* AlarmCell2.swift */,
+				D047771E2806F8AD00D158C2 /* AlarmCell2.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,7 +165,7 @@
 				931A397F27FC395800D760D4 /* WeatherModel.swift */,
 				931443ED27FEB32100E33442 /* ParsingCSV.swift */,
 				D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */,
-				D0D1D82527FF367D00EF4EE3 /* Alarm.swift */,
+				D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */,
 				6C65063D2805AA360006784A /* AirPolutionManager.swift */,
 			);
 			path = Model;
@@ -244,6 +250,7 @@
 				6C37521127FB183F00429241 /* WeatherDetailCell.xib in Resources */,
 				93FE03B527F70C1300D6E0C2 /* Assets.xcassets in Resources */,
 				D0AA1B8E280057C0005A0C7C /* AlarmCell.xib in Resources */,
+				D04777202806F8AD00D158C2 /* AlarmCell2.xib in Resources */,
 				93FE03B327F70C1200D6E0C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,11 +315,12 @@
 				6C65063E2805AA360006784A /* AirPolutionManager.swift in Sources */,
 				931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */,
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
-				D0D1D82627FF367D00EF4EE3 /* Alarm.swift in Sources */,
+				D0D1D82627FF367D00EF4EE3 /* AlarmBrain.swift in Sources */,
 				931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */,
 				D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */,
 				931D312D27FA836000B3C497 /* Constants.swift in Sources */,
 				931A398227FC71F300D760D4 /* SearchModalVC.swift in Sources */,
+				D047771F2806F8AD00D158C2 /* AlarmCell2.swift in Sources */,
 				931A397A27FC00C500D760D4 /* WeatherData.swift in Sources */,
 				931A397C27FC00D100D760D4 /* WeatherManager.swift in Sources */,
 				931D312727FA826D00B3C497 /* WeatherVC.swift in Sources */,

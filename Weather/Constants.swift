@@ -19,8 +19,10 @@ struct Keys {
     }
     
     // [Harry]
-    static let alarmCellNibName = "AlarmCell"
-    static let alarmCellIdentifier = "AlarmCellIdentifier"
+    static let alarmCellOneNibName = "AlarmCell"
+    static let alarmCellOneIdentifier = "AlarmCellOneIdentifier"
+    static let alarmCellTwoNibName = "AlarmCell2"
+    static let alarmCellTwoIdentifier = "AlarmCellTwoIdentifier"
 }
 
 struct ViewIdentifier {

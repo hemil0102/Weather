@@ -7,7 +7,7 @@
 
 import Foundation
 
-// ??? 이거 내가 왜 추가했지 ???
-struct Alarm {
-    
+// 알람 기능 구현부
+struct AlarmBrain {
+    var myAlarm: AlarmModel? //객체화
 }

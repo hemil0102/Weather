@@ -23,6 +23,14 @@ struct CurrWeather {
     let wind_speed: Double
     let conditionID: Int
     let description: String
+    var descriptionKor: String {
+        switch self.description {
+        case "overcast clouds":
+            return "우중충한 구름"
+        default:
+            return "구름"
+        }
+    }
 }
 
 struct DailyData {

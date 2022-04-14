@@ -15,7 +15,13 @@ class EditAlarmVC: UIViewController {
         
     }
     
-    @IBAction func closeViewBtnAct(_ sender: UIButton) {
-        dismiss(animated: true, completion: .none)
+    @IBAction func saveBtnAct(_ sender: UIButton) {
+        //[Walter] 상태 저장
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelBtnAct(_ sender: UIButton) {
+        //[Walter] 취소
+        dismiss(animated: true, completion: nil)
     }
 }

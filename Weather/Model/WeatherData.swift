@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - [Walter] 현재 날짜 데이터 구조체
 struct WeatherData: Codable {
     let current: Current            // 지역명
     let daily: [Daily]
@@ -45,7 +46,7 @@ struct Temp: Codable {
     let morn: Double
 }
 
-//[Jongmin] 미세먼지 데이터 구조체
+// MARK: - [Jongmin] 미세먼지 데이터 구조체
 struct AirPolution: Codable {
     let list: [List]
 }
@@ -59,4 +60,4 @@ struct Components: Codable {
     let pm10: Double
 }
 
-
+// MARK: - [Walter] 지난 시간 날짜 데이터 구조체

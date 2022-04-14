@@ -16,6 +16,9 @@ class HomeVC: GADBaseVC {
     @IBOutlet weak var currStateLabel: UILabel!
     @IBOutlet weak var currWeatherBackground: UIImageView!
     @IBOutlet weak var currWeatherLabel: UILabel!
+    @IBOutlet weak var alarmMemoLabelBackground: UIView!
+    @IBOutlet weak var alarmMemoLabel: UILabel!
+    @IBOutlet weak var BottomBannerView: UIView!
     
     //Model
     var weatherManager = WeatherManager()
@@ -26,43 +29,40 @@ class HomeVC: GADBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.delegate = self
-        
         setupBannerViewToBottom()       //[Walter] 하단 적응형 광고 띄우기
         configureCurrWeatherViews()         //[Walter] View 모양 설정
         
         self.locationManager.delegate = self
         self.weatherManager.delegate = self
         
-        //DateTime Format
+        // 날짜를 Date로
+//        let dateStr = "2022-04-14 05:52"
 //        let dateFormatter = DateFormatter()
-//        let date = Date(timeIntervalSinceReferenceDate: 1649412000)
+//        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+//        if let date:Date = dateFormatter.date(from: dateStr) {
+//            print("날짜를 데이터 포맷으로 변경 : \(date)")
+//        } else {
+//            print("날짜를 데이터 포맷으로 변경하기 실패")
+//        }
+        
+        // Date를 날짜로
+//        let dateFormatter2 = DateFormatter()
+//        let date = Date(timeIntervalSinceReferenceDate: 1649925797)
 //
-//        dateFormatter.locale = Locale(identifier: "ko_KR")
-//        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMdHHmm") // set template after setting locale
-//        print(dateFormatter.string(from: date))
+//        dateFormatter2.locale = Locale(identifier: "ko_KR")
+//        dateFormatter2.setLocalizedDateFormatFromTemplate("yyyy-MM-dd hh:mm") // set template after setting locale
+//        print("데이터 포맷을 날짜로 변경 : \(dateFormatter2.string(from: date))")
     }
     
     //날씨 배경 모서리 둥글게
     func configureCurrWeatherViews() {
-        currWeatherBackground.layer.cornerRadius = 15
+        self.currWeatherBackground.layer.cornerRadius = 15
+        self.alarmMemoLabelBackground.layer.cornerRadius = 15
     }
     
     //현재 위치 좌표 가져오기 호출
     @IBAction func currLocationWeatherBtnAct(_ sender: UIButton) {
         locationManager.requestLocation()
-    }
-}
-
-// MARK: - UITabBarControllerDelegate
-extension HomeVC: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-//        print("탭 번호 \(tabBarController.selectedIndex)")
-        guard let weatherTab = viewController as? WeatherVC else { return }
-        if let model = model {
-            print("modelllll \(model.currWeather.temp)")
-//            weatherTab.wModel = model
-        }
     }
 }
 
@@ -78,7 +78,7 @@ extension HomeVC: WeatherManagerDelegate {
             let cHumidity = weather.currWeather.humidity
 //            let cWind_speed = weather.currWeather.wind_speed
             let cCloud = weather.currWeather.clouds
-            let cDescription = weather.currWeather.description
+            let cDescription = weather.currWeather.descriptionKor
             
             self.placeNameLabel.text = "\(si) \(dong)"
             self.currStateLabel.text = "\(cDescription)"

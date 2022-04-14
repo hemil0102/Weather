@@ -17,6 +17,7 @@ protocol WeatherManagerDelegate {
 struct WeatherManager {
     var delegate: WeatherManagerDelegate?
     let oneCallApiUrl = "https://api.openweathermap.org/data/2.5/onecall"
+    let historyCallApiUrl = "https://api.openweathermap.org/data/2.5/onecall/timemachine"
     var parseCSV = ParsingCSV()
     
     /*
@@ -50,16 +51,40 @@ struct WeatherManager {
             "units": "metric"
         ]
     
-        performRequest(param: param)
+        performRequestToGetCurrWeather(param: param)            //현재 날씨 데이터 가져오기
+        getWeatherHistoryWithCoordinate(lat: lat, lon: lon)
     }
     
-    //[Walter] 날씨 요청
-    func performRequest(param: Parameters) {
+    //[Walter] 지난 날짜 데이터 가져오기
+    func getWeatherHistoryWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+        /*
+         1. 현재 날짜와
+         */
+        
+        //문자열 날짜포맷을 dt포맷으로 변환
+        let dateStr = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMMdHHmm"
+        guard let date:Date = dateFormatter.date(from: dateStr) else { return }
+        
+        let param: Parameters = [
+            "lat": lat,
+            "lon": lon,
+            "dt": date,
+            "appid": Keys.ApiId.weatherAppId
+        ]
+        
+        performRequestToGetHistoryWeather(param: param)         //지난 날짜 데이터 가져오기
+    }
+    
+    //[Walter] 현재 날씨 요청
+    func performRequestToGetCurrWeather(param: Parameters) {
         AF.request(oneCallApiUrl, parameters: param)
             .responseDecodable(of: WeatherData.self) { response in
 //                print("received weater data : \(response)")
                 switch response.result {
-                    //성공
+                
+                //성공
                 case .success(let value):
 //                    print("날씨 정보 : \(value)")
                     //현재 날씨
@@ -72,12 +97,36 @@ struct WeatherManager {
                     let cConditionID = value.current.weather[0].id
                     let cDescription = value.current.weather[0].description
                     
-                    let current = CurrWeather(temp: cTemp, sunrise: cSunrise, sunset: cSunset, humidity: cHumidity, clouds: cClouds, wind_speed: cWind_speed, conditionID: cConditionID, description: cDescription)
+                    let current = CurrWeather(
+                        temp: cTemp,
+                        sunrise: cSunrise,
+                        sunset: cSunset,
+                        humidity: cHumidity,
+                        clouds: cClouds,
+                        wind_speed: cWind_speed,
+                        conditionID: cConditionID,
+                        description: cDescription
+                    )
                     
                     //7일간의 일일 날씨 예측
                     var dailyData:[DailyData] = []
                     for daily in value.daily {
-                        dailyData.append(DailyData(day: daily.temp.day, min: daily.temp.min, max: daily.temp.max, night: daily.temp.night, eve: daily.temp.eve, morn: daily.temp.morn, humidity: daily.humidity, wind_speed: daily.wind_speed, conditionID: daily.weather[0].id, description: daily.weather[0].description, clouds: daily.clouds, uvi: daily.uvi))
+                        dailyData.append(
+                            DailyData(
+                                day: daily.temp.day,
+                                min: daily.temp.min,
+                                max: daily.temp.max,
+                                night: daily.temp.night,
+                                eve: daily.temp.eve,
+                                morn: daily.temp.morn,
+                                humidity: daily.humidity,
+                                wind_speed: daily.wind_speed,
+                                conditionID: daily.weather[0].id,
+                                description: daily.weather[0].description,
+                                clouds: daily.clouds,
+                                uvi: daily.uvi
+                            )
+                        )
                     }
                     
                     let weatherModel = WeatherModel(
@@ -87,12 +136,21 @@ struct WeatherManager {
                         daily: dailyData
                     )
                     self.delegate?.didUpdateWeatherViews(weather: weatherModel)
-                    //실패
+                    
+                //실패
                 case .failure(let error):
                     print("error: \(String(describing: error.errorDescription))")
                     self.delegate?.didFailWithError(error: error)
                 }
             }
+    }
+    
+    //[Walter] 지난 시간 날씨 요청
+    func performRequestToGetHistoryWeather(param: Parameters) {
+//        AF.request(oneCallApiUrl, parameters: param)
+//            .responseDecodable(of: WeatherData.self) { response in
+//
+//            }
     }
 }
 

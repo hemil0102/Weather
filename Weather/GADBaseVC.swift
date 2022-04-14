@@ -82,7 +82,7 @@ extension GADBaseVC: GADBannerViewDelegate {
         // for a future orientation change or different orientation, the function for the
         // relevant orientation should be used.
         bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-        print("bnnerView Size : \(bannerView.adSize.size)")
+        print("bnnerView 하단 Size : \(bannerView.adSize.size.height)")
 
         // Step 4 - Create an ad request and load the adaptive banner ad.
         bannerView.load(GADRequest())

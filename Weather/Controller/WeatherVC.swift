@@ -12,10 +12,7 @@ class WeatherVC: GADBaseVC {
     //[jongmin] 주간 날씨 표시용 테이블 뷰
     @IBOutlet weak var weatherDetailTableView: UITableView!
     
-    //[jongmin] 일일 날씨 상세 정보용 스크롤 뷰/페이지 컨트롤
-    @IBOutlet weak var infoDetailScrollView: UIScrollView!
-    @IBOutlet weak var infoDetailPageControl: UIPageControl!
-    
+    @IBOutlet weak var sunRiseImageView: UIImageView!
     //[jongmin] 임시 뷰 백그라운드 컬러
     var tempImage = [UIImage(systemName: "sunrise"), UIImage(systemName: "cloud.drizzle"), UIImage(systemName: "moon.stars")]
     var imageViews = [UIImageView]()
@@ -31,12 +28,7 @@ class WeatherVC: GADBaseVC {
         
         //[Walter] 하단 적응형 광고 띄우기
         setupBannerViewToBottom()
-        
-        //[jongmin] 스크롤 뷰 델리게이트
-        infoDetailScrollView.delegate = self
-        addContentScrollView()
-        setPageControl()
-        
+    
         //[jongmin] 임시 대기정보 인스턴스 생성
         let tempInstance = AirPolutionManager()
     }
@@ -50,7 +42,7 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
     
     //[종민] 테이블 뷰 개수 함수(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 //데이터 개수... 주간 데이터 개수 10개정도 스크롤뷰로 구현
+        return 7 //데이터 개수... 주간 데이터 개수 10개정도 스크롤뷰로 구현
     }
     //[종민] 테이블 뷰 데이터 세팅(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,45 +59,6 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-//[jongmin] 가로 스크롤뷰+페이지뷰 구현 익스텐션
-extension WeatherVC: UIScrollViewDelegate {
-    
-    //[jongmin] 스크롤뷰에 이미지 서브뷰 삽입
-    func addContentScrollView() {
-        for i in 0 ..< tempImage.count {
-            let imageView = UIImageView()
-            let xPos = self.view.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: 0, width: infoDetailScrollView.bounds.width, height: infoDetailScrollView.bounds.height)
-            imageView.image = tempImage[i] //[jongmin] 이부위 나중에 뷰로 대체해서 넣을 예정
-            infoDetailScrollView.addSubview(imageView) //[jongmin] 스크롤 뷰에 이미지 서브뷰 삽입
-            infoDetailScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) //스크롤 뷰 폭 정의
-        }
-    }
-    
-    //[jongmin] 페이지 컨트롤 초기 설정
-    func setPageControl() {
-        //[jongmin] 페이지 컨트롤 개수
-        infoDetailPageControl.numberOfPages = tempImage.count
-        //[jongmin] 페이지 뷰 도트 색
-        infoDetailPageControl.pageIndicatorTintColor = .lightGray
-        //[jongmin] 현재 페이지 도트 색
-        infoDetailPageControl.currentPageIndicatorTintColor = .black
-    }
-    
-    //[jongmin] 스크롤 뷰 세팅
-    func setPageControlSelectedPage(currentPage: Int) {
-        infoDetailPageControl.currentPage = currentPage
-    }
-    
-    //[jongmin] 스크롤뷰 오프셋/폭 사이즈 비율에 따라서 페이지 컨트롤 현재 페이지 결정
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let value = infoDetailScrollView.contentOffset.x/infoDetailScrollView.frame.size.width
-        setPageControlSelectedPage(currentPage: Int(round(value)))
-    }
-}
-
-
-
     /*
      [Jongmin]
      Weather 탭에서 보여줘야 할 정보 정리하기
@@ -118,8 +71,8 @@ extension WeatherVC: UIScrollViewDelegate {
      [jongmin] 220410
      상세화면 있는 이유는 홈에 없는 추가 정보를 제공하기 위해 있는것.
      
-     1. 상단에는 진짜 유용한 정보만 보여주고, 더 상세한 정보는 버튼으로 만들어서 팝업뷰로
-        (일출시간, 일몰시간, 미세먼지, 습도, 강우확률)
+     1. 상단에는 진짜 유용한 정보만 보여주고, 더 상세한 정보는 버튼으로 만들어서 팝업뷰로(이건 여력이 된다면..)
+        (일출시간, 일몰시간, 습도, 강우확률, 운량, 미세먼지 지수)
      
      2. 주간 테이블뷰
      

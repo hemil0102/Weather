@@ -17,6 +17,7 @@ class WeatherDetailCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        configDetailCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,6 +25,18 @@ class WeatherDetailCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+//[jongmin] 관련 세팅 함수
+extension WeatherDetailCell {
+    
+    func configDetailCell() {
+        self.layer.cornerRadius = 10.0
+        self.backgroundColor = UIColor(named: "MovelLilac")
+        
+    }
+    
     
 }
+
+//아이콘/

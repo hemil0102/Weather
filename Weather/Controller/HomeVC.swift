@@ -70,6 +70,7 @@ class HomeVC: GADBaseVC {
 extension HomeVC: WeatherManagerDelegate {
     func didUpdateWeatherViews(weather: WeatherModel) {
         self.model = weather
+        self.progressStop()
         DispatchQueue.main.async {
             //Update Views
             let si = weather.si
@@ -106,6 +107,7 @@ extension HomeVC: CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             //GPS 권한 요청을 수락
             print("권한 얻음")
+            self.progressStart(onView: self.view)
             weatherManager.getWeatherWithName(name: "구운동")
         default:
             break

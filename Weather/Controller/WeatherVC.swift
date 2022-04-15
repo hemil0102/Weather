@@ -8,6 +8,15 @@
 import UIKit
 
 class WeatherVC: GADBaseVC {
+    
+    //[jongmin] 이미지 뷰
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var imageView3: UIImageView!
+    @IBOutlet weak var imageView4: UIImageView!
+    @IBOutlet weak var imageView5: UIImageView!
+    @IBOutlet weak var imageView6: UIImageView!
+    
 
     //[jongmin] 주간 날씨 표시용 테이블 뷰
     @IBOutlet weak var weatherDetailTableView: UITableView!
@@ -31,10 +40,22 @@ class WeatherVC: GADBaseVC {
     
         //[jongmin] 임시 대기정보 인스턴스 생성
         let tempInstance = AirPolutionManager()
+        
+        setTempImageView()
+        
     }
     
     func setTableViewXIBCell() {
         self.weatherDetailTableView.register(UINib(nibName: ViewIdentifier.weatherDetailCellIdentifier, bundle: nil), forCellReuseIdentifier: ViewIdentifier.weatherDetailCell)
+    }
+    
+    func setTempImageView() {
+        imageView1.image = UIImage(systemName: "wind")
+        imageView2.image = UIImage(systemName: "wind")
+        imageView3.image = UIImage(systemName: "wind")
+        imageView4.image = UIImage(systemName: "wind")
+        imageView5.image = UIImage(systemName: "wind")
+        imageView6.image = UIImage(systemName: "wind")
     }
 }
 

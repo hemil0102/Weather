@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eyq-GI-VgT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e2q-Ub-247">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -792,200 +791,239 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림 시간 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgE-Cr-iwY">
-                                <rect key="frame" x="158.5" y="44" width="97" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgE-Cr-iwY">
+                                <rect key="frame" x="163" y="41" width="81" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nk5-sB-izB">
-                                <rect key="frame" x="50" y="114.5" width="314" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="reY-Px-s4d">
+                                <rect key="frame" x="153" y="433" width="120.5" height="31"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요일 반복" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Y-hz-CYL">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="31"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림 반복" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Y-hz-CYL">
+                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-XP-k5W">
-                                        <rect key="frame" x="264" y="0.0" width="52" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="a3Y-au-rsa"/>
-                                        </constraints>
+                                        <rect key="frame" x="71.5" y="0.0" width="51" height="31"/>
+                                        <color key="onTintColor" name="MovelYellow"/>
                                         <connections>
                                             <action selector="switchingActivationDayOfWeekBtns:" destination="t1f-WL-iRA" eventType="valueChanged" id="MpH-aU-x7f"/>
                                         </connections>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90999164003314392" green="0.90999164003314392" blue="0.90999164003314392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="JJD-7w-rfR">
-                                <rect key="frame" x="70.5" y="155.5" width="273.5" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="JJD-7w-rfR">
+                                <rect key="frame" x="46" y="166" width="326" height="41.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-Di-RYP">
-                                        <rect key="frame" x="0.0" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="41.5"/>
+                                        <color key="tintColor" name="MovelEmerald"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="월"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="월">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="bIY-6A-iYu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zZ-aD-NcB">
-                                        <rect key="frame" x="39.5" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="47" y="0.0" width="44" height="41.5"/>
+                                        <color key="tintColor" name="MovelEmerald"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="화"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="화">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="qnT-Dx-bYf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nZ-Lx-h9A">
-                                        <rect key="frame" x="79" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="94" y="0.0" width="44" height="41.5"/>
+                                        <color key="tintColor" name="MovelEmerald"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="수"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="수">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="Mez-ck-YUr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-Ak-Ag2">
-                                        <rect key="frame" x="118.5" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="141" y="0.0" width="44" height="41.5"/>
+                                        <color key="backgroundColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="목"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="목">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="5Qf-nw-qfe"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-32-duE">
-                                        <rect key="frame" x="158" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="188" y="0.0" width="44" height="41.5"/>
+                                        <color key="tintColor" name="MovelEmerald"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="금"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="금">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="nfw-jD-Q0M"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1V-Sj-fl1">
-                                        <rect key="frame" x="197.5" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="235" y="0.0" width="44" height="41.5"/>
+                                        <color key="tintColor" name="MovelEmerald"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="토"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="토">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="UVK-8X-esH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b5-zu-g4s">
-                                        <rect key="frame" x="237" y="0.0" width="36.5" height="31"/>
+                                        <rect key="frame" x="282" y="0.0" width="44" height="41.5"/>
+                                        <color key="tintColor" name="MovelEmerald"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="일"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="일">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="Uqd-sG-NJj"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LZF-s0-wY8">
-                                <rect key="frame" x="90" y="236.5" width="234" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oOt-QA-Qrs">
+                                <rect key="frame" x="147" y="231" width="132" height="33.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4월 10일 일요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U1-Ko-l7l">
-                                        <rect key="frame" x="0.0" y="0.0" width="164.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-aa-rrN">
-                                        <rect key="frame" x="176.5" y="0.0" width="57.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnc-WW-oiO">
+                                        <rect key="frame" x="87.5" y="0.0" width="44.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EOd-YD-G8r">
-                                <rect key="frame" x="50" y="316.5" width="314" height="31"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRk-2N-j9Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9g-Ec-2rM">
-                                        <rect key="frame" x="264" y="0.0" width="52" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="nA5-ue-BVY"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="switchingActivationSettingPlace:" destination="t1f-WL-iRA" eventType="valueChanged" id="ap9-Dw-e3D"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                            </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDb-NZ-Lwq">
-                                <rect key="frame" x="50" y="357.5" width="314" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 줄 할일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-Go-eng">
-                                <rect key="frame" x="50" y="441.5" width="314" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="한 줄 메모" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-Go-eng">
+                                <rect key="frame" x="50" y="503" width="314" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIJ-jX-TCa">
-                                <rect key="frame" x="50" y="472" width="314" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="최대 20자" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5Q-pt-MyA">
+                                <rect key="frame" x="50" y="566" width="314" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIJ-jX-TCa">
+                                <rect key="frame" x="50" y="533" width="314" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9U-ad-xUN">
-                                <rect key="frame" x="355.5" y="39" width="48.5" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9U-ad-xUN">
+                                <rect key="frame" x="353.5" y="38" width="59" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="MovelEmerald"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="저장"/>
+                                <buttonConfiguration key="configuration" style="plain" title="저장">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveBtnAct:" destination="t1f-WL-iRA" eventType="touchUpInside" id="sqo-3w-TNq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dW-LI-sVN">
-                                <rect key="frame" x="9" y="39" width="48.5" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dW-LI-sVN">
+                                <rect key="frame" x="7" y="38" width="59" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="MovelEmerald"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="취소"/>
+                                <buttonConfiguration key="configuration" style="plain" title="취소">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="cancelBtnAct:" destination="t1f-WL-iRA" eventType="touchUpInside" id="GUY-Bg-nry"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="T1L-2z-OHe">
+                                <rect key="frame" x="48" y="143" width="319.5" height="14.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAW-nw-B8K">
+                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7M-Rj-pyP">
+                                        <rect key="frame" x="47.5" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8s-0r-GAT">
+                                        <rect key="frame" x="95" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVD-8Z-Qhg">
+                                        <rect key="frame" x="142.5" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhY-xX-zd3">
+                                        <rect key="frame" x="190" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqm-eh-owv">
+                                        <rect key="frame" x="237.5" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LD-yV-773">
+                                        <rect key="frame" x="285" y="0.0" width="34.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exA-6o-SgM">
+                                <rect key="frame" x="45" y="272" width="326" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Movel Logo - Rainbow" translatesAutoresizingMaskIntoConstraints="NO" id="4Up-ph-Kca">
+                                <rect key="frame" x="87" y="827" width="240" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t16-3Y-oz7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="cIJ-jX-TCa" firstAttribute="top" secondItem="rGv-Go-eng" secondAttribute="bottom" constant="10" id="1Mj-Hv-i3T"/>
-                            <constraint firstItem="rGv-Go-eng" firstAttribute="top" secondItem="YDb-NZ-Lwq" secondAttribute="bottom" constant="50" id="7Qb-8T-Y9o"/>
-                            <constraint firstItem="t16-3Y-oz7" firstAttribute="trailing" secondItem="G9U-ad-xUN" secondAttribute="trailing" constant="10" id="Cgt-nq-6E0"/>
-                            <constraint firstItem="LZF-s0-wY8" firstAttribute="top" secondItem="JJD-7w-rfR" secondAttribute="bottom" constant="50" id="Fyh-6X-u1P"/>
-                            <constraint firstItem="EOd-YD-G8r" firstAttribute="leading" secondItem="t16-3Y-oz7" secondAttribute="leading" constant="50" id="NmY-em-WKW"/>
-                            <constraint firstItem="5dW-LI-sVN" firstAttribute="leading" secondItem="t16-3Y-oz7" secondAttribute="leading" constant="9" id="NnM-KK-xGi"/>
-                            <constraint firstItem="cIJ-jX-TCa" firstAttribute="leading" secondItem="t16-3Y-oz7" secondAttribute="leading" constant="50" id="Ps1-Jk-nqj"/>
-                            <constraint firstItem="t16-3Y-oz7" firstAttribute="trailing" secondItem="nk5-sB-izB" secondAttribute="trailing" constant="50" id="UfZ-zP-1ce"/>
-                            <constraint firstItem="JJD-7w-rfR" firstAttribute="top" secondItem="nk5-sB-izB" secondAttribute="bottom" constant="10" id="WSR-JY-OmD"/>
-                            <constraint firstItem="LZF-s0-wY8" firstAttribute="centerX" secondItem="1js-Vo-4On" secondAttribute="centerX" id="Weg-0Y-5tH"/>
-                            <constraint firstItem="YDb-NZ-Lwq" firstAttribute="leading" secondItem="t16-3Y-oz7" secondAttribute="leading" constant="50" id="Xo9-UW-4J3"/>
-                            <constraint firstItem="t16-3Y-oz7" firstAttribute="trailing" secondItem="YDb-NZ-Lwq" secondAttribute="trailing" constant="50" id="YMY-aX-axc"/>
-                            <constraint firstItem="DgE-Cr-iwY" firstAttribute="top" secondItem="t16-3Y-oz7" secondAttribute="top" id="ZnQ-Q6-ep2"/>
-                            <constraint firstItem="EOd-YD-G8r" firstAttribute="top" secondItem="LZF-s0-wY8" secondAttribute="bottom" constant="50" id="d8o-0O-jz9"/>
-                            <constraint firstItem="5dW-LI-sVN" firstAttribute="centerY" secondItem="DgE-Cr-iwY" secondAttribute="centerY" id="dCl-cz-SAJ"/>
-                            <constraint firstItem="t16-3Y-oz7" firstAttribute="trailing" secondItem="cIJ-jX-TCa" secondAttribute="trailing" constant="50" id="dmk-CF-XEj"/>
-                            <constraint firstItem="t16-3Y-oz7" firstAttribute="trailing" secondItem="EOd-YD-G8r" secondAttribute="trailing" constant="50" id="gHx-6d-Ogt"/>
-                            <constraint firstItem="rGv-Go-eng" firstAttribute="leading" secondItem="t16-3Y-oz7" secondAttribute="leading" constant="50" id="hGV-Fw-EAD"/>
-                            <constraint firstItem="t16-3Y-oz7" firstAttribute="trailing" secondItem="rGv-Go-eng" secondAttribute="trailing" constant="50" id="jE2-Zp-i6U"/>
-                            <constraint firstItem="nk5-sB-izB" firstAttribute="leading" secondItem="t16-3Y-oz7" secondAttribute="leading" constant="50" id="ks4-Rj-zZe"/>
-                            <constraint firstItem="nk5-sB-izB" firstAttribute="top" secondItem="DgE-Cr-iwY" secondAttribute="bottom" constant="50" id="o8M-jA-9ea"/>
-                            <constraint firstItem="JJD-7w-rfR" firstAttribute="centerX" secondItem="1js-Vo-4On" secondAttribute="centerX" id="qwb-sQ-H2o"/>
-                            <constraint firstItem="DgE-Cr-iwY" firstAttribute="centerX" secondItem="1js-Vo-4On" secondAttribute="centerX" id="rxQ-C5-pdQ"/>
-                            <constraint firstItem="G9U-ad-xUN" firstAttribute="centerY" secondItem="DgE-Cr-iwY" secondAttribute="centerY" id="tl3-fa-gdb"/>
-                            <constraint firstItem="YDb-NZ-Lwq" firstAttribute="top" secondItem="EOd-YD-G8r" secondAttribute="bottom" constant="10" id="wa1-Tb-M6v"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ich-ep-DBi"/>
                     <connections>
                         <outlet property="inputALineMemoTextField" destination="cIJ-jX-TCa" id="rc9-7V-A6S"/>
-                        <outlet property="inputPlaceTextField" destination="YDb-NZ-Lwq" id="puz-0N-PIg"/>
                         <outlet property="repeatingDayOfWeekSwitch" destination="FzS-XP-k5W" id="F88-7Y-mjO"/>
-                        <outlet property="settingPlaceSwitch" destination="A9g-Ec-2rM" id="lVp-VQ-Z2d"/>
                         <outletCollection property="DayOfWeekBtns" destination="1b5-zu-g4s" collectionClass="NSMutableArray" id="1YA-Zz-s5C"/>
                         <outletCollection property="DayOfWeekBtns" destination="n1V-Sj-fl1" collectionClass="NSMutableArray" id="OmU-E1-Ewr"/>
                         <outletCollection property="DayOfWeekBtns" destination="vfH-32-duE" collectionClass="NSMutableArray" id="bXA-gv-Ft9"/>
@@ -1001,6 +1039,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Movel Logo - Rainbow" width="1500" height="300"/>
         <image name="alarm" catalog="system" width="124" height="128"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="cloud" catalog="system" width="128" height="88"/>
@@ -1013,17 +1052,26 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="MovelEmerald">
+            <color red="0.47499999403953552" green="0.75300002098083496" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="MovelOrange">
             <color red="0.90600001811981201" green="0.58799999952316284" blue="0.41999998688697815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MovelRed">
             <color red="0.81999999284744263" green="0.44299998879432678" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="MovelYellow">
+            <color red="0.95300000905990601" green="0.73299998044967651" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

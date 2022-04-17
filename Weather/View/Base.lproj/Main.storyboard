@@ -625,18 +625,26 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lw3-vh-OT6">
                                                 <rect key="frame" x="129" y="415" width="255" height="84"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="매일 아침 10시 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZG-sL-ean">
-                                                        <rect key="frame" x="8" y="10" width="213" height="64"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매일 아침 10시 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZG-sL-ean">
+                                                        <rect key="frame" x="5" y="5" width="245" height="74"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="rZG-sL-ean" firstAttribute="top" secondItem="lw3-vh-OT6" secondAttribute="top" constant="5" id="4sE-k8-HEv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rZG-sL-ean" secondAttribute="bottom" constant="5" id="6hH-1h-Qnb"/>
+                                                    <constraint firstItem="rZG-sL-ean" firstAttribute="leading" secondItem="lw3-vh-OT6" secondAttribute="leading" constant="5" id="MyE-jz-w6u"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rZG-sL-ean" secondAttribute="trailing" constant="5" id="oxf-86-OVo"/>
+                                                </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음 날씨 알림 2022.04.14. 15:52" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbj-x2-ctn">
                                                 <rect key="frame" x="197" y="504" width="187" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="dJu-3K-Rd9"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -660,7 +668,9 @@
                                             <constraint firstItem="B2b-NC-f2Z" firstAttribute="leading" secondItem="Uvp-WH-cLJ" secondAttribute="leading" constant="5" id="75I-8Z-2fl"/>
                                             <constraint firstItem="FeJ-6R-GgN" firstAttribute="bottom" secondItem="Uvp-WH-cLJ" secondAttribute="bottom" constant="-5" id="7O4-1j-kB8"/>
                                             <constraint firstItem="KQc-6o-iYU" firstAttribute="top" secondItem="EQa-78-DyV" secondAttribute="bottom" constant="5" id="85S-VL-0Cn"/>
+                                            <constraint firstItem="lw3-vh-OT6" firstAttribute="top" secondItem="Uvp-WH-cLJ" secondAttribute="bottom" constant="60.5" id="8BX-AY-MT5"/>
                                             <constraint firstItem="jWx-eL-OOv" firstAttribute="leading" secondItem="YOv-tv-ax1" secondAttribute="leading" constant="10" id="8S4-un-LhP"/>
+                                            <constraint firstItem="lw3-vh-OT6" firstAttribute="top" secondItem="gBe-DK-tRf" secondAttribute="top" constant="415" id="9bX-Bh-cjb"/>
                                             <constraint firstItem="G2b-2C-71S" firstAttribute="leading" secondItem="Uvp-WH-cLJ" secondAttribute="leading" id="A3I-xl-fzY"/>
                                             <constraint firstItem="Uvp-WH-cLJ" firstAttribute="top" secondItem="EQa-78-DyV" secondAttribute="bottom" constant="-35" id="AxH-Wy-2BC"/>
                                             <constraint firstAttribute="trailing" secondItem="Uvp-WH-cLJ" secondAttribute="trailing" constant="20" symbolic="YES" id="DUZ-mQ-PZo"/>

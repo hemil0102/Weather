@@ -1,19 +1,17 @@
 //
-//  AlarmCell2.swift
+//  SearchAreaCell.swift
 //  Weather
 //
-//  Created by YEHROEI HO on 2022/04/13.
+//  Created by Walter J on 2022/04/18.
 //
 
 import UIKit
 
 class SearchAreaCell: UITableViewCell {
-    
-    @IBOutlet var weatherIconImageView: UIImageView!
-    @IBOutlet var showCurrLocationLabel: UILabel!
-    @IBOutlet var areaNameLabel: UILabel!
-    @IBOutlet var currTempLabel: UILabel!
-    @IBOutlet var currCloudLabel: UILabel!
+
+    @IBOutlet weak var showCurrLocationIcon: UIImageView!
+    @IBOutlet weak var showCurrLocationLabel: UILabel!
+    @IBOutlet weak var searchedAreaNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +20,8 @@ class SearchAreaCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
+    
 }

@@ -3,77 +3,67 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchAreaCell" rowHeight="119" id="KGk-i7-Jjw" customClass="SearchAreaCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
+        <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchAreaCell" id="KGk-i7-Jjw" customClass="SearchAreaCell" customModule="Weather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="SearchAreaCell" customModule="Weather">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="서울특별시 오목천동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56q-au-EV8">
-                        <rect key="frame" x="78" y="35" width="137" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jIj-Ml-ScH">
-                        <rect key="frame" x="15" y="11.5" width="55" height="55"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="jIj-Ml-ScH" secondAttribute="height" id="bOi-Mi-XkM"/>
-                            <constraint firstAttribute="width" constant="55" id="u6h-C6-a0D"/>
-                        </constraints>
-                    </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-Ma-cvQ">
-                        <rect key="frame" x="215" y="15" width="90" height="48"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="wGO-Iq-Mlt">
+                        <rect key="frame" x="15" y="18" width="290" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiH-3Y-Na3" customClass="SearchAreaCell">
-                                <rect key="frame" x="43.5" y="0.0" width="46.5" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lci-le-rSp">
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강수량 22%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9q-CL-HrG" customClass="SearchAreaCell">
-                                <rect key="frame" x="25" y="32" width="65" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="수원시 구운동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITT-pU-3qm">
+                                <rect key="frame" x="0.0" y="21" width="103.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="현재위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4J-Fp-Gr4">
-                        <rect key="frame" x="78" y="18.5" width="42" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe.asia.australia.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="89f-dq-oVa">
+                        <rect key="frame" x="70" y="20" width="15" height="14"/>
+                        <color key="tintColor" name="MovelLilac"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="T26-DH-1KT"/>
+                            <constraint firstAttribute="width" secondItem="89f-dq-oVa" secondAttribute="height" multiplier="1:1" id="z6p-Eo-WsZ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="jIj-Ml-ScH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="V6D-Xa-vs3"/>
-                    <constraint firstItem="jIj-Ml-ScH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="WGQ-RN-fkB"/>
-                    <constraint firstItem="56q-au-EV8" firstAttribute="leading" secondItem="jIj-Ml-ScH" secondAttribute="trailing" constant="8" symbolic="YES" id="XjC-6Y-oDi"/>
-                    <constraint firstAttribute="trailing" secondItem="yfb-Ma-cvQ" secondAttribute="trailing" constant="15" id="cba-Cy-utx"/>
-                    <constraint firstItem="yfb-Ma-cvQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dJO-37-4Nf"/>
-                    <constraint firstItem="yfb-Ma-cvQ" firstAttribute="leading" secondItem="56q-au-EV8" secondAttribute="trailing" id="etF-4M-dvF"/>
-                    <constraint firstItem="56q-au-EV8" firstAttribute="top" secondItem="w4J-Fp-Gr4" secondAttribute="bottom" constant="2" id="m7P-VW-a0a"/>
-                    <constraint firstItem="56q-au-EV8" firstAttribute="centerY" secondItem="jIj-Ml-ScH" secondAttribute="centerY" constant="6" id="mj1-7z-kGH"/>
-                    <constraint firstItem="w4J-Fp-Gr4" firstAttribute="leading" secondItem="56q-au-EV8" secondAttribute="leading" id="s6d-A1-K7c"/>
+                    <constraint firstItem="89f-dq-oVa" firstAttribute="leading" secondItem="Lci-le-rSp" secondAttribute="trailing" constant="3" id="EOA-tF-tdG"/>
+                    <constraint firstItem="wGO-Iq-Mlt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="LFh-FE-D3q"/>
+                    <constraint firstItem="89f-dq-oVa" firstAttribute="centerY" secondItem="Lci-le-rSp" secondAttribute="centerY" id="RlH-fZ-ZKM"/>
+                    <constraint firstItem="wGO-Iq-Mlt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="d1p-Rb-PZO"/>
+                    <constraint firstAttribute="trailing" secondItem="wGO-Iq-Mlt" secondAttribute="trailing" constant="15" id="oA5-H1-BJn"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="areaNameLabel" destination="56q-au-EV8" id="6Jz-xc-Pag"/>
-                <outlet property="currCloudLabel" destination="U9q-CL-HrG" id="nfO-OS-1ya"/>
-                <outlet property="currTempLabel" destination="XiH-3Y-Na3" id="Qed-I9-qfq"/>
-                <outlet property="showCurrLocationLabel" destination="w4J-Fp-Gr4" id="nB9-9K-Iyp"/>
-                <outlet property="weatherIconImageView" destination="jIj-Ml-ScH" id="8CE-dj-G4x"/>
+                <outlet property="searchedAreaNameLabel" destination="ITT-pU-3qm" id="WwK-p8-3f0"/>
+                <outlet property="showCurrLocationIcon" destination="89f-dq-oVa" id="VfC-AS-Oww"/>
+                <outlet property="showCurrLocationLabel" destination="Lci-le-rSp" id="VJk-7m-5kJ"/>
             </connections>
-            <point key="canvasLocation" x="153.62318840579712" y="158.70535714285714"/>
+            <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="globe.asia.australia.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="MovelLilac">
+            <color red="0.45899999141693115" green="0.55699998140335083" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

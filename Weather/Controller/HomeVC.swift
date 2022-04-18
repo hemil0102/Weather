@@ -27,6 +27,9 @@ class HomeVC: GADBaseVC {
     var parseCSV = ParsingCSV()
     var model: WeatherModel?
     
+    //delegate
+    let searchAreaModalVC = SearchModalVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +38,8 @@ class HomeVC: GADBaseVC {
         
         self.locationManager.delegate = self
         self.weatherManager.delegate = self
+        
+        self.searchAreaModalVC.delegate = self
         
         // 날짜를 Date로
 //        let dateStr = "2022-04-14 05:52"
@@ -76,6 +81,13 @@ class HomeVC: GADBaseVC {
 //        if segue.identifier == Keys.homeToSearchAreaModal {
 //            guard let searchAreaModal = storyboard?.instantiateViewController(withIdentifier: Keys.searchArea.storyboardId) else { return }
 //        }
+    }
+}
+
+//MARK: - SearchModalDelegate
+extension HomeVC: SearchAreaModalDelegate {
+    func searchedArea(coordinate: CLLocationCoordinate2D) {
+        print("전달 받은 좌표 \(coordinate)")
     }
 }
 

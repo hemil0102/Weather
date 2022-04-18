@@ -14,6 +14,9 @@
 		931443EA27FEB14F00E33442 /* korea.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443E927FEB14F00E33442 /* korea.csv */; };
 		931443EC27FEB23F00E33442 /* korea_local_goverment.csv in Resources */ = {isa = PBXBuildFile; fileRef = 931443EB27FEB23F00E33442 /* korea_local_goverment.csv */; };
 		931443EE27FEB32100E33442 /* ParsingCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931443ED27FEB32100E33442 /* ParsingCSV.swift */; };
+		931510EC280D52B000B59FC5 /* SearchAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931510EA280D52B000B59FC5 /* SearchAreaCell.swift */; };
+		931510ED280D52B000B59FC5 /* SearchAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931510EB280D52B000B59FC5 /* SearchAreaCell.xib */; };
+		931510F0280D6C6F00B59FC5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931510EF280D6C6F00B59FC5 /* CustomTextField.swift */; };
 		931A397A27FC00C500D760D4 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397927FC00C500D760D4 /* WeatherData.swift */; };
 		931A397C27FC00D100D760D4 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397B27FC00D100D760D4 /* WeatherManager.swift */; };
 		931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A397D27FC215000D760D4 /* ConvertEngToKor.swift */; };
@@ -48,6 +51,9 @@
 		931443E927FEB14F00E33442 /* korea.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea.csv; sourceTree = "<group>"; };
 		931443EB27FEB23F00E33442 /* korea_local_goverment.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = korea_local_goverment.csv; sourceTree = "<group>"; };
 		931443ED27FEB32100E33442 /* ParsingCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingCSV.swift; sourceTree = "<group>"; };
+		931510EA280D52B000B59FC5 /* SearchAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAreaCell.swift; sourceTree = "<group>"; };
+		931510EB280D52B000B59FC5 /* SearchAreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAreaCell.xib; sourceTree = "<group>"; };
+		931510EF280D6C6F00B59FC5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		931A397927FC00C500D760D4 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		931A397B27FC00D100D760D4 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		931A397D27FC215000D760D4 /* ConvertEngToKor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertEngToKor.swift; sourceTree = "<group>"; };
@@ -105,6 +111,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		931510EE280D6C5200B59FC5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				931510EF280D6C6F00B59FC5 /* CustomTextField.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		93FE039F27F70C1200D6E0C2 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +143,7 @@
 				93FE03C027F70C2600D6E0C2 /* Model */,
 				93FE03BF27F70C1B00D6E0C2 /* View */,
 				93FE03C127F70C2B00D6E0C2 /* Controller */,
+				931510EE280D6C5200B59FC5 /* Utils */,
 				931D312C27FA836000B3C497 /* Constants.swift */,
 				931D312E27FA870700B3C497 /* GADBaseVC.swift */,
 				931A397D27FC215000D760D4 /* ConvertEngToKor.swift */,
@@ -153,6 +168,8 @@
 				D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */,
 				D047771D2806F8AD00D158C2 /* AlarmCell2.swift */,
 				D047771E2806F8AD00D158C2 /* AlarmCell2.xib */,
+				931510EA280D52B000B59FC5 /* SearchAreaCell.swift */,
+				931510EB280D52B000B59FC5 /* SearchAreaCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931510ED280D52B000B59FC5 /* SearchAreaCell.xib in Resources */,
 				931443EA27FEB14F00E33442 /* korea.csv in Resources */,
 				931443EC27FEB23F00E33442 /* korea_local_goverment.csv in Resources */,
 				93FE03B827F70C1300D6E0C2 /* LaunchScreen.storyboard in Resources */,
@@ -308,6 +326,7 @@
 				93FE03B027F70C1200D6E0C2 /* HomeVC.swift in Sources */,
 				93FE03AC27F70C1200D6E0C2 /* AppDelegate.swift in Sources */,
 				93FE03AE27F70C1200D6E0C2 /* SceneDelegate.swift in Sources */,
+				931510F0280D6C6F00B59FC5 /* CustomTextField.swift in Sources */,
 				931A398027FC395800D760D4 /* WeatherModel.swift in Sources */,
 				D0AA1B8D280057C0005A0C7C /* AlarmCell.swift in Sources */,
 				931443EE27FEB32100E33442 /* ParsingCSV.swift in Sources */,
@@ -316,6 +335,7 @@
 				931D312F27FA870700B3C497 /* GADBaseVC.swift in Sources */,
 				931D312927FA828900B3C497 /* AlarmVC.swift in Sources */,
 				D0D1D82627FF367D00EF4EE3 /* AlarmBrain.swift in Sources */,
+				931510EC280D52B000B59FC5 /* SearchAreaCell.swift in Sources */,
 				931A397E27FC215000D760D4 /* ConvertEngToKor.swift in Sources */,
 				D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */,
 				931D312D27FA836000B3C497 /* Constants.swift in Sources */,
@@ -474,7 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z7DU6436DS;
+				DEVELOPMENT_TEAM = 5S4XBZ2ACZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -503,7 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z7DU6436DS;
+				DEVELOPMENT_TEAM = 5S4XBZ2ACZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

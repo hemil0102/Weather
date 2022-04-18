@@ -12,6 +12,7 @@ import CoreLocation
 class HomeVC: GADBaseVC {
     //Views
     //현재 날씨 정보 뷰들
+    @IBOutlet weak var placeNameBackView: UIView!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var currStateLabel: UILabel!
     @IBOutlet weak var currWeatherBackground: UIImageView!
@@ -58,11 +59,23 @@ class HomeVC: GADBaseVC {
     func configureCurrWeatherViews() {
         self.currWeatherBackground.layer.cornerRadius = 15
         self.alarmMemoLabelBackground.layer.cornerRadius = 15
+        self.placeNameBackView.layer.cornerRadius = 15
     }
     
     //현재 위치 좌표 가져오기 호출
     @IBAction func currLocationWeatherBtnAct(_ sender: UIButton) {
         locationManager.requestLocation()
+    }
+    
+    //지역 검색 모달 호출
+    @IBAction func callSearchAreaModalBtnAct(_ sender: UIButton) {
+        performSegue(withIdentifier: Keys.searchArea.segueId, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == Keys.homeToSearchAreaModal {
+//            guard let searchAreaModal = storyboard?.instantiateViewController(withIdentifier: Keys.searchArea.storyboardId) else { return }
+//        }
     }
 }
 

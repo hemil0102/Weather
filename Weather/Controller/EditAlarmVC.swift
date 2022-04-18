@@ -10,7 +10,7 @@ import UIKit
 class EditAlarmVC: UIViewController {
     
     //[Harry] 변수 선언 및 정의
-    let EditAlarmBrain = AlarmBrain()
+    var EditAlarmBrain = AlarmBrain()
     @IBOutlet weak var repeatingDayOfWeekSwitch: UISwitch!
     @IBOutlet var DayOfWeekBtns: [UIButton]!
     @IBOutlet weak var inputALineMemoTextField: UITextField!
@@ -42,6 +42,17 @@ class EditAlarmVC: UIViewController {
     
     @IBAction func selectedDayOfWeek(_ sender: UIButton) {
         
+        for Btn in self.DayOfWeekBtns {
+            if Btn == sender && Btn.isSelected == false {
+                Btn.isSelected = true
+                Btn.backgroundColor = UIColor(named: "MovelEmerald")
+                Btn.setTitleColor(.white, for: .normal)
+            } else if Btn == sender && Btn.isSelected == true {
+                Btn.isSelected = false
+                Btn.backgroundColor = .white
+                Btn.setTitleColor(UIColor(named: "MovelEmerald"), for: .normal)
+            }
+        }
     }
     
     //[Harry] 현재 요일에 today 마크를 표시하기

@@ -24,3 +24,9 @@ struct AlarmModel {
 // [Harry] 알람 헤더 지정
     let alarmSectionHeader = ["반복 요일 알람", "특정 요일 알람"]
 
+// [Harry] 알람 설정 피커뷰 범위
+struct AlarmPickerRange {
+    var alarmPickerViewHours: [Int] = Array(0...12)
+    var alarmPickerViewMinutes: [Int] = Array(0...59)
+    var alarmPickerViewMeridiems: [String] = ["AM", "PM"]
+}

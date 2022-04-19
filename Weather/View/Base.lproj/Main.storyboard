@@ -365,6 +365,7 @@
                                             <constraint firstAttribute="bottom" secondItem="E3R-46-gYR" secondAttribute="bottom" constant="10" id="M2x-rM-ikT"/>
                                             <constraint firstItem="SUQ-eD-tlx" firstAttribute="leading" secondItem="E3R-46-gYR" secondAttribute="trailing" constant="10" id="MM7-Qi-bFq"/>
                                             <constraint firstItem="SUQ-eD-tlx" firstAttribute="height" secondItem="E3R-46-gYR" secondAttribute="height" id="NWK-AY-uiw"/>
+                                            <constraint firstAttribute="height" constant="290" id="xzG-qk-JmA"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IXt-7v-Qjw">
@@ -375,13 +376,12 @@
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstItem="wFt-f0-OdB" firstAttribute="top" secondItem="WWo-iT-Rja" secondAttribute="top" constant="50" id="B5f-y7-9zb"/>
-                                    <constraint firstItem="IXt-7v-Qjw" firstAttribute="leading" secondItem="WWo-iT-Rja" secondAttribute="leading" constant="10" id="BIn-BD-Cif"/>
-                                    <constraint firstItem="wFt-f0-OdB" firstAttribute="leading" secondItem="WWo-iT-Rja" secondAttribute="leading" constant="10" id="LbI-Kf-KwN"/>
-                                    <constraint firstAttribute="trailing" secondItem="wFt-f0-OdB" secondAttribute="trailing" constant="10" id="Qef-PE-qMl"/>
-                                    <constraint firstAttribute="trailing" secondItem="IXt-7v-Qjw" secondAttribute="trailing" constant="10" id="VZv-v4-X2O"/>
+                                    <constraint firstItem="IXt-7v-Qjw" firstAttribute="leading" secondItem="WWo-iT-Rja" secondAttribute="leading" constant="25" id="BIn-BD-Cif"/>
+                                    <constraint firstItem="wFt-f0-OdB" firstAttribute="leading" secondItem="WWo-iT-Rja" secondAttribute="leading" constant="25" id="LbI-Kf-KwN"/>
+                                    <constraint firstAttribute="trailing" secondItem="wFt-f0-OdB" secondAttribute="trailing" constant="25" id="Qef-PE-qMl"/>
+                                    <constraint firstAttribute="trailing" secondItem="IXt-7v-Qjw" secondAttribute="trailing" constant="25" id="VZv-v4-X2O"/>
                                     <constraint firstItem="IXt-7v-Qjw" firstAttribute="top" secondItem="wFt-f0-OdB" secondAttribute="bottom" constant="10" id="hJf-dy-7zH"/>
                                     <constraint firstAttribute="bottom" secondItem="IXt-7v-Qjw" secondAttribute="bottom" constant="10" id="tDJ-I4-oWe"/>
-                                    <constraint firstItem="IXt-7v-Qjw" firstAttribute="height" secondItem="wFt-f0-OdB" secondAttribute="height" multiplier="1.5" id="xut-hh-qb1"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -9,7 +9,18 @@ import Foundation
 
 // 알람 기능 구현부
 struct AlarmBrain {
-    var myAlarm: AlarmModel? //객체화
+    var myAlarm: AlarmModel? //알람 정보 데이터 객체
+    var myPikcerView = AlarmPickerRange() //피커뷰 시간 범위 객체
+
+//[Harry] 피커뷰 초기 시간 설정 값 지정을 위한 종민님 코드를 베낀 함수
+    func getArrayIndexInt(arr: [Int], value: Int) -> Int? {
+        return arr.firstIndex(of: value)
+    }
+
+//[Harry] 피커뷰 초기 시간 설정 값 지정을 위한 종민님 코드를 베낀 함수
+    func getArrayIndexString(arr: [String], value: String) -> Int? {
+        return arr.firstIndex(of: value)
+    }
     
 //[Harry] 현재 날짜와 시간을 가져오는 함수
     func getCurrentDT() -> String {
@@ -20,13 +31,7 @@ struct AlarmBrain {
         
         dateFormatter.dateFormat = "yyyy.MM.dd kk:mm:ss E요일" // Date 포맷 타입 지정
         let date_string = dateFormatter.string(from: nowDate) // 포맷된 형식 문자열로 반환
-
-        print("")
-        print("===============================")
-        print("날짜 :: ", date_string)
-        print("===============================")
-        print("")
-            
+        
         return date_string
     }
     
@@ -52,13 +57,52 @@ struct AlarmBrain {
             currentDayIndex = 6
         }
         
-        print("")
-        print("===============================")
-        print("요일 :: ", currentDay)
-        print("요일Index :: ", currentDayIndex)
-        print("===============================")
-        print("")
-        
         return currentDayIndex
     }
+//[Harry] 현재 시간만 얻어오는 함수
+    func getCurrentHour24() -> String {
+        let currentHourStart = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 11)
+        let currentHourEnd = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 12)
+        let currentHour24 = String(getCurrentDT()[currentHourStart...currentHourEnd])
+        
+        return String(currentHour24)
+    }
+//[Harry] 현재 시간을 12 단위로 변환하는 함수
+    func getCurrentHour12() -> String {
+        let currentHour24 = getCurrentHour24()
+        var currentHour12 = 0
+        
+        if Int(currentHour24)! > 12 {
+            currentHour12 = Int(currentHour24)! - 12
+        } else {
+            currentHour12 = Int(currentHour24)!
+        }
+        
+        return String(currentHour12)
+    }
+//[Harry] Meridiem을 반환하는 함수
+    func getCurrentMeridiem() -> String {
+        let currentHour24 = getCurrentHour24()
+        var currentMeridiem = ""
+        
+        if Int(currentHour24)! > 12 {
+            currentMeridiem = "PM"
+        } else {
+            currentMeridiem = "AM"
+        }
+        
+        return currentMeridiem
+    }
+    
+//[Harry] 현재 분을 얻어오는 함수
+    func getCurrentMinute() -> String {
+        let currentMinuteStart = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 14)
+        let currentMinuteEnd = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 15)
+        let currentMinute = String(getCurrentDT()[currentMinuteStart...currentMinuteEnd])
+        
+        return String(currentMinute)
+    }
+    
+
+
 }

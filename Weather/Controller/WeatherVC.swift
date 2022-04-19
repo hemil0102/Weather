@@ -84,8 +84,6 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource {
         //Cell 안의 View에 데이터 세팅하기
         let row = indexPath.row
         
-        cell.weatherDetailData1.text = "data1"
-        cell.weatherDetailData2.text = "data2"
         
         return cell
     }

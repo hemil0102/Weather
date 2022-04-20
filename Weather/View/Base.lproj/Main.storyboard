@@ -403,6 +403,7 @@
                         <outlet property="rainImageView" destination="Ty8-lQ-bMR" id="vw6-nY-VCt"/>
                         <outlet property="sunRiseImageView" destination="rp9-Ii-vZH" id="UNI-at-iK9"/>
                         <outlet property="sunSetImageView" destination="EHR-6b-tbO" id="jn7-zV-IOE"/>
+                        <outlet property="testLabel" destination="7kK-XD-OXP" id="f1h-XR-H4y"/>
                         <outlet property="weatherDetailTableView" destination="IXt-7v-Qjw" id="IRi-4b-O5P"/>
                     </connections>
                 </viewController>

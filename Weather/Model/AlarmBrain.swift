@@ -60,49 +60,49 @@ struct AlarmBrain {
         return currentDayIndex
     }
 //[Harry] 현재 시간만 얻어오는 함수
-    func getCurrentHour24() -> String {
+    func getCurrentHour24() -> Int {
         let currentHourStart = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 11)
         let currentHourEnd = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 12)
-        let currentHour24 = String(getCurrentDT()[currentHourStart...currentHourEnd])
+        let currentHour24 = Int(getCurrentDT()[currentHourStart...currentHourEnd]) ?? 0
         
-        return String(currentHour24)
+        return currentHour24
     }
 //[Harry] 현재 시간을 12 단위로 변환하는 함수
-    func getCurrentHour12() -> String {
+    func getCurrentHour12() -> Int {
         let currentHour24 = getCurrentHour24()
         var currentHour12 = 0
         
-        if Int(currentHour24)! > 12 {
-            currentHour12 = Int(currentHour24)! - 12
+        if currentHour24 > 12 {
+            currentHour12 = currentHour24 - 12
         } else {
-            currentHour12 = Int(currentHour24)!
+            currentHour12 = currentHour24
         }
         
-        return String(currentHour12)
+        return currentHour12
     }
-//[Harry] Meridiem을 반환하는 함수
-    func getCurrentMeridiem() -> String {
-        let currentHour24 = getCurrentHour24()
-        var currentMeridiem = ""
-        
-        if Int(currentHour24)! > 12 {
-            currentMeridiem = "PM"
-        } else {
-            currentMeridiem = "AM"
-        }
-        
-        return currentMeridiem
-    }
+
     
 //[Harry] 현재 분을 얻어오는 함수
-    func getCurrentMinute() -> String {
+    func getCurrentMinute() -> Int {
         let currentMinuteStart = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 14)
         let currentMinuteEnd = getCurrentDT().index(getCurrentDT().startIndex, offsetBy: 15)
-        let currentMinute = String(getCurrentDT()[currentMinuteStart...currentMinuteEnd])
+        let currentMinute = Int(getCurrentDT()[currentMinuteStart...currentMinuteEnd]) ?? 0
         
-        return String(currentMinute)
+        return currentMinute
     }
     
-
+//[Harry] Meridiem을 반환하는 함수
+        func getCurrentMeridiem() -> String {
+            let currentHour24 = getCurrentHour24()
+            var currentMeridiem = ""
+            
+            if currentHour24 > 12 {
+                currentMeridiem = "PM"
+            } else {
+                currentMeridiem = "AM"
+            }
+            
+            return currentMeridiem
+        }
 
 }

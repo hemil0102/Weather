@@ -11,7 +11,9 @@ class EditAlarmVC: UIViewController {
     
     //MARK: - [Harry] 변수 선언 및 정의 ⭐️
     var EditAlarmBrain = AlarmBrain()
-
+    var selectedHour: String = ""
+    var selectedMinute: String = ""
+    var selectedMeridiem: String = ""
     
     @IBOutlet weak var repeatingDayOfWeekSwitch: UISwitch!
     @IBOutlet var DayOfWeekBtns: [UIButton]!
@@ -25,6 +27,17 @@ class EditAlarmVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        //[Harry] 알람 설정 초기값, 유저가 설정 변경 없이 저장을 누를 경우 반영되는 값
+        selectedHour = String(format: "%02d", EditAlarmBrain.getCurrentHour12())
+        selectedMinute = String(format: "%02d", EditAlarmBrain.getCurrentMinute())
+        selectedMeridiem = EditAlarmBrain.getCurrentMeridiem()
+        
+        //[Harry] 시간 설정 버튼 초기 값
+        timeTitle.setTitle("\(selectedHour):\(selectedMinute) \(selectedMeridiem)", for: .normal)
+        
+        //[Harry] 알람 반복 스위치
+        repeatingDayOfWeekSwitch.transform = CGAffineTransform(scaleX: 0.75, y:0.75)
+        
         //[Harry] today 문구를 오늘 요일에 표시
         letTodayMarkAt()
         
@@ -147,18 +160,39 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
     //4. [Harry] 피커뷰 초기값 설정
     func setInitialValuePV() {
         
-        let currentHour = EditAlarmBrain.getCurrentHour12()
-        let currentMinute = EditAlarmBrain.getCurrentMinute()
-        let currentMeridiem = EditAlarmBrain.getCurrentMeridiem()
-        
-        let hourIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewHours, value: Int(currentHour) ?? 0 )
-        let minuteIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMinutes, value: Int(currentMinute) ?? 0 )
-        let meridiemIndex = EditAlarmBrain.getArrayIndexString(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems, value: currentMeridiem )
+
+        let hourIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewHours, value: Int(selectedHour) ?? 0 )
+        let minuteIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMinutes, value: Int(selectedMinute) ?? 0 )
+        let meridiemIndex = EditAlarmBrain.getArrayIndexString(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems, value: selectedMeridiem )
         
         alarmPickerView.selectRow(hourIndex ?? 0, inComponent: 0, animated: false)
         alarmPickerView.selectRow(minuteIndex ?? 0, inComponent: 1, animated: false)
         alarmPickerView.selectRow(meridiemIndex ?? 0, inComponent: 2, animated: false)
         
+    }
+    
+    //5. [Harry] 피커뷰 값 변경시 실행되는 함수
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+            selectedHour = String(format: "%02d", EditAlarmBrain.myPikcerView.alarmPickerViewHours[row])
+            let changeTitleHour = "\(selectedHour):\(selectedMinute) \(selectedMeridiem)"
+            timeTitle.setTitle(changeTitleHour, for: .normal)
+            print("@@@@: " + "\(selectedHour)")
+        case 1:
+            selectedMinute = String(format: "%02d", EditAlarmBrain.myPikcerView.alarmPickerViewMinutes[row])
+            let changeTitleMinute = "\(selectedHour):\(selectedMinute) \(selectedMeridiem)"
+            timeTitle.setTitle(changeTitleMinute, for: .normal)
+            print("@@@@: " + "\(selectedMinute)")
+        case 2:
+            selectedMeridiem = EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems[row]
+            let changeTitleMeridiem = "\(selectedHour):\(selectedMinute) \(selectedMeridiem)"
+            timeTitle.setTitle(changeTitleMeridiem, for: .normal)
+            print("@@@@: " + selectedMeridiem)
+        
+        default:
+            break
+        }
     }
     
 }

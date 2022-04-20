@@ -11,9 +11,7 @@ class EditAlarmVC: UIViewController {
     
     //MARK: - [Harry] 변수 선언 및 정의 ⭐️
     var EditAlarmBrain = AlarmBrain()
-    let currentHour = EditAlarmBrain.getCurrentHour12()
-    let currentMinute = EditAlarmBrain.getCurrentMinute()
-    let currentMeridiem = EditAlarmBrain.getCurrentMeridiem()
+
     
     @IBOutlet weak var repeatingDayOfWeekSwitch: UISwitch!
     @IBOutlet var DayOfWeekBtns: [UIButton]!
@@ -33,6 +31,8 @@ class EditAlarmVC: UIViewController {
         //[Harry] 피커뷰 세팅
         configPickerView()
 
+        //[Harry] 피커뷰 초기값 세팅
+        setInitialValuePV()
     }
     
     
@@ -98,6 +98,9 @@ class EditAlarmVC: UIViewController {
             }
         }
     }
+    
+    //[Harry] 알람 설정 시간 버튼에 현재 시간 및 피커뷰 선택 시간 반영 함수
+    
 }
 
 //MARK: - [Harry] 알람 시간 설정 피커뷰 ⭐️
@@ -143,7 +146,18 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     //4. [Harry] 피커뷰 초기값 설정
     func setInitialValuePV() {
-
+        
+        let currentHour = EditAlarmBrain.getCurrentHour12()
+        let currentMinute = EditAlarmBrain.getCurrentMinute()
+        let currentMeridiem = EditAlarmBrain.getCurrentMeridiem()
+        
+        let hourIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewHours, value: Int(currentHour) ?? 0 )
+        let minuteIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMinutes, value: Int(currentMinute) ?? 0 )
+        let meridiemIndex = EditAlarmBrain.getArrayIndexString(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems, value: currentMeridiem )
+        
+        alarmPickerView.selectRow(hourIndex ?? 0, inComponent: 0, animated: false)
+        alarmPickerView.selectRow(minuteIndex ?? 0, inComponent: 1, animated: false)
+        alarmPickerView.selectRow(meridiemIndex ?? 0, inComponent: 2, animated: false)
         
     }
     

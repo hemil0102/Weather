@@ -11,9 +11,11 @@ class EditAlarmVC: UIViewController {
     
     //MARK: - [Harry] 변수 선언 및 정의 ⭐️
     var EditAlarmBrain = AlarmBrain()
+
     var selectedHour: String = ""
     var selectedMinute: String = ""
     var selectedMeridiem: String = ""
+
     
     @IBOutlet weak var repeatingDayOfWeekSwitch: UISwitch!
     @IBOutlet var DayOfWeekBtns: [UIButton]!
@@ -43,6 +45,7 @@ class EditAlarmVC: UIViewController {
         
         //[Harry] 피커뷰 세팅
         configPickerView()
+        
 
         //[Harry] 피커뷰 초기값 세팅
         setInitialValuePV()
@@ -168,7 +171,7 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
         alarmPickerView.selectRow(hourIndex ?? 0, inComponent: 0, animated: false)
         alarmPickerView.selectRow(minuteIndex ?? 0, inComponent: 1, animated: false)
         alarmPickerView.selectRow(meridiemIndex ?? 0, inComponent: 2, animated: false)
-        
+
     }
     
     //5. [Harry] 피커뷰 값 변경시 실행되는 함수

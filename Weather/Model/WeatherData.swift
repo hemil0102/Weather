@@ -28,7 +28,12 @@ struct Weather: Codable {
     let description: String
 }
 
+struct SevenDaysWeather: Codable {
+    let daily: [Daily]
+}
+
 struct Daily: Codable {
+    let dt: Int
     let temp: Temp
     let humidity: Int
     let wind_speed: Double

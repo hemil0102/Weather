@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EditAlarmVC: UIViewController {
     
@@ -25,9 +26,13 @@ class EditAlarmVC: UIViewController {
     @IBOutlet var mainHeightConstraint: NSLayoutConstraint! //피커뷰 동적 높이 컨트롤
     @IBOutlet weak var alarmPickerView: UIPickerView!
     
+    //[Walter] Realm
+    var realm: Realm!
+    
     //MARK: - [Harry] 함수 선언 및 정의 ⭐️
     override func viewDidLoad() {
         super.viewDidLoad()
+        realm = try! Realm()
  
         //[Harry] 알람 설정 초기값, 유저가 설정 변경 없이 저장을 누를 경우 반영되는 값
         selectedHour = String(format: "%02d", EditAlarmBrain.getCurrentHour12())
@@ -54,6 +59,18 @@ class EditAlarmVC: UIViewController {
     
     @IBAction func saveBtnAct(_ sender: UIButton) {
         //[Walter] 상태 저장
+        
+        let realmTest = RealmTest()
+        realmTest.title = "Realm 테스트"
+        
+        do {
+            try realm.write {
+                realm.add(realmTest)
+            }
+        } catch {
+            print("Realm 데이터 저장 못함")
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     

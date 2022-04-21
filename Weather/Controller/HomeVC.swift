@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMobileAds
 import CoreLocation
+import RealmSwift
 
 class HomeVC: GADBaseVC {
     //Views
@@ -22,16 +23,20 @@ class HomeVC: GADBaseVC {
     @IBOutlet weak var BottomBannerView: UIView!
     
     //Model
-    var weatherManager = WeatherManager()
-    let locationManager = CLLocationManager()
-    var parseCSV = ParsingCSV()
-    var model: WeatherModel?
+    private var weatherManager = WeatherManager()
+    private let locationManager = CLLocationManager()
+    private var parseCSV = ParsingCSV()
+    private var model: WeatherModel?
     
     //delegate
-    let searchAreaModalVC = SearchModalVC()
+    private let searchAreaModalVC = SearchModalVC()
+    
+    //Realm
+    private var realm:Realm!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        realm = try! Realm()
         
         setupBannerViewToBottom()       //[Walter] 하단 적응형 광고 띄우기
         configureCurrWeatherViews()         //[Walter] View 모양 설정
@@ -40,6 +45,9 @@ class HomeVC: GADBaseVC {
         self.weatherManager.delegate = self
         
         self.searchAreaModalVC.delegate = self
+        
+        //날짜 표시
+        
         
         // 날짜를 Date로
 //        let dateStr = "2022-04-14 05:52"
@@ -58,6 +66,17 @@ class HomeVC: GADBaseVC {
 //        dateFormatter2.locale = Locale(identifier: "ko_KR")
 //        dateFormatter2.setLocalizedDateFormatFromTemplate("yyyy-MM-dd hh:mm") // set template after setting locale
 //        print("데이터 포맷을 날짜로 변경 : \(dateFormatter2.string(from: date))")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Realm 데이터 확인
+        checkRealmData()
+    }
+    
+    func checkRealmData() {
+        guard let savedData = realm else { return }
+        let data = savedData.objects(RealmTest.self)
+        print("Realm Data \(data), \(Realm.Configuration.defaultConfiguration.fileURL)")
     }
     
     //날씨 배경 모서리 둥글게

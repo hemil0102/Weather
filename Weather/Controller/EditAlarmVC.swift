@@ -10,15 +10,15 @@ import UIKit
 class EditAlarmVC: UIViewController {
     
     //MARK: - [Harry] 변수 선언 및 정의 ⭐️
-    var EditAlarmBrain = AlarmBrain()
+    var editAlarmBrain = AlarmBrain()
     var selectedHour: String = ""
     var selectedMinute: String = ""
     var selectedMeridiem: String = ""
     
     @IBOutlet weak var repeatingDayOfWeekSwitch: UISwitch!
-    @IBOutlet var DayOfWeekBtns: [UIButton]!
+    @IBOutlet var dayOfWeekBtns: [UIButton]!
     @IBOutlet weak var inputALineMemoTextField: UITextField!
-    @IBOutlet var TodayMarks: [UILabel]!
+    @IBOutlet var todayMarks: [UILabel]!
     @IBOutlet weak var timeTitle: UIButton!
     @IBOutlet var mainHeightConstraint: NSLayoutConstraint! //피커뷰 동적 높이 컨트롤
     @IBOutlet weak var alarmPickerView: UIPickerView!
@@ -28,9 +28,9 @@ class EditAlarmVC: UIViewController {
         super.viewDidLoad()
  
         //[Harry] 알람 설정 초기값, 유저가 설정 변경 없이 저장을 누를 경우 반영되는 값
-        selectedHour = String(format: "%02d", EditAlarmBrain.getCurrentHour12())
-        selectedMinute = String(format: "%02d", EditAlarmBrain.getCurrentMinute())
-        selectedMeridiem = EditAlarmBrain.getCurrentMeridiem()
+        selectedHour = String(format: "%02d", editAlarmBrain.getCurrentHour12())
+        selectedMinute = String(format: "%02d", editAlarmBrain.getCurrentMinute())
+        selectedMeridiem = editAlarmBrain.getCurrentMeridiem()
         
         //[Harry] 시간 설정 버튼 초기 값
         timeTitle.setTitle("\(selectedHour):\(selectedMinute) \(selectedMeridiem)", for: .normal)
@@ -41,9 +41,12 @@ class EditAlarmVC: UIViewController {
         //[Harry] today 문구를 오늘 요일에 표시
         letTodayMarkAt()
         
-        //[Harry] 피커뷰 세팅
+        //[Harry] 피커뷰 세팅, 프로토콜 채택
         configPickerView()
 
+        //[Harry] 텍스트 필드 세팅, 프로토콜 채택
+        configTextField()
+        
         //[Harry] 피커뷰 초기값 세팅
         setInitialValuePV()
     }
@@ -67,7 +70,7 @@ class EditAlarmVC: UIViewController {
             timeTitle.backgroundColor = UIColor(named: "MovelEmerald")
             timeTitle.setTitleColor(.white, for: .normal)
             mainHeightConstraint.constant = CGFloat(100)
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
         } else if timeTitle.isSelected == true {
@@ -75,16 +78,13 @@ class EditAlarmVC: UIViewController {
             timeTitle.backgroundColor = .white
             timeTitle.setTitleColor(.darkGray, for: .normal)
             mainHeightConstraint.constant = CGFloat(0)
-            UIView.animate(withDuration: 1) {
-                self.view.layoutIfNeeded()
-            }
         }
     }
     
     //[Harry] 요일 선택
     @IBAction func selectedDayOfWeek(_ sender: UIButton) {
         
-        for Btn in self.DayOfWeekBtns {
+        for Btn in self.dayOfWeekBtns {
             if Btn == sender && Btn.isSelected == false {
                 Btn.isSelected = true
                 Btn.backgroundColor = UIColor(named: "MovelEmerald")
@@ -100,19 +100,20 @@ class EditAlarmVC: UIViewController {
     //[Harry] 현재 요일에 today 마크를 표시하기
     func letTodayMarkAt() {
         
-        let weekDayChecker = EditAlarmBrain.getWeekDayIndex()
+        let weekDayChecker = editAlarmBrain.getWeekDayIndex()
         
-        for i in 0..<TodayMarks.count {
+        for i in 0..<todayMarks.count {
             
             if i == weekDayChecker {
-                TodayMarks[i].textColor = .black
+                todayMarks[i].textColor = .black
             } else {
-                TodayMarks[i].textColor = .white
+                todayMarks[i].textColor = .white
             }
         }
     }
     
-    //[Harry] 알람 설정 시간 버튼에 현재 시간 및 피커뷰 선택 시간 반영 함수
+
+    
     
 }
 
@@ -133,11 +134,11 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return self.EditAlarmBrain.myPikcerView.alarmPickerViewHours.count
+            return self.editAlarmBrain.myPikcerView.alarmPickerViewHours.count
         case 1:
-            return self.EditAlarmBrain.myPikcerView.alarmPickerViewMinutes.count
+            return self.editAlarmBrain.myPikcerView.alarmPickerViewMinutes.count
         case 2:
-            return self.EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems.count
+            return self.editAlarmBrain.myPikcerView.alarmPickerViewMeridiems.count
         default:
             return 0
         }
@@ -147,11 +148,11 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return String(self.EditAlarmBrain.myPikcerView.alarmPickerViewHours[row])
+            return String(self.editAlarmBrain.myPikcerView.alarmPickerViewHours[row])
         case 1:
-            return String(self.EditAlarmBrain.myPikcerView.alarmPickerViewMinutes[row])
+            return String(self.editAlarmBrain.myPikcerView.alarmPickerViewMinutes[row])
         case 2:
-            return self.EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems[row]
+            return self.editAlarmBrain.myPikcerView.alarmPickerViewMeridiems[row]
         default:
             return "Data is missing"
         }
@@ -161,9 +162,9 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func setInitialValuePV() {
         
 
-        let hourIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewHours, value: Int(selectedHour) ?? 0 )
-        let minuteIndex = EditAlarmBrain.getArrayIndexInt(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMinutes, value: Int(selectedMinute) ?? 0 )
-        let meridiemIndex = EditAlarmBrain.getArrayIndexString(arr: EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems, value: selectedMeridiem )
+        let hourIndex = editAlarmBrain.getArrayIndexInt(arr: editAlarmBrain.myPikcerView.alarmPickerViewHours, value: Int(selectedHour) ?? 0 )
+        let minuteIndex = editAlarmBrain.getArrayIndexInt(arr: editAlarmBrain.myPikcerView.alarmPickerViewMinutes, value: Int(selectedMinute) ?? 0 )
+        let meridiemIndex = editAlarmBrain.getArrayIndexString(arr: editAlarmBrain.myPikcerView.alarmPickerViewMeridiems, value: selectedMeridiem )
         
         alarmPickerView.selectRow(hourIndex ?? 0, inComponent: 0, animated: false)
         alarmPickerView.selectRow(minuteIndex ?? 0, inComponent: 1, animated: false)
@@ -175,17 +176,17 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            selectedHour = String(format: "%02d", EditAlarmBrain.myPikcerView.alarmPickerViewHours[row])
+            selectedHour = String(format: "%02d", editAlarmBrain.myPikcerView.alarmPickerViewHours[row])
             let changeTitleHour = "\(selectedHour):\(selectedMinute) \(selectedMeridiem)"
             timeTitle.setTitle(changeTitleHour, for: .normal)
             print("@@@@: " + "\(selectedHour)")
         case 1:
-            selectedMinute = String(format: "%02d", EditAlarmBrain.myPikcerView.alarmPickerViewMinutes[row])
+            selectedMinute = String(format: "%02d", editAlarmBrain.myPikcerView.alarmPickerViewMinutes[row])
             let changeTitleMinute = "\(selectedHour):\(selectedMinute) \(selectedMeridiem)"
             timeTitle.setTitle(changeTitleMinute, for: .normal)
             print("@@@@: " + "\(selectedMinute)")
         case 2:
-            selectedMeridiem = EditAlarmBrain.myPikcerView.alarmPickerViewMeridiems[row]
+            selectedMeridiem = editAlarmBrain.myPikcerView.alarmPickerViewMeridiems[row]
             let changeTitleMeridiem = "\(selectedHour):\(selectedMinute) \(selectedMeridiem)"
             timeTitle.setTitle(changeTitleMeridiem, for: .normal)
             print("@@@@: " + selectedMeridiem)
@@ -194,5 +195,24 @@ extension EditAlarmVC: UIPickerViewDelegate, UIPickerViewDataSource {
             break
         }
     }
+}
+
+//MARK: - [Harry] 텍스트 필드
+extension EditAlarmVC: UITextFieldDelegate {
+    
+    func configTextField() {
+        inputALineMemoTextField.delegate = self
+    }
+
+    //[Harry] 텍스트 필드 글자 수 입력 제한, 이해가 더 필요하다.
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+     
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+     
+        return updatedText.count <= 21
+    }
     
 }
+

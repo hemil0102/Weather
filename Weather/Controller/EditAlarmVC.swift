@@ -103,15 +103,15 @@ class EditAlarmVC: UIViewController {
     //[Harry] 요일 선택
     @IBAction func selectedDayOfWeek(_ sender: UIButton) {
         
-        for Btn in self.dayOfWeekBtns {
-            if Btn == sender && Btn.isSelected == false {
-                Btn.isSelected = true
-                Btn.backgroundColor = UIColor(named: "MovelEmerald")
-                Btn.setTitleColor(.white, for: .normal)
-            } else if Btn == sender && Btn.isSelected == true {
-                Btn.isSelected = false
-                Btn.backgroundColor = .white
-                Btn.setTitleColor(UIColor(named: "MovelEmerald"), for: .normal)
+        for btn in self.dayOfWeekBtns {
+            if btn == sender && btn.isSelected == false {
+                btn.isSelected = true
+                btn.backgroundColor = UIColor(named: "MovelEmerald")
+                btn.setTitleColor(.white, for: .normal)
+            } else if btn == sender && btn.isSelected == true {
+                btn.isSelected = false
+                btn.backgroundColor = .white
+                btn.setTitleColor(UIColor(named: "MovelEmerald"), for: .normal)
             }
         }
     }
@@ -120,14 +120,16 @@ class EditAlarmVC: UIViewController {
     func letTodayMarkAt() {
         
         let weekDayChecker = editAlarmBrain.getWeekDayIndex()
-        
         for i in 0..<todayMarks.count {
+            //[Walter] 코드 수정
+//            self.todayMarks[i].isHidden = i == weekDayChecker ? false : true
+            self.todayMarks[i].textColor = i == weekDayChecker ? .black : .white
             
-            if i == weekDayChecker {
-                todayMarks[i].textColor = .black
-            } else {
-                todayMarks[i].textColor = .white
-            }
+//            if i == weekDayChecker {
+//                todayMarks[i].textColor = .black
+//            } else {
+//                todayMarks[i].textColor = .white
+//            }
         }
     }
     

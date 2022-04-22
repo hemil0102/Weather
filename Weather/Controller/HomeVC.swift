@@ -15,9 +15,27 @@ class HomeVC: GADBaseVC {
     //현재 날씨 정보 뷰들
     @IBOutlet weak var placeNameBackView: UIView!
     @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var currStateLabel: UILabel!
+    
+    //현재 날씨 뷰
     @IBOutlet weak var currWeatherBackground: UIImageView!
+    @IBOutlet weak var currWeatehrIcon: UIImageView!
+    @IBOutlet weak var currStateLabel: UILabel!
     @IBOutlet weak var currWeatherLabel: UILabel!
+    
+    //아침 8시 날씨 뷰
+    @IBOutlet weak var at8Icon: UIImageView!
+    @IBOutlet weak var at8StateLabel: UILabel!
+    
+    //오후 12시 30분 날씨 뷰
+    @IBOutlet weak var at1230Icon: UIImageView!
+    @IBOutlet weak var at1230StateLabel: UILabel!
+    
+    //저녁 6시 날씨 뷰
+    @IBOutlet weak var at18Icon: UIImageView!
+    @IBOutlet weak var at18StateLabel: UILabel!
+    
+    //알람 뷰
+    @IBOutlet weak var alarmBacground: UIImageView!
     @IBOutlet weak var alarmMemoLabelBackground: UIView!
     @IBOutlet weak var alarmMemoLabel: UILabel!
     @IBOutlet weak var BottomBannerView: UIView!
@@ -34,6 +52,9 @@ class HomeVC: GADBaseVC {
     //Realm
     private var realm:Realm!
     
+    //상수
+    let cornerRadius:CGFloat = 15           //백그라운드 모서리 라운드값
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
@@ -46,8 +67,7 @@ class HomeVC: GADBaseVC {
         
         self.searchAreaModalVC.delegate = self
         
-        //날짜 표시
-        
+        //UserDefualt의 값을 먼저 셋팅
         
         // 날짜를 Date로
 //        let dateStr = "2022-04-14 05:52"
@@ -70,20 +90,21 @@ class HomeVC: GADBaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         //Realm 데이터 확인
-        checkRealmData()
+//        checkRealmData()
     }
     
-    func checkRealmData() {
-        guard let savedData = realm else { return }
-        let data = savedData.objects(RealmTest.self)
-        print("Realm Data \(data), \(Realm.Configuration.defaultConfiguration.fileURL)")
-    }
+//    func checkRealmData() {
+//        guard let savedData = realm else { return }
+//        let data = savedData.objects(RealmTest.self)
+//        print("Realm Data \(data), \(Realm.Configuration.defaultConfiguration.fileURL)")
+//    }
     
     //날씨 배경 모서리 둥글게
     func configureCurrWeatherViews() {
-        self.currWeatherBackground.layer.cornerRadius = 15
-        self.alarmMemoLabelBackground.layer.cornerRadius = 15
-        self.placeNameBackView.layer.cornerRadius = 15
+        self.currWeatherBackground.layer.cornerRadius = self.cornerRadius
+        self.alarmMemoLabelBackground.layer.cornerRadius = self.cornerRadius
+        self.placeNameBackView.layer.cornerRadius = self.cornerRadius
+        self.alarmBacground.layer.cornerRadius = self.cornerRadius
     }
     
     //현재 위치 좌표 가져오기 호출
@@ -123,9 +144,11 @@ extension HomeVC: WeatherManagerDelegate {
             let cHumidity = weather.currWeather.humidity
 //            let cWind_speed = weather.currWeather.wind_speed
             let cCloud = weather.currWeather.clouds
+            let cIcon = weather.currWeather.iconWithId
             let cDescription = weather.currWeather.descriptionKor
             
             self.placeNameLabel.text = "\(si) \(dong)"
+            self.currWeatehrIcon.image = UIImage(systemName: cIcon)
             self.currStateLabel.text = "\(cDescription)"
             self.currWeatherLabel.text = "온도 \(cTemp)℃/ 습도 \(cHumidity)%/ 강우량 \(cCloud)%"
         }
@@ -166,6 +189,7 @@ extension HomeVC: CLLocationManagerDelegate {
             
 //            print("위치 정보 : 경도\(lat), 위도\(lon)")
             
+            //네트워크 체크
             //현재 위치 정보를 기반으로 지역 검색
             weatherManager.getWeatherWithCoordinate(lat: lat, lon: lon)
         }

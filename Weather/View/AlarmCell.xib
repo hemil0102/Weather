@@ -23,14 +23,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-GI-fjt" userLabel="Total Area Stack View">
                                 <rect key="frame" x="15" y="3" width="270" height="62"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수원시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1G-Uw-f0y">
-                                        <rect key="frame" x="0.0" y="22.5" width="36.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="S6v-JO-6C5" userLabel="Center Area">
-                                        <rect key="frame" x="50.5" y="1" width="156.5" height="60.5"/>
+                                        <rect key="frame" x="0.0" y="1" width="207" height="60.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="OX6-Hw-Wwb" userLabel="Time Area">
                                                 <rect key="frame" x="0.0" y="0.0" width="152.5" height="27.5"/>
@@ -104,7 +98,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="alarmCellDayType" destination="1xj-lw-w14" id="scf-mW-sh0"/>
-                <outlet property="alarmCellLocation" destination="T1G-Uw-f0y" id="gvA-tB-Rfv"/>
                 <outlet property="alarmCellMeridiem" destination="Vm6-Tk-QhH" id="aze-fL-aTT"/>
                 <outlet property="alarmCellSwitch" destination="jDB-yd-vFV" id="1Gx-G0-RBi"/>
                 <outlet property="alarmCellTime" destination="cvo-4j-QLc" id="uo0-Xi-6xM"/>

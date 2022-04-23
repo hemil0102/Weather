@@ -24,9 +24,9 @@ class AlarmVC: GADBaseVC {
     @IBOutlet weak var alarmTableView: UITableView!
     //[Harry] 목업 데이터
     let mockupData = [
-        AlarmModel(alarmLocation: "수원시", alarmTime: "07:08", alarmMeridiem: "PM", alarmDayType: "매일", alarmWeekDay: ["월","화","수","목","금","토","일"], alarmIsEnable: true, alarmToDo: "작작 놀고 코딩해라.", alarmIsRepeat: true),
-        AlarmModel(alarmLocation: "울산시", alarmTime: "02:00", alarmMeridiem: "PM", alarmDayType: "주말", alarmWeekDay: ["토"], alarmIsEnable: true, alarmToDo: "울산 바다 일광욕~", alarmIsRepeat: false),
-        AlarmModel(alarmLocation: "서울시", alarmTime: "06:00", alarmMeridiem: "PM", alarmDayType: "평일", alarmWeekDay: ["수", "목"], alarmIsEnable: false, alarmToDo: "수원에서 자전거 타고 한강가기", alarmIsRepeat: true)
+        AlarmModel( alarmTime: "07:08", alarmMeridiem: "PM", alarmDayType: "매일", alarmWeekDay: ["월","화","수","목","금","토","일"], alarmIsEnable: true, alarmToDo: "작작 놀고 코딩해라.", alarmIsRepeat: true),
+        AlarmModel( alarmTime: "02:00", alarmMeridiem: "PM", alarmDayType: "주말", alarmWeekDay: ["토"], alarmIsEnable: true, alarmToDo: "울산 바다 일광욕~", alarmIsRepeat: false),
+        AlarmModel( alarmTime: "06:00", alarmMeridiem: "PM", alarmDayType: "평일", alarmWeekDay: ["수", "목"], alarmIsEnable: false, alarmToDo: "수원에서 자전거 타고 한강가기", alarmIsRepeat: true)
     ]
     
     var repeatedMockupData: [ AlarmModel ] = []
@@ -91,7 +91,6 @@ extension AlarmVC: UITableViewDataSource {
         let cell2 = alarmTableView.dequeueReusableCell(withIdentifier: Keys.alarmCellTwoIdentifier, for: indexPath) as! AlarmCell2
         
         if indexPath.section == 0 {
-            cell.alarmCellLocation.text = repeatedMockupData[indexPath.row].alarmLocation
             cell.alarmCellTime.text = repeatedMockupData[indexPath.row].alarmTime
             cell.alarmCellMeridiem.text = repeatedMockupData[indexPath.row].alarmMeridiem
             cell.alarmCellDayType.text = repeatedMockupData[indexPath.row].alarmDayType
@@ -104,7 +103,6 @@ extension AlarmVC: UITableViewDataSource {
             return cell
             
         } else {
-            cell2.alarmCellLocation.text = dailyMockupData[indexPath.row].alarmLocation
             cell2.alarmCellTime.text = dailyMockupData[indexPath.row].alarmTime
             cell2.alarmCellMeridiem.text = dailyMockupData[indexPath.row].alarmMeridiem
             cell2.alarmCellDayType.text = dailyMockupData[indexPath.row].alarmDayType

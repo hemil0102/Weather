@@ -62,12 +62,14 @@ class EditAlarmVC: UIViewController {
     @IBAction func saveBtnAct(_ sender: UIButton) {
         //[Walter] 상태 저장
         
-        let realmTest = RealmTest()
-        realmTest.title = "Realm 테스트"
+        let realmForAlarm = RealmForAlarm()
+        
+        //[Harry] index를 기존 데이터를 참고하여 1개씩 증가 시켜야하나? 자동으로 생성되나?
+        realmForAlarm.id = 0
         
         do {
             try realm.write {
-                realm.add(realmTest)
+                realm.add(realmForAlarm)
             }
         } catch {
             print("Realm 데이터 저장 못함")
@@ -114,6 +116,9 @@ class EditAlarmVC: UIViewController {
                 btn.setTitleColor(UIColor(named: "MovelEmerald"), for: .normal)
             }
         }
+        
+        //[Harry] 선택된 요일에 따른 dayType 지정
+        getDayType()
     }
     
     //[Harry] 현재 요일에 today 마크를 표시하기
@@ -133,8 +138,10 @@ class EditAlarmVC: UIViewController {
         }
     }
     
-
-    
+    //[Harry] 선택된 요일에 따른 dayType 지정
+    func getDayType() {
+        
+    }
     
 }
 

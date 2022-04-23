@@ -13,8 +13,9 @@ import RealmSwift
 class HomeVC: GADBaseVC {
     //Views
     //현재 날씨 정보 뷰들
+    @IBOutlet weak var homeViewBackground: UIView!
     @IBOutlet weak var placeNameBackView: UIView!
-    @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var placeNameLabel: UIButton!
     
     //현재 날씨 뷰
     @IBOutlet weak var currWeatherBackground: UIImageView!
@@ -59,15 +60,17 @@ class HomeVC: GADBaseVC {
         super.viewDidLoad()
         realm = try! Realm()
         
-        setupBannerViewToBottom()       //[Walter] 하단 적응형 광고 띄우기
+        setupBannerViewToBottom()           //[Walter] 하단 적응형 광고 띄우기
+        configureGradientAtBackground()     //[Walter] 전체 배경에 그라데이션 설정
         configureCurrWeatherViews()         //[Walter] View 모양 설정
         
-        self.locationManager.delegate = self
-        self.weatherManager.delegate = self
-        
-        self.searchAreaModalVC.delegate = self
+        self.locationManager.delegate = self        //[Walter] 현재 위치 델리게이트
+        self.weatherManager.delegate = self         //[Walter] 날씨 정보 델리게이트
+        self.searchAreaModalVC.delegate = self      //[Walter] 지역 검색 델리게이트
         
         //UserDefualt의 값을 먼저 셋팅
+        
+        
         
         // 날짜를 Date로
 //        let dateStr = "2022-04-14 05:52"
@@ -99,12 +102,40 @@ class HomeVC: GADBaseVC {
 //        print("Realm Data \(data), \(Realm.Configuration.defaultConfiguration.fileURL)")
 //    }
     
+    //[Walter] 백그라운드 전체에 그라데이션 주기
+    func configureGradientAtBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.homeViewBackground.bounds
+        
+        let colors:[CGColor] = [
+            UIColor.systemTeal.cgColor,
+            UIColor.white.cgColor
+        ]
+        
+        gradientLayer.colors = colors
+//        gradientLayer.locations = [0.55]
+        self.homeViewBackground.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     //날씨 배경 모서리 둥글게
     func configureCurrWeatherViews() {
         self.currWeatherBackground.layer.cornerRadius = self.cornerRadius
+        self.currWeatherBackground.alpha = 0.5
+//        self.currWeatherBackground.backgroundColor = .clear
+        self.currWeatherBackground.backgroundColor = .systemTeal
+        self.currWeatherBackground.layer.borderWidth = 1
+        self.currWeatherBackground.layer.borderColor = UIColor.white.cgColor
+        
         self.alarmMemoLabelBackground.layer.cornerRadius = self.cornerRadius
+        
         self.placeNameBackView.layer.cornerRadius = self.cornerRadius
+        
         self.alarmBacground.layer.cornerRadius = self.cornerRadius
+        self.alarmBacground.alpha = 0.5
+//        self.alarmBacground.backgroundColor = .clear
+        self.alarmBacground.backgroundColor = .systemTeal
+        self.alarmBacground.layer.borderWidth = 1
+        self.alarmBacground.layer.borderColor = UIColor.white.cgColor
     }
     
     //현재 위치 좌표 가져오기 호출
@@ -117,11 +148,11 @@ class HomeVC: GADBaseVC {
         performSegue(withIdentifier: Keys.searchArea.segueId, sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == Keys.homeToSearchAreaModal {
 //            guard let searchAreaModal = storyboard?.instantiateViewController(withIdentifier: Keys.searchArea.storyboardId) else { return }
 //        }
-    }
+//    }
 }
 
 //MARK: - SearchModalDelegate
@@ -140,14 +171,14 @@ extension HomeVC: WeatherManagerDelegate {
             //Update Views
             let si = weather.si
             let dong = weather.dong
-            let cTemp = weather.currWeather.temp
+            let cTemp = Int(trunc(weather.currWeather.temp))        //소수점 밑으로 버림
             let cHumidity = weather.currWeather.humidity
 //            let cWind_speed = weather.currWeather.wind_speed
             let cCloud = weather.currWeather.clouds
             let cIcon = weather.currWeather.iconWithId
             let cDescription = weather.currWeather.descriptionKor
             
-            self.placeNameLabel.text = "\(si) \(dong)"
+            self.placeNameLabel.setTitle("\(si) \(dong)", for: .normal)
             self.currWeatehrIcon.image = UIImage(systemName: cIcon)
             self.currStateLabel.text = "\(cDescription)"
             self.currWeatherLabel.text = "온도 \(cTemp)℃/ 습도 \(cHumidity)%/ 강우량 \(cCloud)%"
@@ -175,7 +206,8 @@ extension HomeVC: CLLocationManagerDelegate {
             //GPS 권한 요청을 수락
             print("권한 얻음")
             self.progressStart(onView: self.view)
-            weatherManager.getWeatherWithName(name: "구운동")
+//            weatherManager.getWeatherWithName(name: "수원시")        //지역명으로 날씨 가져오기
+            locationManager.requestLocation()
         default:
             break
         }

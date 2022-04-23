@@ -28,31 +28,19 @@ extension GADBaseVC {
         print("[S_Extension >> progressStart() :: 로딩 프로그레스 시작 실시]")
         print("===============================")
         print("")
-        // [프로그레스를 담는 부모 뷰 : 검정색]
+        
         let progressView = UIView.init(frame: onView.bounds)
+        // [프로그레스를 담는 부모 뷰 : 검정색]
         progressView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        
-        // [Indicator : 원형 프로그레스 생성 실시]
-        let activityIndicator = UIActivityIndicatorView()
-        
-        // [사이즈 지정 실시]
+        let activityIndicator = UIActivityIndicatorView()       // [Indicator : 원형 프로그레스 생성 실시]
         //activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        activityIndicator.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
-        
-        // [위치 지정 실시]
-        activityIndicator.center = progressView.center
-        
-        // [색상 지정 실시]
-        activityIndicator.color = UIColor.red
-        
-        // [hidden 시 애니메이션 종료 여부 지정]
-        activityIndicator.hidesWhenStopped = true
-        
-        // [스타일 지정 실시]
-        activityIndicator.style = UIActivityIndicatorView.Style.white
-        
-        // [애니메이션 시작 수행]
-        activityIndicator.startAnimating()
+        activityIndicator.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)    // [사이즈 지정 실시]
+        activityIndicator.center = progressView.center      // [위치 지정 실시]
+        activityIndicator.color = UIColor.white             // [색상 지정 실시]
+        activityIndicator.hidesWhenStopped = true           // [hidden 시 애니메이션 종료 여부 지정]
+        activityIndicator.style = UIActivityIndicatorView.Style.medium      // [스타일 지정 실시]
+    
+        activityIndicator.startAnimating()      // [애니메이션 시작 수행]
         
         // [비동기 ui 처리 수행 실시]
         DispatchQueue.main.async {
@@ -61,8 +49,6 @@ extension GADBaseVC {
         }
         vProgress = progressView
     }
-    
-    
     
     // MARK: [원형 프로그레스 종료 메소드]
     // [호출 방법 : self.progressStop()]

@@ -83,7 +83,6 @@ class EditAlarmVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     //[Harry] 알람 시간 설정
     @IBAction func selectedTimeTitle(_ sender: UIButton) {
         if timeTitle.isSelected == false {
@@ -127,8 +126,8 @@ class EditAlarmVC: UIViewController {
         let weekDayChecker = editAlarmBrain.getWeekDayIndex()
         for i in 0..<todayMarks.count {
             //[Walter] 코드 수정
-//            self.todayMarks[i].isHidden = i == weekDayChecker ? false : true
-            self.todayMarks[i].textColor = i == weekDayChecker ? .black : .white
+            self.todayMarks[i].alpha = i == weekDayChecker ? 1 : 0
+//            self.todayMarks[i].textColor = i == weekDayChecker ? .black : .white
             
 //            if i == weekDayChecker {
 //                todayMarks[i].textColor = .black

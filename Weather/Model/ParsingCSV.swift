@@ -57,7 +57,28 @@ struct ParsingCSV {
     
     //[Walter] Step1.사용자 검색을 korea.csv 파일에서 찾는다.
     func searchUserKeyword(place: String) {
-        var codeStr = ""
+        var codeStr:String?
+        var isNotFound = true
+        var idx = 0
+        
+        while isNotFound {
+            for locations in koreaLocation {
+                let si_dong_gu = locations[idx].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                if si_dong_gu.contains(place) {
+                    codeStr = locations[0]
+                    print("찾은 지역 이름 \(si_dong_gu), code \(codeStr)")
+                    isNotFound = false
+                    break
+                }
+            }
+            
+            if idx < 3 {
+                idx += 1
+            } else {
+                isNotFound = false
+            }
+        }
+        
         for locations in koreaLocation {
             let dong = locations[3].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             if dong == place {
@@ -69,10 +90,14 @@ struct ParsingCSV {
         print("코오오오오오오오드 \(place), \(codeStr)")
         
         //[Walter] Step2. 코드를 앞 5자리만 자른다.
-        let index = codeStr.index(codeStr.startIndex, offsetBy: 5)
-        let final_code = codeStr.substring(to: index)         //[Water] 시간 남을 때 해결하자..
-        
-        self.searchCoordinateByCodeInKoreaLocalGoverment(code: final_code)
+        if let code = codeStr {
+            let index = code.index(code.startIndex, offsetBy: 5)
+            let final_code = code.substring(to: index)         //[Water] 시간 남을 때 해결하자..
+            
+            self.searchCoordinateByCodeInKoreaLocalGoverment(code: final_code)
+        } else {
+            print("찾을 수 없는 지역명....")
+        }
     }
     
     //[Walter] Step3. 5자리의 코드로 korea_local_goverment.csv 파일에서 찾는다.

@@ -10,15 +10,13 @@ import CoreLocation
 
 class WeatherVC: GADBaseVC {
     
+    @IBOutlet weak var weatherViewBackground: UIImageView!       //[Walter] 웨더뷰 백그라운드 전체
     //[jongmin] 이미지 뷰
     @IBOutlet weak var detailView: UIView!
     
     //[jongmin] 이미지 뷰
     @IBOutlet weak var sunRiseImageView: UIImageView!
-    @IBOutlet weak var sunSetImageView: UIImageView!
     @IBOutlet weak var humidityImageView: UIImageView!
-    @IBOutlet weak var rainImageView: UIImageView!
-    @IBOutlet weak var cloudinessImageView: UIImageView!
     @IBOutlet weak var airIndexImageView: UIImageView!
     
     
@@ -40,6 +38,11 @@ class WeatherVC: GADBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //[Walter] 모양 설정
+        configureGradientAtBackground()     //[Walter] 전체 배경에 그라데이션 설정
+        configureWeatherDetailsViews()         //[Walter] View 모양 설정
+        
         //[jongmin] 테이블 뷰 델리게이트
         weatherDetailTableView.delegate = self
         weatherDetailTableView.dataSource = self
@@ -62,6 +65,29 @@ class WeatherVC: GADBaseVC {
     
     }
     
+    //[Walter] 백그라운드 전체에 그라데이션 주기
+    func configureGradientAtBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.weatherViewBackground.bounds
+        
+        let colors:[CGColor] = [
+            UIColor.systemTeal.cgColor,
+            UIColor.white.cgColor
+        ]
+        
+        gradientLayer.colors = colors
+        self.weatherViewBackground.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    //[Walter] 현재 날씨 상세화면 뷰들 설정
+    func configureWeatherDetailsViews() {
+        self.weatherViewBackground.layer.cornerRadius = 15
+        self.weatherViewBackground.alpha = 0.5
+        self.weatherViewBackground.backgroundColor = .systemTeal
+        self.weatherViewBackground.layer.borderWidth = 1
+        self.weatherViewBackground.layer.borderColor = UIColor.white.cgColor
+    }
+    
     func setTableViewXIBCell() {
         self.weatherDetailTableView.register(UINib(nibName: ViewIdentifier.weatherDetailCellIdentifier, bundle: nil), forCellReuseIdentifier: ViewIdentifier.weatherDetailCell)
     }
@@ -69,20 +95,21 @@ class WeatherVC: GADBaseVC {
     func setImageView() {
         
         //[jongmin] 상세 뷰 백그라운드 설정
-        detailView.backgroundColor = UIColor(red: 243/255, green: 229/255, blue: 171/225, alpha: 0.8)
-        detailView.layer.cornerRadius = 10
+//        detailView.backgroundColor = UIColor(red: 243/255, green: 229/255, blue: 171/225, alpha: 0.8)
+//        detailView.layer.cornerRadius = 10
         
         
         //[jongmin] 상세 뷰 아이콘 설정
         sunRiseImageView.image = UIImage(systemName: "sunrise.fill")
-        sunSetImageView.image = UIImage(systemName: "sunset.fill")
+//        sunSetImageView.image = UIImage(systemName: "sunset.fill")
         humidityImageView.image = UIImage(systemName: "humidity.fill")
-        rainImageView.image = UIImage(systemName: "cloud.heavyrain")
-        cloudinessImageView.image = UIImage(systemName: "cloud.fill")
+//        rainImageView.image = UIImage(systemName: "cloud.heavyrain")
+//        cloudinessImageView.image = UIImage(systemName: "cloud.fill")
         airIndexImageView.image = UIImage(systemName: "aqi.medium")
     }
-
 }
+
+//[Walter] 이건 여기 왜 필요한가요?
 extension WeatherVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -148,10 +175,15 @@ extension WeatherVC: WeatherManagerDelegate {
 
 extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     //[jongmin] 테이블 뷰 개수 함수(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7 //데이터 개수... 주간 데이터 개수 10개정도 스크롤뷰로 구현
     }
+    
     //[jongmin] 테이블 뷰 데이터 세팅(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weatherDetailTableView.dequeueReusableCell(withIdentifier: ViewIdentifier.weatherDetailCellIdentifier) as! WeatherDetailCell

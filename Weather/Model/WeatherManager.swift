@@ -50,7 +50,7 @@ struct WeatherManager {
             "exclude": "hourly, minutely",
             "units": "metric"
         ]
-    
+        print("요청 URL 및 파라미터 : \(oneCallApiUrl), \(param)")
         performRequestToGetCurrWeather(param: param)            //현재 날씨 데이터 가져오기
         getWeatherHistoryWithCoordinate(lat: lat, lon: lon)
     }
@@ -86,7 +86,7 @@ struct WeatherManager {
                 
                 //성공
                 case .success(let value):
-//                    print("날씨 정보 : \(value)")
+                    print("현재 날씨 정보 : \(value)")
                     //현재 날씨
                     let cTemp = value.current.temp
                     let cSunrise = value.current.sunrise

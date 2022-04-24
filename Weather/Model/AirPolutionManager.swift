@@ -20,7 +20,6 @@ struct AirPolutionManager {
     
     init() {
         getAirPolutiontionWithCoordinate(lat: 35.61, lon: 129.3798) //[jongmin] 울산 위/경도 임시 데이터
-        
     }
     
     //[Walter] 현재 좌표(lat, lon)을 기반으로 날씨 가져오기
@@ -48,7 +47,6 @@ struct AirPolutionManager {
                     //현재 날씨
                     let cPM2_5 = value.list[0].components.pm2_5
                     let cPM10 = value.list[0].components.pm10
-
                     
                     print("pm2.5:\(cPM2_5), pm10: \(cPM10)")
                     //self.delegate?.didUpdateWeatherViews(weather: weatherModel)

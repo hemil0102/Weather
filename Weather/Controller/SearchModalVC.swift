@@ -14,6 +14,10 @@ protocol SearchAreaModalDelegate {
 
 class SearchModalVC: UIViewController {
     //Views
+    @IBOutlet weak var textFieldBackground: UIView!
+    @IBOutlet weak var searchViewBackground: UIView!
+    @IBOutlet weak var currAreaStackView: UIStackView!
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var areaTableView: UITableView!
     
@@ -42,6 +46,9 @@ class SearchModalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //[Walter] 모양잡기
+        configureBackground()
+        
         //[Walter] 지역 자동 검색에 필요한 정의 및 델리게이트 선언
         self.searchCompleter = MKLocalSearchCompleter()
         self.searchTextField.delegate = self
@@ -55,6 +62,10 @@ class SearchModalVC: UIViewController {
         self.areaTableView.delegate = self
         self.areaTableView.dataSource = self
         self.areaTableView.register(UINib(nibName: Keys.searchArea.cellName, bundle: nil), forCellReuseIdentifier: Keys.searchArea.cellId)
+    }
+    
+    func configureBackground() {
+        self.textFieldBackground.layer.cornerRadius = 15
     }
     
     @IBAction func closeBtnAct(_ sender: UIButton) {

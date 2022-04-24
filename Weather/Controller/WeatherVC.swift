@@ -68,7 +68,7 @@ class WeatherVC: GADBaseVC {
     //[Walter] 백그라운드 전체에 그라데이션 주기
     func configureGradientAtBackground() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.weatherViewBackground.bounds
+        gradientLayer.frame = self.detailView.bounds
         
         let colors:[CGColor] = [
             UIColor.systemTeal.cgColor,
@@ -76,7 +76,7 @@ class WeatherVC: GADBaseVC {
         ]
         
         gradientLayer.colors = colors
-        self.weatherViewBackground.layer.insertSublayer(gradientLayer, at: 0)
+        self.detailView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     //[Walter] 현재 날씨 상세화면 뷰들 설정

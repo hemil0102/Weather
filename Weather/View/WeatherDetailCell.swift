@@ -12,8 +12,8 @@ class WeatherDetailCell: UITableViewCell {
 
     @IBOutlet weak var DetailCellBackgroundView: UIView!
     @IBOutlet weak var weatherDetailImageIcon: UIImageView!
-    @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var weatherDetailData2: UILabel!
+    @IBOutlet weak var minTemp: UILabel!
+    @IBOutlet weak var maxTemp: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +33,6 @@ extension WeatherDetailCell {
     
     func configDetailCell() {
         DetailCellBackgroundView.layer.cornerRadius = 15
-        weatherDetailImageIcon.image = UIImage(systemName: "sun.min")
     }
     
     

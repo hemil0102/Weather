@@ -13,11 +13,7 @@ class WeatherVC: GADBaseVC {
     @IBOutlet weak var weatherViewBackground: UIImageView!       //[Walter] 웨더뷰 백그라운드 전체
     //[jongmin] 이미지 뷰
     @IBOutlet weak var detailView: UIView!
-    
-    //[jongmin] 이미지 뷰
-    @IBOutlet weak var sunRiseImageView: UIImageView!
-    @IBOutlet weak var humidityImageView: UIImageView!
-    @IBOutlet weak var airIndexImageView: UIImageView!
+
     
     
     //[jongmin] 주간 날씨 표시용 테이블 뷰
@@ -26,7 +22,16 @@ class WeatherVC: GADBaseVC {
     //[jongmin] TEST 용
     @IBOutlet weak var testLabel: UILabel!
     
-    
+    //[jongmin]목업 데이터
+    let tempDailyArr: [Daily] = [
+        Daily(dt: 1, temp: Temp(day: 0.1, min: 0.11, max: 0.17, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 1, description: "Sun")], clouds: 1, uvi: 0.1),
+        Daily(dt: 2, temp: Temp(day: 0.2, min: 0.12, max: 0.16, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 2, description: "Sun")], clouds: 1, uvi: 0.1),
+        Daily(dt: 3, temp: Temp(day: 0.3, min: 0.13, max: 0.15, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 3, description: "Sun")], clouds: 1, uvi: 0.1),
+        Daily(dt: 4, temp: Temp(day: 0.4, min: 0.14, max: 0.14, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 4, description: "Sun")], clouds: 1, uvi: 0.1),
+        Daily(dt: 5, temp: Temp(day: 0.5, min: 0.15, max: 0.13, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 5, description: "Sun")], clouds: 1, uvi: 0.1),
+        Daily(dt: 6, temp: Temp(day: 0.6, min: 0.16, max: 0.12, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 6, description: "Sun")], clouds: 1, uvi: 0.1),
+        Daily(dt: 7, temp: Temp(day: 0.7, min: 0.17, max: 0.11, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 7, description: "Sun")], clouds: 1, uvi: 0.1),
+    ]
 
     //[jongmin] 임시 뷰 백그라운드 컬러
     var tempImage = [UIImage(systemName: "sunrise"), UIImage(systemName: "cloud.drizzle"), UIImage(systemName: "moon.stars")]
@@ -41,7 +46,6 @@ class WeatherVC: GADBaseVC {
         
         //[Walter] 모양 설정
         configureGradientAtBackground()     //[Walter] 전체 배경에 그라데이션 설정
-        configureWeatherDetailsViews()         //[Walter] View 모양 설정
         
         //[jongmin] 테이블 뷰 델리게이트
         weatherDetailTableView.delegate = self
@@ -60,8 +64,6 @@ class WeatherVC: GADBaseVC {
         //[jongmin] 임시 대기정보 인스턴스 생성
         let tempInstance = AirPolutionManager()
         
-        //[jongmin] 아이콘 이미지 세팅
-        setImageView()
     
     }
     
@@ -78,35 +80,13 @@ class WeatherVC: GADBaseVC {
         gradientLayer.colors = colors
         self.detailView.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
-    //[Walter] 현재 날씨 상세화면 뷰들 설정
-    func configureWeatherDetailsViews() {
-        self.weatherViewBackground.layer.cornerRadius = 15
-        self.weatherViewBackground.alpha = 0.5
-        self.weatherViewBackground.backgroundColor = .systemTeal
-        self.weatherViewBackground.layer.borderWidth = 1
-        self.weatherViewBackground.layer.borderColor = UIColor.white.cgColor
-    }
+
+
     
     func setTableViewXIBCell() {
         self.weatherDetailTableView.register(UINib(nibName: ViewIdentifier.weatherDetailCellIdentifier, bundle: nil), forCellReuseIdentifier: ViewIdentifier.weatherDetailCell)
     }
     
-    func setImageView() {
-        
-        //[jongmin] 상세 뷰 백그라운드 설정
-//        detailView.backgroundColor = UIColor(red: 243/255, green: 229/255, blue: 171/225, alpha: 0.8)
-//        detailView.layer.cornerRadius = 10
-        
-        
-        //[jongmin] 상세 뷰 아이콘 설정
-        sunRiseImageView.image = UIImage(systemName: "sunrise.fill")
-//        sunSetImageView.image = UIImage(systemName: "sunset.fill")
-        humidityImageView.image = UIImage(systemName: "humidity.fill")
-//        rainImageView.image = UIImage(systemName: "cloud.heavyrain")
-//        cloudinessImageView.image = UIImage(systemName: "cloud.fill")
-        airIndexImageView.image = UIImage(systemName: "aqi.medium")
-    }
 }
 
 //[Walter] 이건 여기 왜 필요한가요?
@@ -162,7 +142,7 @@ extension WeatherVC: WeatherManagerDelegate {
             let cCloud = weather.currWeather.clouds
             let cDescription = weather.currWeather.descriptionKor
             
-            self.testLabel.text = "\(si), \(dong), \(cHumidity)"
+            //self.testLabel.text = "\(si), \(dong), \(cHumidity)"
             print("시...시...\(si)")
             print("동...동...\(dong)")
         }
@@ -181,7 +161,7 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
     
     //[jongmin] 테이블 뷰 개수 함수(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7 //데이터 개수... 주간 데이터 개수 10개정도 스크롤뷰로 구현
+        return tempDailyArr.count //데이터 개수... 주간 데이터 개수 10개정도 스크롤뷰로 구현
     }
     
     //[jongmin] 테이블 뷰 데이터 세팅(프로토콜 필수 구현)
@@ -189,8 +169,10 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
         let cell = weatherDetailTableView.dequeueReusableCell(withIdentifier: ViewIdentifier.weatherDetailCellIdentifier) as! WeatherDetailCell
         
         //Cell 안의 View에 데이터 세팅하기
-        let row = indexPath.row
+        let row = indexPath.row //인덱스
         
+        cell.minTemp.text = String(tempDailyArr[row].temp.min)
+        cell.maxTemp.text = String(tempDailyArr[row].temp.max)
         
         return cell
     }

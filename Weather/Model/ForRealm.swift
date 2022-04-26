@@ -11,15 +11,25 @@ import RealmSwift
 //[Harry] local-only Realm Database 정의
 class RealmForAlarm: Object {
     
-    @objc dynamic var id: Int = 0
+    //[Harry] index
+    @objc dynamic var idx: Int = 0
+    
+    //[Harry] Time
     @objc dynamic var time: String = ""
     @objc dynamic var meridiem: String = ""
-    @objc dynamic var dayType: String = ""
+    
+    //[Harry] Todo
     @objc dynamic var toDo: String = ""
+    
+    //[Harry] Date
+    @objc dynamic var date: String = ""
+    
+    //[Harry] settings
     @objc dynamic var isEnable: Bool = true
     @objc dynamic var isRepeat: Bool = true
-    
+
+    //[Harry] primaryKey 지정
     override static func primaryKey() -> String? {
-        return "id"
+        return "idx"
     }
 }

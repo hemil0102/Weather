@@ -37,33 +37,14 @@
 		D047771F2806F8AD00D158C2 /* AlarmCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047771D2806F8AD00D158C2 /* AlarmCell2.swift */; };
 		D04777202806F8AD00D158C2 /* AlarmCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D047771E2806F8AD00D158C2 /* AlarmCell2.xib */; };
 		D09D12E22812D31A00495432 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12DF2812D31A00495432 /* Realm.framework */; };
-		D09D12E32812D31A00495432 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12DF2812D31A00495432 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D09D12E42812D31A00495432 /* realm-monorepo.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12E02812D31A00495432 /* realm-monorepo.xcframework */; };
-		D09D12E52812D31A00495432 /* realm-monorepo.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12E02812D31A00495432 /* realm-monorepo.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D09D12E62812D31A00495432 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12E12812D31A00495432 /* RealmSwift.framework */; };
-		D09D12E72812D31A00495432 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12E12812D31A00495432 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D0AA1B8D280057C0005A0C7C /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */; };
 		D0AA1B8E280057C0005A0C7C /* AlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */; };
 		D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */; };
 		D0D1D82627FF367D00EF4EE3 /* AlarmBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82527FF367D00EF4EE3 /* AlarmBrain.swift */; };
 		E184B82B0CEAF33774C79D1C /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD93BB37FAC3FF440CD808B0 /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D09D12E82812D31A00495432 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D09D12E52812D31A00495432 /* realm-monorepo.xcframework in Embed Frameworks */,
-				D09D12E32812D31A00495432 /* Realm.framework in Embed Frameworks */,
-				D09D12E72812D31A00495432 /* RealmSwift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		111E3C8A9110ADC193F32BC8 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
@@ -247,7 +228,6 @@
 				93FE03A527F70C1200D6E0C2 /* Frameworks */,
 				93FE03A627F70C1200D6E0C2 /* Resources */,
 				55C7577F8A8CB5FBFDABE871 /* [CP] Embed Pods Frameworks */,
-				D09D12E82812D31A00495432 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

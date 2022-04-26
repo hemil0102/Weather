@@ -12,9 +12,12 @@ class EditAlarmVC: UIViewController {
     
     //MARK: - [Harry] 변수 선언 및 정의 ⭐️
     var editAlarmBrain = AlarmBrain()
+    var selectedDate: String = ""
     var selectedHour: String = ""
     var selectedMinute: String = ""
     var selectedMeridiem: String = ""
+    var repeatingAlarm: Bool = true
+    var textToDo: String = "한줄 메모를 지정해보세요 :)"
 
     
     @IBOutlet weak var repeatingDayOfWeekSwitch: UISwitch!
@@ -25,13 +28,14 @@ class EditAlarmVC: UIViewController {
     @IBOutlet var mainHeightConstraint: NSLayoutConstraint! //피커뷰 동적 높이 컨트롤
     @IBOutlet weak var alarmPickerView: UIPickerView!
     
-    //[Walter] Realm
-    var realm: Realm!
+    //[Harry] 릴름 마이그레이션
+    lazy var realm:Realm = {
+        return try! Realm()
+    }()
     
     //MARK: - [Harry] 함수 선언 및 정의 ⭐️
     override func viewDidLoad() {
         super.viewDidLoad()
-        realm = try! Realm()
  
         //[Harry] 알람 설정 초기값, 유저가 설정 변경 없이 저장을 누를 경우 반영되는 값
         selectedHour = String(format: "%02d", editAlarmBrain.getCurrentHour12())
@@ -41,33 +45,53 @@ class EditAlarmVC: UIViewController {
         //[Harry] 시간 설정 버튼 초기 값
         timeTitle.setTitle("\(selectedHour):\(selectedMinute) \(selectedMeridiem)", for: .normal)
         
-        //[Harry] 알람 반복 스위치
-        repeatingDayOfWeekSwitch.transform = CGAffineTransform(scaleX: 0.75, y:0.75)
-        
         //[Harry] today 문구를 오늘 요일에 표시
         letTodayMarkAt()
+        
+        //[Harry] 알람 반복 스위치
+        repeatingDayOfWeekSwitch.transform = CGAffineTransform(scaleX: 0.75, y:0.75)
         
         //[Harry] 피커뷰 세팅, 프로토콜 채택
         configPickerView()
         
+        //[Harry] 피커뷰 초기값 세팅
+        setInitialValuePV()
 
         //[Harry] 텍스트 필드 세팅, 프로토콜 채택
         configTextField()
+
+        //[Harry] 텍스트 필드 placeholder
+        inputALineMemoTextField.placeholder = textToDo
         
-        //[Harry] 피커뷰 초기값 세팅
-        setInitialValuePV()
+        //[Harry] 릴름 저장 주소 가져오기
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
     }
     
     
     @IBAction func saveBtnAct(_ sender: UIButton) {
-        //[Walter] 상태 저장
+
+        //[Walter] 상태 저장, [Harry] 저장할 데이터 생성
+        let realmForAlarm = RealmForAlarm()
         
-        let realmTest = RealmTest()
-        realmTest.title = "Realm 테스트"
+        realmForAlarm.idx = incrementID() //인덱스 증가
+        realmForAlarm.time = "\(selectedHour):\(selectedMinute)" //시간
+        realmForAlarm.meridiem = selectedMeridiem //오전, 오후
+        realmForAlarm.toDo = inputALineMemoTextField.text ?? "" // 할일
+        realmForAlarm.isRepeat = repeatingAlarm //알람 반복 여부
+        
+        //요일
+        for btn in self.dayOfWeekBtns {
+            if btn.isSelected == true {
+                selectedDate += "\(btn.titleLabel?.text ?? "") "
+            }
+        }
+        
+        realmForAlarm.date = selectedDate
         
         do {
             try realm.write {
-                realm.add(realmTest)
+                realm.add(realmForAlarm)
             }
         } catch {
             print("Realm 데이터 저장 못함")
@@ -76,9 +100,30 @@ class EditAlarmVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    //[Harry] index auto increment
+    func incrementID() -> Int {
+            return (realm.objects(RealmForAlarm.self).max(ofProperty: "idx") as Int? ?? 0) + 1
+    }
+    
     @IBAction func cancelBtnAct(_ sender: UIButton) {
         //[Walter] 취소
         dismiss(animated: true, completion: nil)
+    }
+    
+    //[Harry] 요일 선택
+    @IBAction func selectedDayOfWeek(_ sender: UIButton) {
+        
+        for btn in self.dayOfWeekBtns {
+            if btn == sender && btn.isSelected == false {
+                btn.isSelected = true
+                btn.backgroundColor = UIColor(named: "MovelEmerald")
+                btn.setTitleColor(.white, for: .normal)
+            } else if btn == sender && btn.isSelected == true {
+                btn.isSelected = false
+                btn.backgroundColor = .white
+                btn.setTitleColor(UIColor(named: "MovelEmerald"), for: .normal)
+            }
+        }
     }
     
     //[Harry] 알람 시간 설정
@@ -99,19 +144,12 @@ class EditAlarmVC: UIViewController {
         }
     }
     
-    //[Harry] 요일 선택
-    @IBAction func selectedDayOfWeek(_ sender: UIButton) {
-        
-        for btn in self.dayOfWeekBtns {
-            if btn == sender && btn.isSelected == false {
-                btn.isSelected = true
-                btn.backgroundColor = UIColor(named: "MovelEmerald")
-                btn.setTitleColor(.white, for: .normal)
-            } else if btn == sender && btn.isSelected == true {
-                btn.isSelected = false
-                btn.backgroundColor = .white
-                btn.setTitleColor(UIColor(named: "MovelEmerald"), for: .normal)
-            }
+    //[Harry] 반복 체크 스위치
+    @IBAction func repeatingSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            repeatingAlarm = true
+        } else {
+            repeatingAlarm = false
         }
     }
     
@@ -131,9 +169,6 @@ class EditAlarmVC: UIViewController {
 //            }
         }
     }
-    
-
-    
     
 }
 

@@ -41,17 +41,17 @@ struct AlarmBrain {
         let currentDay = getCurrentDT()[getCurrentDT().index(getCurrentDT().endIndex,offsetBy: -3)]
         var currentDayIndex: Int
         
-        if currentDay == "월" {
+        if currentDay == "일" {
             currentDayIndex = 0
-        } else if currentDay == "화" {
+        } else if currentDay == "월" {
             currentDayIndex = 1
-        } else if currentDay == "수" {
+        } else if currentDay == "화" {
             currentDayIndex = 2
-        } else if currentDay == "목" {
+        } else if currentDay == "수" {
             currentDayIndex = 3
-        } else if currentDay == "금" {
+        } else if currentDay == "목" {
             currentDayIndex = 4
-        } else if currentDay == "토" {
+        } else if currentDay == "금" {
             currentDayIndex = 5
         } else {
             currentDayIndex = 6

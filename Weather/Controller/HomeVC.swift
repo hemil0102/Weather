@@ -50,15 +50,17 @@ class HomeVC: GADBaseVC {
     //delegate
     private let searchAreaModalVC = SearchModalVC()
     
-    //Realm
-    private var realm:Realm!
+    //Realm [Harry] 마이그레이션을 위한 코드 추가
+    lazy var realm:Realm = {
+        return try! Realm()
+    }()
     
     //상수
     let cornerRadius:CGFloat = 15           //백그라운드 모서리 라운드값
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        realm = try! Realm()
+        //realm = try! Realm()
         
         setupBannerViewToBottom()           //[Walter] 하단 적응형 광고 띄우기
         configureGradientAtBackground()     //[Walter] 전체 배경에 그라데이션 설정

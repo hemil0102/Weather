@@ -695,7 +695,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="YVa-Un-R4l"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="e2E-cL-7du"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -717,7 +717,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="loR-ao-5nv"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="VmD-kF-STt"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -739,7 +739,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="Y2i-Yr-fpq"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="Wql-Cc-ufk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -761,7 +761,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="Szv-wA-VeM"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="R3E-dG-6QJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -783,7 +783,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="0Ho-re-bSP"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="hWa-3a-ZY5"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -805,7 +805,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="ApU-dH-ihl"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="51S-Ll-hWi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -827,7 +827,7 @@
                                                     <color key="titleColor" red="0.47450977560000002" green="0.75294119120000003" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="QYf-fQ-kmG"/>
+                                                    <action selector="selectedDayOfWeek:" destination="t1f-WL-iRA" eventType="touchUpInside" id="SMb-t5-9EN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -864,6 +864,9 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-XP-k5W">
                                         <rect key="frame" x="77" y="0.0" width="51" height="31"/>
                                         <color key="onTintColor" name="MovelYellow"/>
+                                        <connections>
+                                            <action selector="repeatingSwitch:" destination="t1f-WL-iRA" eventType="valueChanged" id="nXG-IU-E4H"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
@@ -929,22 +932,22 @@
                         <outlet property="alarmPickerView" destination="aRb-sm-lxt" id="jmj-9R-gZ9"/>
                         <outlet property="inputALineMemoTextField" destination="cIJ-jX-TCa" id="rc9-7V-A6S"/>
                         <outlet property="mainHeightConstraint" destination="z3o-pR-Vtb" id="PqO-2F-9x7"/>
-                        <outlet property="repeatingDayOfWeekSwitch" destination="FzS-XP-k5W" id="PiH-di-57h"/>
+                        <outlet property="repeatingDayOfWeekSwitch" destination="FzS-XP-k5W" id="vqt-At-TtL"/>
                         <outlet property="timeTitle" destination="z9T-ZX-Vdf" id="Tlr-nC-mNK"/>
-                        <outletCollection property="dayOfWeekBtns" destination="1b5-zu-g4s" collectionClass="NSMutableArray" id="wOA-OP-GO7"/>
                         <outletCollection property="todayMarks" destination="ta9-nW-xAB" collectionClass="NSMutableArray" id="Rmn-wH-2qh"/>
-                        <outletCollection property="dayOfWeekBtns" destination="kVf-Di-RYP" collectionClass="NSMutableArray" id="toT-Gv-oUd"/>
                         <outletCollection property="todayMarks" destination="gEn-bA-vzo" collectionClass="NSMutableArray" id="Xcd-sg-f90"/>
                         <outletCollection property="todayMarks" destination="1HA-G7-gxm" collectionClass="NSMutableArray" id="zt6-U5-KrG"/>
-                        <outletCollection property="dayOfWeekBtns" destination="3zZ-aD-NcB" collectionClass="NSMutableArray" id="H1r-15-GSZ"/>
                         <outletCollection property="todayMarks" destination="Gae-FC-ReT" collectionClass="NSMutableArray" id="DLp-qP-3N8"/>
-                        <outletCollection property="dayOfWeekBtns" destination="7nZ-Lx-h9A" collectionClass="NSMutableArray" id="EbV-Qj-5gI"/>
-                        <outletCollection property="dayOfWeekBtns" destination="fv2-Ak-Ag2" collectionClass="NSMutableArray" id="WiL-Qu-aqH"/>
                         <outletCollection property="todayMarks" destination="Jo7-Sg-0hI" collectionClass="NSMutableArray" id="Ykg-sn-i6k"/>
                         <outletCollection property="todayMarks" destination="vbY-ab-Xva" collectionClass="NSMutableArray" id="5cZ-L0-3xd"/>
-                        <outletCollection property="dayOfWeekBtns" destination="vfH-32-duE" collectionClass="NSMutableArray" id="zcO-hq-P6P"/>
                         <outletCollection property="todayMarks" destination="j7n-PC-Zdw" collectionClass="NSMutableArray" id="Qv4-CI-a75"/>
-                        <outletCollection property="dayOfWeekBtns" destination="n1V-Sj-fl1" collectionClass="NSMutableArray" id="AE1-Ks-TtI"/>
+                        <outletCollection property="dayOfWeekBtns" destination="kVf-Di-RYP" collectionClass="NSMutableArray" id="5Cg-M4-taf"/>
+                        <outletCollection property="dayOfWeekBtns" destination="3zZ-aD-NcB" collectionClass="NSMutableArray" id="OxU-t0-6Wb"/>
+                        <outletCollection property="dayOfWeekBtns" destination="7nZ-Lx-h9A" collectionClass="NSMutableArray" id="ML4-pe-CIY"/>
+                        <outletCollection property="dayOfWeekBtns" destination="fv2-Ak-Ag2" collectionClass="NSMutableArray" id="KIz-yd-AP9"/>
+                        <outletCollection property="dayOfWeekBtns" destination="vfH-32-duE" collectionClass="NSMutableArray" id="tQQ-dl-PIk"/>
+                        <outletCollection property="dayOfWeekBtns" destination="n1V-Sj-fl1" collectionClass="NSMutableArray" id="2HQ-g3-BWs"/>
+                        <outletCollection property="dayOfWeekBtns" destination="1b5-zu-g4s" collectionClass="NSMutableArray" id="RXX-zw-bDk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmy-c6-Unp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

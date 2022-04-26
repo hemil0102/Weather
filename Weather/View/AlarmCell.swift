@@ -13,7 +13,6 @@ class AlarmCell: UITableViewCell {
     
     //xib 파일 내에서 사용되는 객체들
     @IBOutlet weak var alarmCellSwitch: UISwitch! // Section1, 스위치
-    @IBOutlet weak var alarmCellLocation: UILabel! // Section1, 지역
     @IBOutlet weak var alarmCellToDo: UILabel! // Section1, 할일
     @IBOutlet weak var alarmCellTime: UILabel! // Section1, 시간
     @IBOutlet weak var alarmCellMeridiem: UILabel! // Section1, AMPM

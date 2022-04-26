@@ -61,7 +61,7 @@ class SearchModalVC: UIViewController {
         //[Walter] 테이블 뷰 델리게이트 선언
         self.areaTableView.delegate = self
         self.areaTableView.dataSource = self
-        self.areaTableView.register(UINib(nibName: Keys.searchArea.cellName, bundle: nil), forCellReuseIdentifier: Keys.searchArea.cellId)
+        self.areaTableView.register(UINib(nibName: Keys.SearchArea.cellName, bundle: nil), forCellReuseIdentifier: Keys.SearchArea.cellId)
     }
     
     func configureBackground() {
@@ -157,7 +157,7 @@ extension SearchModalVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Keys.searchArea.cellId) as! SearchAreaCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Keys.SearchArea.cellId) as! SearchAreaCell
         
 //        cell.weatherIconImageView.image = UIImage(named: "cloud.bolt.rain")
 //        cell.showCurrLocationLabel.isHidden = true

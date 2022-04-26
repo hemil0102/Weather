@@ -147,7 +147,7 @@ class HomeVC: GADBaseVC {
     
     //지역 검색 모달 호출
     @IBAction func callSearchAreaModalBtnAct(_ sender: UIButton) {
-        performSegue(withIdentifier: Keys.searchArea.segueId, sender: self)
+        performSegue(withIdentifier: Keys.SearchArea.segueId, sender: self)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

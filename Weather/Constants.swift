@@ -26,8 +26,13 @@ struct Keys {
     static let alarmCellTwoNibName = "AlarmCell2"
     static let alarmCellTwoIdentifier = "AlarmCellTwoIdentifier"
     
+    //[Walter]
+    struct Splash {
+        static let toMainId = "SplashToMain"
+    }
+    
     //[Walter] 지역검색 모달 관련 Identifier
-    struct searchArea {
+    struct SearchArea {
         static let segueId = "HomeToSearchAreaModel"
         static let storyboardId = "searchAreaModal"
         static let cellName = "SearchAreaCell"

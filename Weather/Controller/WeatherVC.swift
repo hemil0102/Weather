@@ -13,8 +13,6 @@ class WeatherVC: GADBaseVC {
     @IBOutlet weak var weatherViewBackground: UIImageView!       //[Walter] 웨더뷰 백그라운드 전체
     //[jongmin] 이미지 뷰
     @IBOutlet weak var detailView: UIView!
-
-    
     
     //[jongmin] 주간 날씨 표시용 테이블 뷰
     @IBOutlet weak var weatherDetailTableView: UITableView!
@@ -38,7 +36,7 @@ class WeatherVC: GADBaseVC {
     var imageViews = [UIImageView]()
     
     //[jongmin] 날씨 api 인스턴스
-    var weatherManager = WeatherManager()
+//    var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -52,7 +50,7 @@ class WeatherVC: GADBaseVC {
         weatherDetailTableView.dataSource = self
         
         //[jongmin] 날씨 데이터 델리게이트
-        weatherManager.delegate = self
+//        weatherManager.delegate = self
         locationManager.delegate = self
     
         //[jongmin] 테이블 뷰 연결
@@ -60,11 +58,6 @@ class WeatherVC: GADBaseVC {
         
         //[Walter] 하단 적응형 광고 띄우기
         setupBannerViewToBottom()
-    
-        //[jongmin] 임시 대기정보 인스턴스 생성
-        let tempInstance = AirPolutionManager()
-        
-    
     }
     
     //[Walter] 백그라운드 전체에 그라데이션 주기
@@ -105,7 +98,7 @@ extension WeatherVC: CLLocationManagerDelegate {
             //GPS 권한 요청을 수락
             print("권한 얻음")
             self.progressStart(onView: self.view)
-            weatherManager.getWeatherWithName(name: "구운동")
+//            weatherManager.getWeatherWithName(name: "구운동")
         default:
             break
         }
@@ -120,7 +113,7 @@ extension WeatherVC: CLLocationManagerDelegate {
 //            print("위치 정보 : 경도\(lat), 위도\(lon)")
             
             //현재 위치 정보를 기반으로 지역 검색
-            weatherManager.getWeatherWithCoordinate(lat: lat, lon: lon)
+//            weatherManager.getCurrWeatherWithCoordinate(lat: lat, lon: lon)
         }
     }
     
@@ -129,29 +122,29 @@ extension WeatherVC: CLLocationManagerDelegate {
     }
 }
 
-extension WeatherVC: WeatherManagerDelegate {
-    func didUpdateWeatherViews(weather: WeatherModel) {
-        print("didUpdateWeatherViews")
-        DispatchQueue.main.async {
-            //Update Views
-            let si = weather.si
-            let dong = weather.dong
-            let cTemp = weather.currWeather.temp
-            let cHumidity = weather.currWeather.humidity
-//            let cWind_speed = weather.currWeather.wind_speed
-            let cCloud = weather.currWeather.clouds
-            let cDescription = weather.currWeather.descriptionKor
-            
-            //self.testLabel.text = "\(si), \(dong), \(cHumidity)"
-            print("시...시...\(si)")
-            print("동...동...\(dong)")
-        }
-    }
-    
-    func didFailWithError(error: Error) {
-        print("날씨 못들고왔읍니다.. \(error)")
-    }
-}
+//extension WeatherVC: WeatherManagerDelegate {
+//    func didUpdateWeatherViews(weather: WeatherModel) {
+//        print("didUpdateWeatherViews")
+//        DispatchQueue.main.async {
+//            //Update Views
+//            let si = weather.si
+//            let dong = weather.dong
+//            let cTemp = weather.currWeather.temp
+//            let cHumidity = weather.currWeather.humidity
+////            let cWind_speed = weather.currWeather.wind_speed
+//            let cCloud = weather.currWeather.clouds
+//            let cDescription = weather.currWeather.descriptionKor
+//
+//            //self.testLabel.text = "\(si), \(dong), \(cHumidity)"
+//            print("시...시...\(si)")
+//            print("동...동...\(dong)")
+//        }
+//    }
+//
+//    func didFailWithError(error: Error) {
+//        print("날씨 못들고왔읍니다.. \(error)")
+//    }
+//}
 
 extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
     

@@ -11,6 +11,7 @@ import CoreLocation
 
 protocol WeatherManagerDelegate {
     func didUpdateWeatherViews(weather: WeatherModel)
+    func didUpdateAirViews(air: AirPolutionModel)
     func didFailWithError(error: Error)
 }
 
@@ -18,31 +19,33 @@ struct WeatherManager {
     var delegate: WeatherManagerDelegate?
     let oneCallApiUrl = "https://api.openweathermap.org/data/2.5/onecall"
     let historyCallApiUrl = "https://api.openweathermap.org/data/2.5/onecall/timemachine"
+    let airPolutionApiUrl = "https://api.openweathermap.org/data/2.5/air_pollution"
     var parseCSV = ParsingCSV()
-    
+    let patchGroup = DispatchGroup()
+
     /*
      [Walter]
      1. Prameters Update [✌️]
-     2. POST로 날씨 요청 []
+     2. POST로 날씨 요청 [ ]
      3. 응답 받기 [✌️]
      5. delegate 패턴으로 호출 VC에 결과 (WeatherModel/Error) 전달 [✌️]
+     6. 2번씩 호출하는 문제 잡기 [ ]
      */
     
     init() {
         parseCSV.getDataCsvAt()         //csv 파싱
     }
     
-    //[Walter] 현재 날씨 가져오기
+    //[Walter] 지역명을 CSV에서 찾아 좌표 가져오기
     mutating func getWeatherWithName(name: String) {
-        parseCSV.delegate = self
+//        parseCSV.delegate = self
         parseCSV.searchUserKeyword(place: name)
     }
-    
-    //[Walter] 현재 좌표(lat, lon)을 기반으로 날씨 가져오기
-    func getWeatherWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
-        
-        print("마지막으로 받은... 위/경도 \(lat), \(lon)")
-        
+}
+
+// MARK: - [Walter] 좌표 기반 현재 날씨 가져오기
+extension WeatherManager {
+    func getCurrWeatherWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
         let param: Parameters = [
             "lat": lat,
             "lon": lon,
@@ -50,43 +53,23 @@ struct WeatherManager {
             "exclude": "hourly, minutely",
             "units": "metric"
         ]
-        print("요청 URL 및 파라미터 : \(oneCallApiUrl), \(param)")
+//        print("요청 URL 및 파라미터 : \(oneCallApiUrl), \(param)")
         performRequestToGetCurrWeather(param: param)            //현재 날씨 데이터 가져오기
-        getWeatherHistoryWithCoordinate(lat: lat, lon: lon)
-    }
-    
-    //[Walter] 지난 날짜 데이터 가져오기
-    func getWeatherHistoryWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
-        /*
-         1. 현재 날짜와
-         */
-        
-        //문자열 날짜포맷을 dt포맷으로 변환
-        let dateStr = ""
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMMdHHmm"
-        guard let date:Date = dateFormatter.date(from: dateStr) else { return }
-        
-        let param: Parameters = [
-            "lat": lat,
-            "lon": lon,
-            "dt": date,
-            "appid": Keys.ApiId.weatherAppId
-        ]
-        
-        performRequestToGetHistoryWeather(param: param)         //지난 날짜 데이터 가져오기
     }
     
     //[Walter] 현재 날씨 요청
     func performRequestToGetCurrWeather(param: Parameters) {
+        var weather: WeatherModel?
+        
+        patchGroup.enter()
         AF.request(oneCallApiUrl, parameters: param)
             .responseDecodable(of: WeatherData.self) { response in
-//                print("received weater data : \(response)")
+//                print("응답 : \(response)")
                 switch response.result {
-                
-                //성공
+                    
+                    //성공
                 case .success(let value):
-                    print("현재 날씨 정보 : \(value)")
+                    print("현재 날씨 정보 in AF : \(value)")
                     //현재 날씨
                     let cTemp = value.current.temp
                     let cSunrise = value.current.sunrise
@@ -128,22 +111,93 @@ struct WeatherManager {
                             )
                         )
                     }
+                
+                    weather = WeatherModel(si: "수원시", dong: "구운동", currWeather: current, daily: dailyData)
                     
-                    let weatherModel = WeatherModel(
-                        si: "수원시",
-                        dong: "구운동",
-                        currWeather: current,
-                        daily: dailyData
-                    )
-                    self.delegate?.didUpdateWeatherViews(weather: weatherModel)
-                    
-                //실패
+                    //실패
                 case .failure(let error):
                     print("error: \(String(describing: error.errorDescription))")
                     self.delegate?.didFailWithError(error: error)
                 }
+                
+                patchGroup.leave()
             }
+        
+        patchGroup.notify(queue: .global(qos: .background)) {
+            print("현재 날씨 가져오기 작업 완료")
+            if let weather = weather {
+                delegate?.didUpdateWeatherViews(weather: weather)
+            }
+        }
     }
+}
+
+// MARK: - //[Walter] 좌표 기반 미세먼지 정보 가져오기
+extension WeatherManager {
+    func getAirPolutiontionWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+        let param: Parameters = [
+            "lat": lat,
+            "lon": lon,
+            "appid": Keys.ApiId.airPolutionId
+        ]
+        
+        performRequestToGetAirPolution(param: param)
+    }
+    
+    //[Walter] 미세먼지 요청
+    func performRequestToGetAirPolution(param: Parameters) {
+        var air: AirPolutionModel?
+        
+        patchGroup.enter()
+        AF.request(airPolutionApiUrl, parameters: param)
+            .responseDecodable(of: AirPolution.self) { response in
+                print("미세먼지 정보 in AF : \(response)")
+                switch response.result {
+                    //성공
+                case .success(let value):
+                    //현재 날씨
+                    let cPM2_5 = value.list[0].components.pm2_5
+                    let cPM10 = value.list[0].components.pm10
+                    
+                    air = AirPolutionModel(cPM2_5: cPM2_5, cPM10: cPM10)
+                    
+                    //실패
+                case .failure(let error):
+                    print("error: \(String(describing: error.errorDescription))")
+                    self.delegate?.didFailWithError(error: error)
+                }
+                
+                patchGroup.leave()
+            }
+        
+        patchGroup.notify(queue: .global(qos: .background)) {
+            print("미세먼지 작업 완료")
+            if let air = air {
+                delegate?.didUpdateAirViews(air: air)
+            }
+        }
+    }
+}
+
+// MARK: - //[Walter] 지난 날짜 데이터 가져오기
+extension WeatherManager {
+    func getHisWeatherWithCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+        //문자열 날짜포맷을 dt포맷으로 변환
+        let dateStr = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMMdHHmm"
+        guard let date:Date = dateFormatter.date(from: dateStr) else { return }
+        
+        let param: Parameters = [
+            "lat": lat,
+            "lon": lon,
+            "dt": date,
+            "appid": Keys.ApiId.weatherAppId
+        ]
+        
+        performRequestToGetHistoryWeather(param: param)         //지난 날짜 데이터 가져오기
+    }
+    
     
     //[Walter] 지난 시간 날씨 요청
     func performRequestToGetHistoryWeather(param: Parameters) {
@@ -154,9 +208,9 @@ struct WeatherManager {
     }
 }
 
-//[Walter] CSV 파일을 파싱해서 가져온 좌표값을 getWeatherWithCoordinate(lat:lon:) 함수로 전달
-extension WeatherManager: ParsingCsvDelegate {
-    func getCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
-        self.getWeatherWithCoordinate(lat: lat, lon: lon)
-    }
-}
+// MARK: - [Walter] CSV 파일을 파싱해서 가져온 좌표값을 getWeatherWithCoordinate(lat:lon:) 함수로 전달
+//extension WeatherManager: ParsingCsvDelegate {
+//    mutating func getCoordinate(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+//        self.getCurrWeatherWithCoordinate(lat: lat, lon: lon)
+//    }
+//}

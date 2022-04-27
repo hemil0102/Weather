@@ -27,7 +27,7 @@ struct Keys {
     static let alarmCellTwoIdentifier = "AlarmCellTwoIdentifier"
     
     //[Walter]
-    struct Splash {
+    struct FromSplash {
         static let toMainId = "SplashToMain"
     }
     

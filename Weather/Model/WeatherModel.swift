@@ -22,7 +22,7 @@ struct CurrWeather {
     let clouds: Int
     let wind_speed: Double
     let conditionID: Int
-    var iconWithId: String {
+    var weatherIconWithId: String {
         switch self.conditionID {
         case 200...232:
             return "cloud.bolt"

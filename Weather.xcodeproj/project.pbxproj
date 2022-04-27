@@ -37,6 +37,9 @@
 		93FE03B827F70C1300D6E0C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FE03B627F70C1300D6E0C2 /* LaunchScreen.storyboard */; };
 		D047771F2806F8AD00D158C2 /* AlarmCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D047771D2806F8AD00D158C2 /* AlarmCell2.swift */; };
 		D04777202806F8AD00D158C2 /* AlarmCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D047771E2806F8AD00D158C2 /* AlarmCell2.xib */; };
+		D09D12E22812D31A00495432 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12DF2812D31A00495432 /* Realm.framework */; };
+		D09D12E42812D31A00495432 /* realm-monorepo.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12E02812D31A00495432 /* realm-monorepo.xcframework */; };
+		D09D12E62812D31A00495432 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09D12E12812D31A00495432 /* RealmSwift.framework */; };
 		D0AA1B8D280057C0005A0C7C /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */; };
 		D0AA1B8E280057C0005A0C7C /* AlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */; };
 		D0D1D82427FF35B200EF4EE3 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */; };
@@ -80,6 +83,9 @@
 		BD93BB37FAC3FF440CD808B0 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D047771D2806F8AD00D158C2 /* AlarmCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell2.swift; sourceTree = "<group>"; };
 		D047771E2806F8AD00D158C2 /* AlarmCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmCell2.xib; sourceTree = "<group>"; };
+		D09D12DF2812D31A00495432 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D09D12E02812D31A00495432 /* realm-monorepo.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "realm-monorepo.xcframework"; path = "Pods/Realm/core/realm-monorepo.xcframework"; sourceTree = "<group>"; };
+		D09D12E12812D31A00495432 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AA1B8B280057C0005A0C7C /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		D0AA1B8C280057C0005A0C7C /* AlarmCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmCell.xib; sourceTree = "<group>"; };
 		D0D1D82327FF35B200EF4EE3 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
@@ -91,6 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09D12E42812D31A00495432 /* realm-monorepo.xcframework in Frameworks */,
+				D09D12E22812D31A00495432 /* Realm.framework in Frameworks */,
+				D09D12E62812D31A00495432 /* RealmSwift.framework in Frameworks */,
 				E184B82B0CEAF33774C79D1C /* Pods_Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +110,9 @@
 		52D8927820E516A845A1440B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D09D12DF2812D31A00495432 /* Realm.framework */,
+				D09D12E02812D31A00495432 /* realm-monorepo.xcframework */,
+				D09D12E12812D31A00495432 /* RealmSwift.framework */,
 				BD93BB37FAC3FF440CD808B0 /* Pods_Weather.framework */,
 			);
 			name = Frameworks;

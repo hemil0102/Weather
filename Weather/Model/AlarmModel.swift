@@ -10,7 +10,6 @@ import Foundation
 // [Harry] 알람 관련 변수를 지정
 struct AlarmModel {
     
-    var alarmLocation: String? // [Harry] 알람 지역 설정
     var alarmTime: String? // [Harry] 알람 시간 설정
     var alarmMeridiem: String? // [Harry] 알람 오전/오후 표기
     var alarmDayType: String? // [Harry] 지정된 요일에 따른 문구

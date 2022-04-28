@@ -22,25 +22,7 @@ class WeatherVC: GADBaseVC {
     
     //[jongmin] Model
     private var weather: WeatherModel?
-    
-    //[jongmin]목업 데이터
-    let tempDailyArr: [Daily] = [
-        Daily(dt: 1, temp: Temp(day: 0.1, min: 0.11, max: 0.17, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 1, description: "Sun")], clouds: 1, uvi: 0.1),
-        Daily(dt: 2, temp: Temp(day: 0.2, min: 0.12, max: 0.16, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 2, description: "Sun")], clouds: 1, uvi: 0.1),
-        Daily(dt: 3, temp: Temp(day: 0.3, min: 0.13, max: 0.15, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 3, description: "Sun")], clouds: 1, uvi: 0.1),
-        Daily(dt: 4, temp: Temp(day: 0.4, min: 0.14, max: 0.14, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 4, description: "Sun")], clouds: 1, uvi: 0.1),
-        Daily(dt: 5, temp: Temp(day: 0.5, min: 0.15, max: 0.13, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 5, description: "Sun")], clouds: 1, uvi: 0.1),
-        Daily(dt: 6, temp: Temp(day: 0.6, min: 0.16, max: 0.12, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 6, description: "Sun")], clouds: 1, uvi: 0.1),
-        Daily(dt: 7, temp: Temp(day: 0.7, min: 0.17, max: 0.11, night: 0.1, eve: 0.1, morn: 0.1), humidity: 10, wind_speed: 0.1, weather: [Weather(id: 7, description: "Sun")], clouds: 1, uvi: 0.1),
-    ]
 
-    //[jongmin] 임시 뷰 백그라운드 컬러
-    var tempImage = [UIImage(systemName: "sunrise"), UIImage(systemName: "cloud.drizzle"), UIImage(systemName: "moon.stars")]
-    var imageViews = [UIImageView]()
-    
-    //[jongmin] 날씨 api 인스턴스
-//    var weatherManager = WeatherManager()
-    let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()

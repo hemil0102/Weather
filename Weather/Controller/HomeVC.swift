@@ -95,14 +95,15 @@ class HomeVC: GADBaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         //Realm 데이터 확인
-//        checkRealmData()
+        checkRealmData()
     }
     
-//    func checkRealmData() {
-//        guard let savedData = realm else { return }
-//        let data = savedData.objects(RealmTest.self)
-//        print("Realm Data \(data), \(Realm.Configuration.defaultConfiguration.fileURL)")
-//    }
+    func checkRealmData() {
+        //guard
+        //let savedData = realm else do { return }
+        let data = realm.objects(RealmForAlarm.self)
+        print("Realm Data \(data), \(Realm.Configuration.defaultConfiguration.fileURL)")
+    }
     
     //[Walter] 백그라운드 전체에 그라데이션 주기
     func configureGradientAtBackground() {

@@ -10,6 +10,7 @@ import RealmSwift
 
 class EditAlarmVC: UIViewController {
     
+    
     //MARK: - [Harry] 변수 선언 및 정의 ⭐️
     var editAlarmBrain = AlarmBrain()
     var selectedDate: String = ""
@@ -29,7 +30,7 @@ class EditAlarmVC: UIViewController {
     @IBOutlet weak var alarmPickerView: UIPickerView!
     
     //[Harry] 릴름 마이그레이션
-    lazy var realm:Realm = {
+    lazy var realm : Realm = {
         return try! Realm()
     }()
     
@@ -65,6 +66,7 @@ class EditAlarmVC: UIViewController {
         
         //[Harry] 릴름 저장 주소 가져오기
         print(Realm.Configuration.defaultConfiguration.fileURL)
+        
         
     }
     

@@ -66,8 +66,6 @@ class EditAlarmVC: UIViewController {
         
         //[Harry] 릴름 저장 주소 가져오기
         print(Realm.Configuration.defaultConfiguration.fileURL)
-        
-        
     }
     
     

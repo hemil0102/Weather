@@ -8,15 +8,32 @@
 import Foundation
 
 class ConvertDateFormat {
-    func dtToString() {
+    func dtToString(dateWithUTC: TimeInterval) -> String {
         //UTC포맷의 Date를 날짜 형태의 String으로 변경
         // Date를 날짜로
-        let dateFormatter2 = DateFormatter()
-        let date = Date(timeIntervalSinceReferenceDate: 1649925797)
+        let dateFormatter = DateFormatter()
+        let date = Date(timeIntervalSinceReferenceDate: dateWithUTC)
 
-        dateFormatter2.locale = Locale(identifier: "ko_KR")
-        dateFormatter2.setLocalizedDateFormatFromTemplate("yyyy-MM-dd hh:mm") // set template after setting locale
-        print("데이터 포맷을 날짜로 변경 : \(dateFormatter2.string(from: date))")
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd hh:mm") // set template after setting locale
+        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
+        
+        let convertedDateToString = dateFormatter.string(from: date)
+        
+        return convertedDateToString
+    }
+    
+    func dtToTimeString(dateWithUTC: TimeInterval) -> String {
+        let dateFormatter = DateFormatter()
+        let date = Date(timeIntervalSinceReferenceDate: dateWithUTC)
+
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm") // set template after setting locale
+        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
+        
+        let convertedDateToString = dateFormatter.string(from: date)
+        
+        return convertedDateToString
     }
     
     func stringToDt() {

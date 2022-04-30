@@ -50,7 +50,7 @@ extension WeatherManager {
             "lat": lat,
             "lon": lon,
             "appid": Keys.ApiId.weatherAppId,
-            "exclude": "hourly, minutely",
+            "exclude": "minutely",
             "units": "metric"
         ]
 //        print("요청 URL 및 파라미터 : \(oneCallApiUrl), \(param)")
@@ -72,27 +72,40 @@ extension WeatherManager {
                     print("현재 날씨 정보 in AF : \(value)")
                     //현재 날씨
                     let cTemp = value.current.temp
-                    let cSunrise = value.current.sunrise
-                    let cSunset = value.current.sunset
                     let cHumidity = value.current.humidity
                     let cClouds = value.current.clouds
                     let cWind_speed = value.current.wind_speed
                     let cConditionID = value.current.weather[0].id
                     let cDescription = value.current.weather[0].description
+                    let cRain = value.current.rain?.h1 ?? 0.0 * 100
                     
                     let current = CurrWeather(
                         temp: cTemp,
-                        sunrise: cSunrise,
-                        sunset: cSunset,
                         humidity: cHumidity,
                         clouds: cClouds,
                         wind_speed: cWind_speed,
                         conditionID: cConditionID,
-                        description: cDescription
+                        description: cDescription,
+                        rain: Int(cRain)
                     )
                     
+                    //현재 기준 시간별 날씨
+                    var hourlyData: [HourlyData] = []
+                    for hourly in value.hourly {
+                        let conditionID = hourly.weather[0].id
+                        
+                        hourlyData.append(
+                            HourlyData(
+                                dt: hourly.dt,
+                                temp: hourly.temp,
+                                conditionID: conditionID,
+                                pop: hourly.pop
+                            )
+                        )
+                    }
+                    
                     //7일간의 일일 날씨 예측
-                    var dailyData:[DailyData] = []
+                    var dailyData: [DailyData] = []
                     for daily in value.daily {
                         dailyData.append(
                             DailyData(
@@ -112,7 +125,14 @@ extension WeatherManager {
                         )
                     }
                 
-                    weather = WeatherModel(si: "수원시", dong: "구운동", currWeather: current, daily: dailyData)
+                    //뷰에 뿌리는 실제 데이터
+                    weather = WeatherModel(
+                        si: "수원시",
+                        dong: "구운동",
+                        currWeather: current,
+                        hourly: hourlyData,
+                        daily: dailyData
+                    )
                     
                     //실패
                 case .failure(let error):

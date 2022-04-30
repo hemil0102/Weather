@@ -12,7 +12,6 @@ struct AlarmModel {
     
     var alarmTime: String? // [Harry] 알람 시간 설정
     var alarmMeridiem: String? // [Harry] 알람 오전/오후 표기
-    var alarmDayType: String? // [Harry] 지정된 요일에 따른 문구
     var alarmWeekDay: [String]? // [Harry] 알람 요일
     var alarmIsEnable: Bool? // [Harry] 알람 스위치 ON/OFF
     var alarmToDo: String? // [Harry] 알람 할일

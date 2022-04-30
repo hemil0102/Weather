@@ -32,7 +32,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="t1f-WL-iRA" kind="presentation" modalPresentationStyle="fullScreen" id="Q2y-Wa-xVa"/>
+                                    <segue destination="t1f-WL-iRA" kind="presentation" identifier="addTableCellView" modalPresentationStyle="fullScreen" id="Q2y-Wa-xVa"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -31,6 +31,11 @@ struct Keys {
         static let toMainId = "SplashToMain"
     }
     
+    //[Walter]
+    struct HourlyCell {
+        static let cellId = "HourlyWeatherListCell"
+    }
+    
     //[Walter] 지역검색 모달 관련 Identifier
     struct SearchArea {
         static let segueId = "HomeToSearchAreaModel"

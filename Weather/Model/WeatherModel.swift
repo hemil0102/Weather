@@ -11,18 +11,20 @@ struct WeatherModel {
     let si: String
     let dong: String
     let currWeather: CurrWeather
+    let hourly: [HourlyData]
     let daily: [DailyData]
 }
 
 struct CurrWeather {
     let temp: Double            // 현재온도
-    let sunrise: Int
-    let sunset: Int
     let humidity: Int
     let clouds: Int
     let wind_speed: Double
     let conditionID: Int
-    var weatherIconWithId: String {
+    var tempStr: String {
+        return String(format: "%.1f", temp)
+    }
+    var iconWithId: String {
         switch self.conditionID {
         case 200...232:
             return "cloud.bolt"
@@ -234,6 +236,48 @@ struct CurrWeather {
             return ""
         }
     }
+    
+    let rain: Int
+}
+
+struct HourlyData {
+    let dt: Int
+    let temp: Double
+    var tempStr: String {
+        return String(format: "%.1f", temp)
+    }
+    let conditionID: Int
+    var iconWithId: String {
+        switch self.conditionID {
+        case 200...232:
+            return "cloud.bolt"
+        case 300...321:
+            return "cloud.drizzle"
+        case 500...531:
+            return "cloud.heavyrain"
+        case 600...622:
+            return "cloud.snow"
+        case 701...781:
+            return "cloud.fog"
+        case 800:
+            return "sun.max"
+        case 801:
+            return "cloud.sun"
+        case 802:
+            return "cloud"
+        case 803, 804:
+            return "smoke"
+        default:
+            return ""
+        }
+    }
+    var conditionIcon: String {
+        switch conditionID {
+        case 0: return "비옴"
+        default: return ""
+        }
+    }
+    let pop: Double                 //강수 확률
 }
 
 struct DailyData {

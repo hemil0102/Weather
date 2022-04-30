@@ -28,17 +28,8 @@ class HomeVC: GADBaseVC {
     @IBOutlet weak var currRainLabel: UILabel!
     @IBOutlet weak var currAirConditionLabel: UILabel!
     
-    //아침 8시 날씨 뷰
-    @IBOutlet weak var at8Icon: UIImageView!
-    @IBOutlet weak var at8StateLabel: UILabel!
-    
-    //오후 12시 30분 날씨 뷰
-    @IBOutlet weak var at1230Icon: UIImageView!
-    @IBOutlet weak var at1230StateLabel: UILabel!
-    
-    //저녁 6시 날씨 뷰
-    @IBOutlet weak var at18Icon: UIImageView!
-    @IBOutlet weak var at18StateLabel: UILabel!
+    //시간별 날씨 뷰
+    @IBOutlet weak var hourlyWeatherList: UICollectionView!
     
     //알람 뷰
     @IBOutlet weak var alarmBackground: UIImageView!
@@ -49,6 +40,9 @@ class HomeVC: GADBaseVC {
     private var parseCSV = ParsingCSV()
     private var weather: WeatherModel?
     private var air: AirPolutionModel?
+    
+    //시간별 날씨 리스트를 위한 매니저
+    private var hourlyListManager: HourlyListManager?
     
     //delegate
     private let searchAreaModalVC = SearchModalVC()
@@ -75,7 +69,7 @@ class HomeVC: GADBaseVC {
         configureWeatherAndAirData()            //[Walter] 전역 변수에 데이터 셋팅
         settingWeatherToViews()
         
-        print("\(Realm.Configuration.defaultConfiguration.fileURL)")
+//        print("\(Realm.Configuration.defaultConfiguration.fileURL)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,21 +100,29 @@ class HomeVC: GADBaseVC {
     
     //날씨 배경 모서리 둥글게
     func configureCurrWeatherViews() {
+        //지역명 배경 모양 설정
+        self.placeNameBackView.layer.cornerRadius = self.cornerRadius
+        
+        //현재 날씨 배경 모양 설정
         self.currWeatherBackground.layer.cornerRadius = self.cornerRadius
-//        self.currWeatherBackground.alpha = 0.5
         self.currWeatherBackground.backgroundColor = .clear
-//        self.currWeatherBackground.backgroundColor = .systemTeal
         self.currWeatherBackground.layer.borderWidth = 1
         self.currWeatherBackground.layer.borderColor = UIColor.white.cgColor
         
-        self.alarmMemoLabelBackground.layer.cornerRadius = self.cornerRadius
-        self.placeNameBackView.layer.cornerRadius = self.cornerRadius
+        //알람 배경 모양 설정
         self.alarmBackground.layer.cornerRadius = self.cornerRadius
-//        self.alarmBackground.alpha = 0.5
         self.alarmBackground.backgroundColor = .clear
-//        self.alarmBackground.backgroundColor = .systemTeal
         self.alarmBackground.layer.borderWidth = 1
         self.alarmBackground.layer.borderColor = UIColor.white.cgColor
+        
+        //알람.한줄메모 배경 모양 설정
+        self.alarmMemoLabelBackground.layer.cornerRadius = self.cornerRadius
+        
+        //시간별 날씨 리스트 배경 모양 설정
+        self.hourlyWeatherList.layer.cornerRadius = self.cornerRadius
+        self.hourlyWeatherList.backgroundColor = .clear
+        self.hourlyWeatherList.layer.borderWidth = 1
+        self.hourlyWeatherList.layer.borderColor = UIColor.white.cgColor
     }
     
     //전역 변수로 데이터 옮기기
@@ -130,6 +132,7 @@ class HomeVC: GADBaseVC {
         guard let air = data.air else { return }
         
         self.weather = weather
+        self.hourlyListManager = HourlyListManager(model: weather.hourly)
         self.air = air
     }
     
@@ -142,13 +145,11 @@ class HomeVC: GADBaseVC {
         
         self.placeNameLabel.setTitle("\(weather.si) \(weather.dong)", for: .normal)
         
-        self.currWeatehrIcon.image = UIImage(systemName: weather.currWeather.weatherIconWithId)
+        self.currWeatehrIcon.image = UIImage(systemName: weather.currWeather.iconWithId)
         self.currStateLabel.text = weather.currWeather.descriptionKor
-        
-        let temp = String(format: "%1.0f", weather.currWeather.temp)
-        self.currTempLabel.text = "\(temp)℃"
+        self.currTempLabel.text = "\(weather.currWeather.tempStr)℃"
         self.currHumidityLabel.text = "\(weather.currWeather.humidity)%"
-        self.currRainLabel.text = "\(weather.currWeather.clouds)%"
+        self.currRainLabel.text = "\(weather.currWeather.rain)%"
         self.currAirConditionLabel.text = "\(air.cPM2_5)"
     }
     
@@ -169,7 +170,35 @@ class HomeVC: GADBaseVC {
 //    }
 }
 
-//MARK: - SearchModalDelegate
+//MARK: - 시간별 날씨 예측 Delegate
+extension HomeVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return hourlyListManager?.getCount() ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Keys.HourlyCell.cellId, for: indexPath) as? HourlyWeatherListCell else { return UICollectionViewCell() }
+        
+        let convertDtToTime = ConvertDateFormat()
+        if let hourlyData = self.hourlyListManager {
+            let hourly = hourlyData.getHoulyWeatherAt(at: indexPath.row)
+            let time = convertDtToTime.dtToTimeString(dateWithUTC: TimeInterval(hourly.dt))
+            cell.timeLabel.text = time
+            cell.weatherIcon.image = UIImage(systemName: hourly.iconWithId)
+        
+            if Int(hourly.pop*100) == 0 {
+                cell.tempLabel.text = "\(hourly.tempStr)℃"
+            } else {
+                cell.tempLabel.text = "\(Int(hourly.pop * 100))%"
+            }
+        }
+        
+        return cell
+    }
+}
+
+//MARK: - 지역 검색 모달 뷰에서 좌표를 얻어오는 Delegate
 extension HomeVC: SearchAreaModalDelegate {
     func searchedArea(coordinate: CLLocationCoordinate2D) {
         print("전달 받은 좌표 \(coordinate)")

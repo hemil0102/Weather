@@ -74,7 +74,7 @@ class HomeVC: GADBaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         //Realm 데이터 확인
-//        checkRealmData()
+        //checkRealmData()
     }
     
 //    func checkRealmData() {

@@ -43,6 +43,10 @@ struct Keys {
         static let cellName = "SearchAreaCell"
         static let cellId = "SearchAreaCell"
     }
+    
+    struct EditAlarm {
+        static let segueId = "HomeToEditAlarm"
+    }
 }
 
 struct ViewIdentifier {

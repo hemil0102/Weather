@@ -28,8 +28,8 @@ class ConvertDateFormat {
         let date = Date(timeIntervalSinceReferenceDate: dateWithUTC)
 
         dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm") // set template after setting locale
-        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
+        dateFormatter.setLocalizedDateFormatFromTemplate("HH시") // set template after setting locale
+//        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
         
         let convertedDateToString = dateFormatter.string(from: date)
         

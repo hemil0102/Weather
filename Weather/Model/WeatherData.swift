@@ -40,7 +40,7 @@ struct SevenDaysWeather: Codable {
 
 //MARK: - [Walter] 주간 날씨
 struct Daily: Codable {
-    let dt: Int
+    let dt: Double
     let temp: Temp
     let humidity: Int
     let wind_speed: Double

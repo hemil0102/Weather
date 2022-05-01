@@ -281,6 +281,7 @@ struct HourlyData {
 }
 
 struct DailyData {
+    let dt: Double
     let day: Double
     let min: Double
     let max: Double

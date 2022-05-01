@@ -92,6 +92,9 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weatherDetailTableView.dequeueReusableCell(withIdentifier: ViewIdentifier.weatherDetailCellIdentifier) as! WeatherDetailCell
         
+        //[jongmin] DT to Time (Thx walter!)
+        let convertDtToTime = ConvertDateFormat()
+        
         //Cell 안의 View에 데이터 세팅하기
         let row = indexPath.row //인덱스
         
@@ -99,8 +102,8 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
         
         cell.minTemp.text = String(weather?.daily[row].min ?? -1)
         cell.maxTemp.text = String(weather?.daily[row].max ?? -1)
-        cell.dayLabel.text = "오늘"
-        cell.dateLabel.text = "30"
+        cell.dayLabel.text = convertDtToTime.dtToStringForOnlyDay(dateWithUTC: weather?.daily[row].dt ?? -1.0)
+        cell.dateLabel.text = convertDtToTime.dtToStringForOnlyDate(dateWithUTC: weather?.daily[row].dt ?? -1.0)
         cell.weatherDetailImageIcon.image = UIImage(systemName: id)
         
         return cell
@@ -110,7 +113,8 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
 //[jongmin] datetime 포매팅
 extension WeatherVC {
     
-    func abc() {
-        let formatter = N
-    }
+    
 }
+
+//daily의 시작은 오늘 날짜이고, 타임 오프셋 미적용시 GMT +0, 적용시 한국걸로 적용되는듯?
+//ㅇ

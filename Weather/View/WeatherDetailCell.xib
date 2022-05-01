@@ -109,6 +109,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="DetailCellBackgroundView" destination="cE1-iU-cZ4" id="pya-rL-OQI"/>
+                <outlet property="dateLabel" destination="pbo-Gg-awd" id="WZ7-Qj-Da3"/>
+                <outlet property="dayLabel" destination="hP0-NP-86J" id="RkX-wV-YcP"/>
                 <outlet property="maxTemp" destination="P4S-vA-aJw" id="Mhq-2z-M2B"/>
                 <outlet property="minTemp" destination="jYL-YD-7My" id="aHi-Xd-f1h"/>
                 <outlet property="weatherDetailImageIcon" destination="96a-aT-QOI" id="UUE-Pg-ZT0"/>

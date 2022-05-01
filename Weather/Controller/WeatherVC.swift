@@ -85,6 +85,7 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
     //[jongmin] 테이블 뷰 개수 함수(프로토콜 필수 구현)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weather?.daily.count ?? 0
+        
     }
     
     //[jongmin] 테이블 뷰 데이터 세팅(프로토콜 필수 구현)
@@ -94,11 +95,22 @@ extension WeatherVC: UITableViewDelegate, UITableViewDataSource  {
         //Cell 안의 View에 데이터 세팅하기
         let row = indexPath.row //인덱스
         
+        let id: String = weather?.daily[row].iconWithId ?? "No data"
+        
         cell.minTemp.text = String(weather?.daily[row].min ?? -1)
         cell.maxTemp.text = String(weather?.daily[row].max ?? -1)
+        cell.dayLabel.text = "오늘"
+        cell.dateLabel.text = "30"
+        cell.weatherDetailImageIcon.image = UIImage(systemName: id)
         
         return cell
     }
 }
 
-
+//[jongmin] datetime 포매팅
+extension WeatherVC {
+    
+    func abc() {
+        let formatter = N
+    }
+}

@@ -10,6 +10,8 @@ import UIKit
 //[jongmin] Weather탭 테이블뷰 셀 정의
 class WeatherDetailCell: UITableViewCell {
 
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var DetailCellBackgroundView: UIView!
     @IBOutlet weak var weatherDetailImageIcon: UIImageView!
     @IBOutlet weak var minTemp: UILabel!

@@ -16,10 +16,14 @@ class SearchModalVC: UIViewController {
     //Views
     @IBOutlet weak var textFieldBackground: UIView!
     @IBOutlet weak var searchViewBackground: UIView!
-    @IBOutlet weak var currAreaStackView: UIStackView!
+    @IBOutlet weak var currAreaBackground: UIView!
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var areaTableView: UITableView!
+    
+    @IBOutlet weak var currAreaNameLabel: UILabel!
+    @IBOutlet weak var currWeatherStateLabel: UILabel!
+    @IBOutlet weak var currWeatherImageView: UIImageView!
     
     //Model
     private var searchCompleter: MKLocalSearchCompleter?
@@ -49,6 +53,9 @@ class SearchModalVC: UIViewController {
         //[Walter] 모양잡기
         configureBackground()
         
+        //[Walter] 홈뷰에서 잔달한 현재 위치 날씨 셋팅하기
+        configureCurrWeatherToViews()
+        
         //[Walter] 지역 자동 검색에 필요한 정의 및 델리게이트 선언
         self.searchCompleter = MKLocalSearchCompleter()
         self.searchTextField.delegate = self
@@ -66,6 +73,14 @@ class SearchModalVC: UIViewController {
     
     func configureBackground() {
         self.textFieldBackground.layer.cornerRadius = 15
+    }
+    
+    func configureCurrWeatherToViews() {
+        guard let data = UIApplication.shared.delegate as? AppDelegate else { return }
+        guard let weather = data.weather else { return }
+        self.currAreaNameLabel.text = "\(weather.si) \(weather.dong)"
+        self.currWeatherStateLabel.text = weather.currWeather.descriptionKor
+        self.currWeatherImageView.image = UIImage(systemName: weather.currWeather.iconWithId)
     }
     
     @IBAction func closeBtnAct(_ sender: UIButton) {

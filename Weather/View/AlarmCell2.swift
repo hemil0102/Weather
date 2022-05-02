@@ -19,6 +19,7 @@ class AlarmCell2: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        alarmCellSwitch.transform = CGAffineTransform(scaleX: 0.75, y:0.75)
         // Initialization code
     }
 

@@ -109,6 +109,7 @@ extension WeatherManager {
                     for daily in value.daily {
                         dailyData.append(
                             DailyData(
+                                dt: daily.dt,
                                 day: daily.temp.day,
                                 min: daily.temp.min,
                                 max: daily.temp.max,

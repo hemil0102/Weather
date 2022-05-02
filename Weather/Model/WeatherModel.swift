@@ -281,6 +281,7 @@ struct HourlyData {
 }
 
 struct DailyData {
+    let dt: Double
     let day: Double
     let min: Double
     let max: Double
@@ -293,4 +294,29 @@ struct DailyData {
     let description: String
     let clouds: Int
     let uvi: Double
+    
+    var iconWithId: String {
+        switch self.conditionID {
+        case 200...232:
+            return "cloud.bolt"
+        case 300...321:
+            return "cloud.drizzle"
+        case 500...531:
+            return "cloud.heavyrain"
+        case 600...622:
+            return "cloud.snow"
+        case 701...781:
+            return "cloud.fog"
+        case 800:
+            return "sun.max"
+        case 801:
+            return "cloud.sun"
+        case 802:
+            return "cloud"
+        case 803, 804:
+            return "smoke"
+        default:
+            return ""
+        }
+    }
 }

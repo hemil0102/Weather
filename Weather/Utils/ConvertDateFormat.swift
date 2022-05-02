@@ -28,8 +28,8 @@ class ConvertDateFormat {
         let date = Date(timeIntervalSinceReferenceDate: dateWithUTC)
 
         dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm") // set template after setting locale
-        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
+        dateFormatter.setLocalizedDateFormatFromTemplate("HH시") // set template after setting locale
+//        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
         
         let convertedDateToString = dateFormatter.string(from: date)
         
@@ -47,5 +47,35 @@ class ConvertDateFormat {
         } else {
             print("날짜를 데이터 포맷으로 변경하기 실패")
         }
+    }
+    
+    func dtToStringForOnlyDate(dateWithUTC: TimeInterval) -> String {
+        //UTC포맷의 Date를 날짜 형태의 String으로 변경
+        // Date를 날짜로
+        let dateFormatter = DateFormatter()
+        let date = Date(timeIntervalSinceReferenceDate: dateWithUTC)
+
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.setLocalizedDateFormatFromTemplate("d") // set template after setting locale
+        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
+        
+        let convertedDateToString = dateFormatter.string(from: date)
+        
+        return convertedDateToString
+    }
+    
+    func dtToStringForOnlyDay(dateWithUTC: TimeInterval) -> String {
+        //UTC포맷의 Date를 날짜 형태의 String으로 변경
+        // Date를 날짜로
+        let dateFormatter = DateFormatter()
+        let date = Date(timeIntervalSinceReferenceDate: dateWithUTC)
+
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.setLocalizedDateFormatFromTemplate("E") // set template after setting locale
+        print("데이터 포맷을 날짜로 변경 : \(dateFormatter.string(from: date))")
+        
+        let convertedDateToString = dateFormatter.string(from: date)
+        
+        return convertedDateToString
     }
 }
